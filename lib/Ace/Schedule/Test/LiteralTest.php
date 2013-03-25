@@ -5,8 +5,9 @@ use Ace\Schedule\Value\Literal;
 require_once(dirname(__FILE__)."/../Value/iValue.iface.php");
 require_once(dirname(__FILE__)."/../Value/Literal.class.php");
 
-/*
+/**
 * @group unit
+* @group schedule
 */
 class LiteralTestCase extends \PHPUnit_Framework_TestCase {
 

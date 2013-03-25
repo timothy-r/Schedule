@@ -8,6 +8,7 @@ require_once(dirname(__FILE__)."/../Item/Month.class.php");
 
 /**
 * @group unit
+* @group schedule
 */
 class MonthTestCase extends \PHPUnit_Framework_TestCase {
 	

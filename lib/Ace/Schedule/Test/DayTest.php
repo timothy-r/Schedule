@@ -8,6 +8,7 @@ require_once(dirname(__FILE__)."/../Item/Day.class.php");
 
 /**
 * @group unit
+* @group schedule
 */
 class DayTestCase extends \PHPUnit_Framework_TestCase {
 	

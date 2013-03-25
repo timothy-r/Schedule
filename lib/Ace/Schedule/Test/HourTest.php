@@ -6,8 +6,9 @@ use Ace\Schedule\Value\Literal;
 require_once(dirname(__FILE__)."/../Item/iMatcher.iface.php");
 require_once(dirname(__FILE__)."/../Item/Hour.class.php");
 
-/*
+/**
 * @group unit
+* @group schedule
 */
 class HourTestCase extends \PHPUnit_Framework_TestCase {
 	public function testHourMatchesValue() {

@@ -7,6 +7,7 @@ require_once(dirname(__FILE__)."/../Value/Range.class.php");
 
 /**
 * @group unit
+* @group schedule
 */
 class RangeTestCase extends \PHPUnit_Framework_TestCase {
 

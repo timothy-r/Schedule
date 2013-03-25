@@ -5,8 +5,9 @@ use Ace\Schedule\Value\AList;
 require_once(dirname(__FILE__)."/../Value/iValue.iface.php");
 require_once(dirname(__FILE__)."/../Value/AList.class.php");
 
-/*
+/**
 * @group unit
+* @group schedule
 */
 class AListTestCase extends \PHPUnit_Framework_TestCase {
 

@@ -2,9 +2,11 @@
 namespace Ace\Schedule\Test;
 use Ace\Schedule\CronTab;
 require_once(dirname(__FILE__)."/../CronTab.class.php");
+require_once(dirname(__FILE__)."/../Exception.class.php");
 
 /**
 * @group unit
+* @group schedule
 */
 class CronTabTestCase extends \PHPUnit_Framework_TestCase {
 	public function getMatchingDatesAndPatterns() {

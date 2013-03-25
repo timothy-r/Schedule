@@ -8,6 +8,7 @@ require_once(dirname(__FILE__)."/../Item/WeekDay.class.php");
 
 /**
 * @group unit
+* @group schedule
 */
 class WeekDayTestCase extends \PHPUnit_Framework_TestCase {
 	
