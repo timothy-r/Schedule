@@ -46,7 +46,7 @@ class CronTab {
 		try {
 			$matchers = $this->getMatchers();
 			return true;
-		} catch (\Ace\Exception\Invalid $e){
+		} catch (\Ace\Schedule\Exception $e){
 			return false;
 		}
 	}
@@ -98,6 +98,6 @@ class CronTab {
 			return new Interval($range, $values[1]);
 		}
 
-		throw new \Ace\Exception\Invalid("'$value' is not a valid cron schedule field value");
+		throw new \Ace\Schedule\Exception("'$value' is not a valid cron schedule field value");
 	}
 }
