@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+
+  <target name="all-tests" depends="unit-tests"/>
+
+  <target name="unit-tests">
+    <exec executable="phpunit">
+      <arg value="--log-junit=schedule-results.xml"/>
+      <arg value="-c"/>
+      <arg value="phpunit.xml"/>
+      <arg value="."/>
+    </exec>
+  </target>
+
+</project>
