@@ -1,6 +1,7 @@
 <?php
 namespace Ace\Schedule;
 use Ace\Schedule\iFactory;
+use Ace\Schedule\iBuilder;
 use Ace\Schedule\iDirector;
 use Ace\Schedule\Entry;
 
