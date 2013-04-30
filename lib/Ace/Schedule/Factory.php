@@ -6,7 +6,7 @@ use Ace\Schedule\Entry;
 
 /**
 * creates an Entry object for a given schedule string
-* uses an iDirector which is specific to the schedule string format
+* uses an iDirector and iBuilder which are specific to the schedule string format
 */
 class Factory implements iFactory
 {
@@ -15,15 +15,23 @@ class Factory implements iFactory
 	*/
 	protected $director;
 
-	public function __construct(iDirector $director)
+	/**
+	* @var iBuilder
+	*/
+	protected $builder;
+
+	public function __construct(iDirector $director, iBuilder $builder)
 	{
 		$this->director = $director;
+		$this->builder = $builder;
 	}
 
 	public function createEntry($schedule)
 	{
 		// build schedule and inject into Entry
-		$matchers = $this->director->create($schedule);
+		$this->director->setBuilder($this->builder);
+		$this->director->create($schedule);
+		$matchers = $this->builder->getMatchers();
 		return new Entry($matchers);
 	}
 }

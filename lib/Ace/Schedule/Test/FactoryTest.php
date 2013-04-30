@@ -18,7 +18,9 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
 	{
 		$schedule = '4 * * * *';
 		$stub_director = new Stub_Director();
-		$factory = new Factory($stub_director);
+		$stub_builder = new Stub_Builder();
+		$factory = new Factory($stub_director, $stub_builder);
+
 		$entry = $factory->createEntry($schedule);
 		$this->assertInstanceOf('Ace\Schedule\Entry', $entry);
 	}
@@ -31,7 +33,8 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
 			->method('create')
 			->will($this->throwException(new Exception));
 
-		$factory = new Factory($mock_director);
+		$stub_builder = new Stub_Builder();
+		$factory = new Factory($mock_director, $stub_builder);
 		$this->setExpectedException('Ace\Schedule\Exception');
 		$entry = $factory->createEntry($schedule);
 	}

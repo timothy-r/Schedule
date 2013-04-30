@@ -5,11 +5,7 @@ use Ace\Schedule\iBuilder;
 
 class Stub_Director implements iDirector
 {
-	public function create($schedule){
-		return array();
-	}
+	public function create($schedule){}
 
-	public function setBuilder(iBuilder $builder)
-	{
-	}
+	public function setBuilder(iBuilder $builder){}
 }

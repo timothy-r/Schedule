@@ -4,8 +4,6 @@ use Ace\Schedule\Cron\Director;
 use Ace\Schedule\iBuilder;
 
 require_once(dirname(__FILE__)."/Stub_Builder.php");
-require_once(dirname(__FILE__)."/../iBuilder.php");
-require_once(dirname(__FILE__)."/../Cron/Director.php");
 
 /**
 * @group unit
@@ -63,13 +61,3 @@ class CronDirectorTest extends \PHPUnit_Framework_TestCase
 		$result = $director->create($schedule);
 	}
 }
-/*
-class Stub_Builder implements iBuilder
-{
-	public function buildMinute($value){}
-	public function buildHour($value){}
-	public function buildDay($value){}
-	public function buildMonth($value){}
-	public function buildWeekDay($value){}
-	public function getMatchers(){}
-}*/
