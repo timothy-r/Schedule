@@ -30,8 +30,9 @@ class CronBuilderTest extends \PHPUnit_Framework_TestCase
 	public function testBuildMinute($value)
 	{
 		$builder = new Builder;
-		$minute = $builder->buildMinute($value);
-		$this->assertInstanceOf('Ace\Schedule\Item\Minute', $minute);
+		$builder->buildMinute($value);
+		$product = $builder->getMatchers();
+		$this->assertInstanceOf('Ace\Schedule\Item\Minute', current($product));
 	}
 
 	public function getValidHourFixtures()
@@ -51,8 +52,9 @@ class CronBuilderTest extends \PHPUnit_Framework_TestCase
 	public function testBuildHour($value)
 	{
 		$builder = new Builder;
-		$hour = $builder->buildHour($value);
-		$this->assertInstanceOf('Ace\Schedule\Item\Hour', $hour);
+		$builder->buildHour($value);
+		$product = $builder->getMatchers();
+		$this->assertInstanceOf('Ace\Schedule\Item\Hour', current($product));
 	}
 
 	public function getValidDayFixtures()
@@ -71,8 +73,9 @@ class CronBuilderTest extends \PHPUnit_Framework_TestCase
 	public function testBuildDay($value)
 	{
 		$builder = new Builder;
-		$day = $builder->buildDay($value);
-		$this->assertInstanceOf('Ace\Schedule\Item\Day', $day);
+		$builder->buildDay($value);
+		$product = $builder->getMatchers();
+		$this->assertInstanceOf('Ace\Schedule\Item\Day', current($product));
 	}
 
 	public function getValidMonthFixtures()
@@ -93,8 +96,9 @@ class CronBuilderTest extends \PHPUnit_Framework_TestCase
 	public function testBuildMonth($value)
 	{
 		$builder = new Builder;
-		$month = $builder->buildMonth($value);
-		$this->assertInstanceOf('Ace\Schedule\Item\Month', $month);
+		$builder->buildMonth($value);
+		$product = $builder->getMatchers();
+		$this->assertInstanceOf('Ace\Schedule\Item\Month', current($product));
 	}
 
 	public function getValidWeekDayFixtures()
@@ -118,8 +122,9 @@ class CronBuilderTest extends \PHPUnit_Framework_TestCase
 	public function testBuildWeekDay($value)
 	{
 		$builder = new Builder;
-		$week_day = $builder->buildWeekDay($value);
-		$this->assertInstanceOf('Ace\Schedule\Item\WeekDay', $week_day);
+		$builder->buildWeekDay($value);
+		$product = $builder->getMatchers();
+		$this->assertInstanceOf('Ace\Schedule\Item\WeekDay', current($product));
 	}
 }
 

@@ -12,15 +12,6 @@ require_once(dirname(__FILE__)."/../Cron/Director.php");
 */
 class CronDirectorTest extends \PHPUnit_Framework_TestCase
 {
-	public function testCreateReturnsArray()
-	{
-		$schedule = '4 * * * *';
-		$builder = new Stub_Builder;
-		$director = new Director($builder);
-		$result = $director->create($schedule);
-		$this->assertTrue(is_array($result));
-	}
-
 	public function testCreateCallsBuilderMethods()
 	{
 		$schedule = '4 * * * *';
@@ -29,31 +20,26 @@ class CronDirectorTest extends \PHPUnit_Framework_TestCase
 		);
 		$builder->expects($this->once())
 			->method('buildMinute')
-			->with($this->equalTo('4'))
-			->will($this->returnValue('min'));
+			->with($this->equalTo('4'));
 		$builder->expects($this->once())
 			->method('buildHour')
-			->with($this->equalTo('*'))
-			->will($this->returnValue('hour'));
+			->with($this->equalTo('*'));
 
 		$builder->expects($this->once())
 			->method('buildDay')
-			->with($this->equalTo('*'))
-			->will($this->returnValue('day'));
+			->with($this->equalTo('*'));
 
 		$builder->expects($this->once())
 			->method('buildMonth')
-			->with($this->equalTo('*'))
-			->will($this->returnValue('month'));
+			->with($this->equalTo('*'));
 
 		$builder->expects($this->once())
 			->method('buildWeekDay')
-			->with($this->equalTo('*'))
-			->will($this->returnValue('week-day'));
+			->with($this->equalTo('*'));
 
-		$director = new Director($builder);
-		$result = $director->create($schedule);
-		$this->assertTrue(is_array($result));
+		$director = new Director();
+		$director->setBuilder($builder);
+		$director->create($schedule);
 	}
 
 	public function testInvalidScheduleThrowsException()
@@ -62,7 +48,16 @@ class CronDirectorTest extends \PHPUnit_Framework_TestCase
 		$builder = $this->getMock('Ace\Schedule\Test\Stub_Builder',
 				array('buildMinute', 'buildHour', 'buildDay', 'buildMonth', 'buildWeekDay')
 		);
-		$director = new Director($builder);
+		$director = new Director();
+		$director->setBuilder($builder);
+		$this->setExpectedException('Ace\Schedule\Exception');
+		$result = $director->create($schedule);
+	}
+
+	public function testMissingBuilderThrowsException()
+	{
+		$schedule = '';
+		$director = new Director();
 		$this->setExpectedException('Ace\Schedule\Exception');
 		$result = $director->create($schedule);
 	}
@@ -75,4 +70,5 @@ class Stub_Builder implements iBuilder
 	public function buildDay($value){}
 	public function buildMonth($value){}
 	public function buildWeekDay($value){}
+	public function getMatchers(){}
 }

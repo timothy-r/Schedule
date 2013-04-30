@@ -11,4 +11,8 @@ interface iBuilder
 	public function buildDay($value);
 	public function buildMonth($value);
 	public function buildWeekDay($value);
+	/**
+	* @return array of iMatcher instances
+	*/
+	public function getMatchers();
 }

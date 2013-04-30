@@ -2,6 +2,7 @@
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Factory;
 use Ace\Schedule\iDirector;
+use Ace\Schedule\iBuilder;
 use Ace\Schedule\Exception;
 
 /**
@@ -37,5 +38,9 @@ class Stub_Director implements iDirector
 {
 	public function create($schedule){
 		return array();
+	}
+
+	public function setBuilder(iBuilder $builder)
+	{
 	}
 }

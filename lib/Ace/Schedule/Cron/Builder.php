@@ -21,11 +21,15 @@ use Ace\Schedule\Value\WildCard;
 class Builder implements iBuilder
 {
 	/**
+	* @var array
+	*/
+	protected $matchers = array();
+
+	/**
 	* @param string $token
-	* @return Minute
 	*/
 	public function buildMinute($token){
-		return new Minute($this->getValue($token, '0','59'));
+		$this->matchers['minute'] = new Minute($this->getValue($token, '0','59'));
 	}
 
 	/**
@@ -33,7 +37,7 @@ class Builder implements iBuilder
 	* @return Hour
 	*/
 	public function buildHour($token){
-		return new Hour($this->getValue($token, '0', '24'));
+		$this->matchers['hour'] = new Hour($this->getValue($token, '0', '24'));
 	}
 
 	/**
@@ -41,7 +45,7 @@ class Builder implements iBuilder
 	* @return Day
 	*/
 	public function buildDay($token){
-		return new Day($this->getValue($token, '1', '31'));
+		$this->matchers['day'] = new Day($this->getValue($token, '1', '31'));
 	}
 
 	/**
@@ -49,7 +53,7 @@ class Builder implements iBuilder
 	* @return Month
 	*/
 	public function buildMonth($token){
-		return new Month($this->getValue($token, '1', '12'));
+		$this->matchers['month'] = new Month($this->getValue($token, '1', '12'));
 	}
 
 	/**
@@ -57,7 +61,12 @@ class Builder implements iBuilder
 	* @return WeekDay
 	*/
 	public function buildWeekDay($token){
-		return new WeekDay($this->getValue($token, '0', '6'));
+		$this->matchers['week_day'] = new WeekDay($this->getValue($token, '0', '6'));
+	}
+
+	public function getMatchers()
+	{
+		return $this->matchers;
 	}
 
 	/**
