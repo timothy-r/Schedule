@@ -3,6 +3,10 @@ namespace Ace\Schedule\Cron;
 use Ace\Schedule\iBuilder;
 
 use Ace\Schedule\Item\Minute;
+use Ace\Schedule\Item\Hour;
+use Ace\Schedule\Item\Day;
+use Ace\Schedule\Item\Month;
+use Ace\Schedule\Item\WeekDay;
 
 use Ace\Schedule\Value\AList;
 use Ace\Schedule\Value\Literal;
@@ -20,10 +24,21 @@ class Builder implements iBuilder
 		return new Minute($this->getValue($value, '0','59'));
 	}
 
-	public function buildHour($value){}
-	public function buildDay($value){}
-	public function buildMonth($value){}
-	public function buildWeekDay($value){}
+	public function buildHour($value){
+		return new Hour($this->getValue($value, '0', '24'));
+	}
+
+	public function buildDay($value){
+		return new Day($this->getValue($value, '1', '31'));
+	}
+
+	public function buildMonth($value){
+		return new Month($this->getValue($value, '1', '12'));
+	}
+
+	public function buildWeekDay($value){
+		return new WeekDay($this->getValue($value, '0', '6'));
+	}
 
 	/**
 	* @param string $value the raw string from the schedule
