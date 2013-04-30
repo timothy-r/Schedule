@@ -5,6 +5,9 @@ use Ace\Schedule\iDirector;
 use Ace\Schedule\iBuilder;
 use Ace\Schedule\Exception;
 
+require_once(dirname(__FILE__)."/Stub_Builder.php");
+require_once(dirname(__FILE__)."/Stub_Director.php");
+
 /**
 * @group unit
 * @group schedule
@@ -31,16 +34,5 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
 		$factory = new Factory($mock_director);
 		$this->setExpectedException('Ace\Schedule\Exception');
 		$entry = $factory->createEntry($schedule);
-	}
-}
-
-class Stub_Director implements iDirector
-{
-	public function create($schedule){
-		return array();
-	}
-
-	public function setBuilder(iBuilder $builder)
-	{
 	}
 }
