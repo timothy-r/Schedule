@@ -14,6 +14,7 @@ use Ace\Schedule\Item\WeekDay;
 
 /**
 * contains a single schedule entry
+* @todo convert to take a set of iMatcher instances
 */
 class Entry {
 	/**
@@ -49,7 +50,10 @@ class Entry {
 			return false;
 		}
 	}
-
+	
+	/**
+	* @deprecated
+	*/
 	protected function getMatchers() {
 		if (empty($this->matchers)){
 			$this->matchers = array();
@@ -65,6 +69,7 @@ class Entry {
 	}
 
 	/**
+	* @deprecated
 	* @param string $value the raw string from the schedule
 	* @return iValue
 	*/
