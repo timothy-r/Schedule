@@ -26,8 +26,4 @@ class Entry {
 		}
 		return true;
 	}
-
-	public function isValid() {
-		return is_array($this->matchers);
-	}
 }
