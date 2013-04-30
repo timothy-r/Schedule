@@ -4,7 +4,7 @@ use Ace\Schedule\Value\Interval;
 use Ace\Schedule\Value\Range;
 
 require_once(dirname(__FILE__)."/../Value/iValue.iface.php");
-require_once(dirname(__FILE__)."/../Value/Interval.class.php");
+require_once(dirname(__FILE__)."/../Value/Interval.php");
 
 /*
 * @group unit

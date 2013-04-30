@@ -2,8 +2,8 @@
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Entry;
 
-require_once(dirname(__FILE__)."/../Entry.class.php");
-require_once(dirname(__FILE__)."/../Exception.class.php");
+require_once(dirname(__FILE__)."/../Entry.php");
+require_once(dirname(__FILE__)."/../Exception.php");
 
 /**
 * @group unit

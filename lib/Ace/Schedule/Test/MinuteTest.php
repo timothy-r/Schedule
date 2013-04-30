@@ -5,7 +5,7 @@ use Ace\Schedule\Value\Literal;
 use Ace\Schedule\Value\Range;
 
 require_once(dirname(__FILE__)."/../Item/iMatcher.iface.php");
-require_once(dirname(__FILE__)."/../Item/Minute.class.php");
+require_once(dirname(__FILE__)."/../Item/Minute.php");
 
 /**
 * @group unit

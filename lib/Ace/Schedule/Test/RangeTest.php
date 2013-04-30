@@ -3,7 +3,7 @@ namespace Ace\Schedule\Test;
 use Ace\Schedule\Value\Range;
 
 require_once(dirname(__FILE__)."/../Value/iValue.iface.php");
-require_once(dirname(__FILE__)."/../Value/Range.class.php");
+require_once(dirname(__FILE__)."/../Value/Range.php");
 
 /**
 * @group unit

@@ -4,7 +4,7 @@ use Ace\Schedule\Item\Day;
 use Ace\Schedule\Value\Literal;
 
 require_once(dirname(__FILE__)."/../Item/iMatcher.iface.php");
-require_once(dirname(__FILE__)."/../Item/Day.class.php");
+require_once(dirname(__FILE__)."/../Item/Day.php");
 
 /**
 * @group unit

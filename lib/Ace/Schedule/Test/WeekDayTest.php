@@ -4,7 +4,7 @@ use Ace\Schedule\Item\WeekDay;
 use Ace\Schedule\Value\Literal;
 
 require_once(dirname(__FILE__)."/../Item/iMatcher.iface.php");
-require_once(dirname(__FILE__)."/../Item/WeekDay.class.php");
+require_once(dirname(__FILE__)."/../Item/WeekDay.php");
 
 /**
 * @group unit

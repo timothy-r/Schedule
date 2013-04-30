@@ -3,7 +3,7 @@ namespace Ace\Schedule\Test;
 use Ace\Schedule\Value\Literal;
 
 require_once(dirname(__FILE__)."/../Value/iValue.iface.php");
-require_once(dirname(__FILE__)."/../Value/Literal.class.php");
+require_once(dirname(__FILE__)."/../Value/Literal.php");
 
 /**
 * @group unit

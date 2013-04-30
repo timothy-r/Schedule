@@ -4,7 +4,7 @@ use Ace\Schedule\Cron\Factory;
 use Ace\Schedule\iFactory;
 
 require_once(dirname(__FILE__)."/../iBuilder.iface.php");
-require_once(dirname(__FILE__)."/../Cron/Factory.class.php");
+require_once(dirname(__FILE__)."/../Cron/Factory.php");
 
 /**
 * @group unit
