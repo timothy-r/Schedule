@@ -1,7 +1,7 @@
 <?php
 namespace Ace\Schedule;
 
-interface iScheduleBuilder
+interface iBuilder
 {
 	public function buildMinute($value);
 	public function buildHour($value);

@@ -3,7 +3,7 @@ namespace Ace\Schedule;
 /**
 * interface to create schedule iMatcher instances
 */
-interface iScheduleDirector
+interface iDirector
 {
 	public function create($schedule);
 }

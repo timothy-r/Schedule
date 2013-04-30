@@ -1,23 +1,23 @@
 <?php
 namespace Ace\Schedule\Test;
-use Ace\Schedule\ScheduleDirector;
-use Ace\Schedule\iScheduleBuilder;
+use Ace\Schedule\CronDirector;
+use Ace\Schedule\iBuilder;
 
-require_once(dirname(__FILE__)."/../iScheduleBuilder.iface.php");
-require_once(dirname(__FILE__)."/../ScheduleDirector.class.php");
+require_once(dirname(__FILE__)."/../iBuilder.iface.php");
+require_once(dirname(__FILE__)."/../CronDirector.class.php");
 
 /**
 * @group unit
 * @group schedule
 */
-class ScheduleDirectorTest extends \PHPUnit_Framework_TestCase
+class CronDirectorTest extends \PHPUnit_Framework_TestCase
 {
 	
 	public function testCreateReturnsArray()
 	{
 		$schedule = '4 * * * *';
-		$builder = new Stub_ScheduleBuilder;
-		$director = new ScheduleDirector($builder);
+		$builder = new Stub_Builder;
+		$director = new CronDirector($builder);
 		$result = $director->create($schedule);
 		$this->assertTrue(is_array($result));
 	}
@@ -25,7 +25,7 @@ class ScheduleDirectorTest extends \PHPUnit_Framework_TestCase
 	public function testCreateCallsBuilderMethods()
 	{
 		$schedule = '4 * * * *';
-		$builder = $this->getMock('Ace\Schedule\Test\Stub_ScheduleBuilder',
+		$builder = $this->getMock('Ace\Schedule\Test\Stub_Builder',
 				array('buildMinute', 'buildHour', 'buildDay', 'buildMonth', 'buildWeekDay')
 		);
 		$builder->expects($this->once())
@@ -49,13 +49,13 @@ class ScheduleDirectorTest extends \PHPUnit_Framework_TestCase
 			->with($this->equalTo('*'))
 			->will($this->returnValue('week-day'));
 
-		$director = new ScheduleDirector($builder);
+		$director = new CronDirector($builder);
 		$result = $director->create($schedule);
 		$this->assertTrue(is_array($result));
 	}
 }
 
-class Stub_ScheduleBuilder implements iScheduleBuilder
+class Stub_Builder implements iBuilder
 {
 	public function buildMinute($value){}
 	public function buildHour($value){}

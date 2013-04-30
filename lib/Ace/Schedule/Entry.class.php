@@ -13,12 +13,11 @@ use Ace\Schedule\Item\Month;
 use Ace\Schedule\Item\WeekDay;
 
 /**
-* contains a single schedule entry in crontab format
-*
+* contains a single schedule entry
 */
-class CronTab {
+class Entry {
 	/**
-	* the cron formatted schedule string
+	* the formatted schedule string
 	*/
 	protected $schedule;
 

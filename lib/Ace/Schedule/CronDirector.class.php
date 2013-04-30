@@ -1,11 +1,11 @@
 <?php
 namespace Ace\Schedule;
 
-class ScheduleDirector implements iScheduleDirector
+class CronDirector implements iDirector
 {
 	protected $builder;
 
-	public function __construct(iScheduleBuilder $builder)
+	public function __construct(iBuilder $builder)
 	{
 		$this->builder = $builder;
 	}

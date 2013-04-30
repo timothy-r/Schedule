@@ -1,14 +1,15 @@
 <?php
 namespace Ace\Schedule\Test;
-use Ace\Schedule\CronTab;
-require_once(dirname(__FILE__)."/../CronTab.class.php");
+use Ace\Schedule\Entry;
+
+require_once(dirname(__FILE__)."/../Entry.class.php");
 require_once(dirname(__FILE__)."/../Exception.class.php");
 
 /**
 * @group unit
 * @group schedule
 */
-class CronTabTestCase extends \PHPUnit_Framework_TestCase {
+class EntryTestCase extends \PHPUnit_Framework_TestCase {
 	public function getMatchingDatesAndPatterns() {
 		return array(
 			array(new \DateTime('2010-06-21 22:13:00'), "* 22 20,21,22,23 * *"),
@@ -26,7 +27,7 @@ class CronTabTestCase extends \PHPUnit_Framework_TestCase {
 	* @dataProvider getMatchingDatesAndPatterns
 	*/
 	public function testMatchesPattern($date_time, $pattern) {
-		$cron = new CronTab($pattern);
+		$cron = new Entry($pattern);
 		$result = $cron->matches($date_time);
 		$this->assertTrue($result, "Expected '$pattern' to match " . $date_time->format('Y-m-d h:i:s'));
 	}
@@ -43,14 +44,14 @@ class CronTabTestCase extends \PHPUnit_Framework_TestCase {
 	* @dataProvider getNonMatchingDateAndPatterns
 	*/
 	public function testNonMatchingPatternIsNotMatched($date_time, $pattern) {
-		$cron = new CronTab($pattern);
+		$cron = new Entry($pattern);
 		$result = $cron->matches($date_time);
 		$this->assertFalse($result, "Did not expected $pattern to match " . $date_time->format('Y-m-d h:m:i'));
 	}
 
 	public function testScheduleValidation() {
 		$schedule = '13,14,15 22 * * *';
-		$cron = new CronTab($schedule);
+		$cron = new Entry($schedule);
 		$result = $cron->isValid();
 		$this->assertTrue($result, "Expected '$schedule' to be valid");
 	}
@@ -65,7 +66,7 @@ class CronTabTestCase extends \PHPUnit_Framework_TestCase {
 	* @dataProvider getInvalidSchedules
 	*/
 	public function testInvalidScheduleIsDetected($invalid) {
-		$cron = new CronTab($invalid);
+		$cron = new Entry($invalid);
 		$result = $cron->isValid();
 		$this->assertFalse($result, "Expected '$schedule' to be invalid");
 	}
