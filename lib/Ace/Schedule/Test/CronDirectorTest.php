@@ -1,10 +1,10 @@
 <?php
 namespace Ace\Schedule\Test;
-use Ace\Schedule\CronDirector;
+use Ace\Schedule\Cron\Director;
 use Ace\Schedule\iBuilder;
 
 require_once(dirname(__FILE__)."/../iBuilder.iface.php");
-require_once(dirname(__FILE__)."/../CronDirector.class.php");
+require_once(dirname(__FILE__)."/../Cron/Director.class.php");
 
 /**
 * @group unit
@@ -17,7 +17,7 @@ class CronDirectorTest extends \PHPUnit_Framework_TestCase
 	{
 		$schedule = '4 * * * *';
 		$builder = new Stub_Builder;
-		$director = new CronDirector($builder);
+		$director = new Director($builder);
 		$result = $director->create($schedule);
 		$this->assertTrue(is_array($result));
 	}
@@ -49,7 +49,7 @@ class CronDirectorTest extends \PHPUnit_Framework_TestCase
 			->with($this->equalTo('*'))
 			->will($this->returnValue('week-day'));
 
-		$director = new CronDirector($builder);
+		$director = new Director($builder);
 		$result = $director->create($schedule);
 		$this->assertTrue(is_array($result));
 	}

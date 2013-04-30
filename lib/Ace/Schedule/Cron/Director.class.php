@@ -1,7 +1,9 @@
 <?php
-namespace Ace\Schedule;
+namespace Ace\Schedule\Cron;
+use Ace\Schedule\iDirector;
+use Ace\Schedule\iBuilder;
 
-class CronDirector implements iDirector
+class Director implements iDirector
 {
 	protected $builder;
 
