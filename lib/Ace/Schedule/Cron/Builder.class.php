@@ -14,65 +14,85 @@ use Ace\Schedule\Value\Interval;
 use Ace\Schedule\Value\Range;
 use Ace\Schedule\Value\WildCard;
 
+/**
+* builds parts of a Schedule based on a Cron tab format
+* @todo - more validation of tokens
+*/
 class Builder implements iBuilder
 {
 	/**
-	* @param string $value
+	* @param string $token
 	* @return Minute
 	*/
-	public function buildMinute($value){
-		return new Minute($this->getValue($value, '0','59'));
-	}
-
-	public function buildHour($value){
-		return new Hour($this->getValue($value, '0', '24'));
-	}
-
-	public function buildDay($value){
-		return new Day($this->getValue($value, '1', '31'));
-	}
-
-	public function buildMonth($value){
-		return new Month($this->getValue($value, '1', '12'));
-	}
-
-	public function buildWeekDay($value){
-		return new WeekDay($this->getValue($value, '0', '6'));
+	public function buildMinute($token){
+		return new Minute($this->getValue($token, '0','59'));
 	}
 
 	/**
-	* @param string $value the raw string from the schedule
+	* @param string $token
+	* @return Hour
+	*/
+	public function buildHour($token){
+		return new Hour($this->getValue($token, '0', '24'));
+	}
+
+	/**
+	* @param string $token
+	* @return Day
+	*/
+	public function buildDay($token){
+		return new Day($this->getValue($token, '1', '31'));
+	}
+
+	/**
+	* @param string $token
+	* @return Month
+	*/
+	public function buildMonth($token){
+		return new Month($this->getValue($token, '1', '12'));
+	}
+
+	/**
+	* @param string $token
+	* @return WeekDay
+	*/
+	public function buildWeekDay($token){
+		return new WeekDay($this->getValue($token, '0', '6'));
+	}
+
+	/**
+	* @param string $token the raw string from the schedule
 	* @return iValue
 	*/
-	protected function getValue($value, $low, $high) {
+	protected function getValue($token, $low, $high) {
 		// a wild card *
-		if (('*' == $value) || ('?' == $value)){
+		if (('*' == $token) || ('?' == $token)){
 			return new WildCard;
 		}
 
-		// value is a single value - allow for strings for week_day
-		if (preg_match('/^(\d+|\w+)$/', $value)){
-			return new Literal($value);
+		// token is a single value - allow for strings for week_day
+		if (preg_match('/^(\d+|\w+)$/', $token)){
+			return new Literal($token);
 		}
 
-		// a set of values 1,2,3
-		if (preg_match('/,/', $value)){
-			return new AList(explode(',', $value));
+		// a set of tokens 1,2,3
+		if (preg_match('/,/', $token)){
+			return new AList(explode(',', $token));
 		}
 
 		// a range of values 1-3
-		if (preg_match('/\-/', $value)){
+		if (preg_match('/\-/', $token)){
 			$values = explode('-', $value);
 			return new Range($values[0], $values[1]);
 		}
 
 		// an interval set 1-5/1
-		if (preg_match('#/#', $value)){
+		if (preg_match('#/#', $token)){
 			$values = explode('/', $value);
 			$range = $this->getValue($values[0], $low, $high);
 			return new Interval($range, $values[1]);
 		}
 
-		throw new \Ace\Schedule\Exception("'$value' is not a valid cron schedule field value");
+		throw new \Ace\Schedule\Exception("'$token' is not a valid cron schedule field value");
 	}
 }

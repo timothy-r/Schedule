@@ -3,10 +3,21 @@ namespace Ace\Schedule\Cron;
 use Ace\Schedule\iDirector;
 use Ace\Schedule\iBuilder;
 
+/**
+* Directs building a set of iMatchers from a Cron formatted schedule string
+* @todo perform all the parsing of the schedule in a separate parser class
+* currently it's performed both here and in the Builder class
+*/
 class Director implements iDirector
 {
+	/**
+	* @var iBuilder
+	*/
 	protected $builder;
-
+	
+	/**
+	* @param iBuilder $builder
+	*/
 	public function __construct(iBuilder $builder)
 	{
 		$this->builder = $builder;
