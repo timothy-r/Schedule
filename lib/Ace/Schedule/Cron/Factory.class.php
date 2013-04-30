@@ -1,5 +1,6 @@
 <?php
 namespace Ace\Schedule\Cron;
+use Ace\Schedule\iFactory;
 use Ace\Schedule\Cron\Director;
 use Ace\Schedule\Cron\Builder;
 
