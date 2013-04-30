@@ -2,6 +2,7 @@
 namespace Ace\Schedule\Cron;
 use Ace\Schedule\iDirector;
 use Ace\Schedule\iBuilder;
+use Ace\Schedule\Exception;
 
 /**
 * Directs building a set of iMatchers from a Cron formatted schedule string

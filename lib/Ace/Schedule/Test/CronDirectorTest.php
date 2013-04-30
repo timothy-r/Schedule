@@ -55,6 +55,17 @@ class CronDirectorTest extends \PHPUnit_Framework_TestCase
 		$result = $director->create($schedule);
 		$this->assertTrue(is_array($result));
 	}
+
+	public function testInvalidScheduleThrowsException()
+	{
+		$schedule = 'abcd-e3r5';
+		$builder = $this->getMock('Ace\Schedule\Test\Stub_Builder',
+				array('buildMinute', 'buildHour', 'buildDay', 'buildMonth', 'buildWeekDay')
+		);
+		$director = new Director($builder);
+		$this->setExpectedException('Ace\Schedule\Exception');
+		$result = $director->create($schedule);
+	}
 }
 
 class Stub_Builder implements iBuilder
