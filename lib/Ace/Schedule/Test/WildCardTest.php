@@ -2,7 +2,7 @@
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Value\WildCard;
 
-require_once(dirname(__FILE__)."/../Value/iValue.iface.php");
+require_once(dirname(__FILE__)."/../Value/iValue.php");
 require_once(dirname(__FILE__)."/../Value/WildCard.php");
 
 /**
