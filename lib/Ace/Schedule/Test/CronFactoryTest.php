@@ -19,5 +19,13 @@ class CronFactoryTest extends \PHPUnit_Framework_TestCase
 		$entry = $factory->createEntry($schedule);
 		$this->assertInstanceOf('Ace\Schedule\Entry', $entry);
 	}
+
+	public function testCreateEntryThrowsExceptionWithInvalidData()
+	{
+		$schedule = 'not-a-crontab-string';
+		$factory = new Factory;
+		$this->setExpectedException('Ace\Schedule\Exception');
+		$entry = $factory->createEntry($schedule);
+	}
 }
 
