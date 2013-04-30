@@ -12,7 +12,6 @@ require_once(dirname(__FILE__)."/../Cron/Director.class.php");
 */
 class CronDirectorTest extends \PHPUnit_Framework_TestCase
 {
-	
 	public function testCreateReturnsArray()
 	{
 		$schedule = '4 * * * *';
@@ -36,14 +35,17 @@ class CronDirectorTest extends \PHPUnit_Framework_TestCase
 			->method('buildHour')
 			->with($this->equalTo('*'))
 			->will($this->returnValue('hour'));
+
 		$builder->expects($this->once())
 			->method('buildDay')
 			->with($this->equalTo('*'))
 			->will($this->returnValue('day'));
+
 		$builder->expects($this->once())
 			->method('buildMonth')
 			->with($this->equalTo('*'))
 			->will($this->returnValue('month'));
+
 		$builder->expects($this->once())
 			->method('buildWeekDay')
 			->with($this->equalTo('*'))
