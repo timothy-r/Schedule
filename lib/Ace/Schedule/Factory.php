@@ -6,6 +6,7 @@ use Ace\Schedule\Entry;
 
 /**
 * creates an Entry object for a given schedule string
+* uses an iDirector which is specific to the schedule string format
 */
 class Factory implements iFactory
 {
@@ -26,4 +27,3 @@ class Factory implements iFactory
 		return new Entry($matchers);
 	}
 }
-

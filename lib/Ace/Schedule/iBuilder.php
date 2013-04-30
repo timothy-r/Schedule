@@ -1,6 +1,9 @@
 <?php
 namespace Ace\Schedule;
 
+/**
+* interface to create specific iMatcher types
+*/
 interface iBuilder
 {
 	public function buildMinute($value);
