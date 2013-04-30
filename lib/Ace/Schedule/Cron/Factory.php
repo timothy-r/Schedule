@@ -1,6 +1,7 @@
 <?php
 namespace Ace\Schedule\Cron;
 use Ace\Schedule\iFactory;
+use Ace\Schedule\iBuilder;
 use Ace\Schedule\Entry;
 use Ace\Schedule\Cron\Director;
 use Ace\Schedule\Cron\Builder;
@@ -12,11 +13,22 @@ class Factory implements iFactory
 {
 	public function createEntry($schedule)
 	{
-		$builder = new Builder;
-		$director = new Director($builder);
+		$builder = $this->createBuilder();
+		$director = $this->createDirector($builder);
+
 		// build schedule and inject into Entry
 		$matchers = $director->create($schedule);
 		return new Entry($matchers);
+	}
+
+	protected function createBuilder()
+	{	
+		return new Builder;
+	}
+
+	protected function createDirector(iBuilder $builder)
+	{
+		return new Director($builder);
 	}
 }
 
