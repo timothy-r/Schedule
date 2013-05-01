@@ -21,12 +21,21 @@ class Factory implements iFactory
 	*/
 	protected $builder;
 
+	/**
+	* @param iDirector $director
+	* @param iBuilder $builder
+	*/
 	public function __construct(iDirector $director, iBuilder $builder)
 	{
 		$this->director = $director;
 		$this->builder = $builder;
 	}
 
+	/*
+	* @param string $schedule
+	*
+	* @return Ace\Schedule\Entry
+	*/
 	public function createEntry($schedule)
 	{
 		// build schedule and inject into Entry
