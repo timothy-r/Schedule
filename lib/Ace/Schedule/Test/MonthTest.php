@@ -3,7 +3,7 @@ namespace Ace\Schedule\Test;
 use Ace\Schedule\Item\Month;
 use Ace\Schedule\Value\Literal;
 
-require_once(dirname(__FILE__)."/../Item/iMatcher.php");
+require_once(dirname(__FILE__)."/../iMatcher.php");
 require_once(dirname(__FILE__)."/../Item/Month.php");
 
 /**

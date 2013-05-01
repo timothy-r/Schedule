@@ -1,5 +1,5 @@
 <?php
-namespace Ace\Schedule\Item;
+namespace Ace\Schedule;
 use Ace\Schedule\Value\iValue;
 
 interface iMatcher {
