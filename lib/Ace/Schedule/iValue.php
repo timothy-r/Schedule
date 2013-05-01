@@ -1,5 +1,5 @@
 <?php
-namespace Ace\Schedule\Value;
+namespace Ace\Schedule;
 
 /**
 * interface for classes that represent one or more values

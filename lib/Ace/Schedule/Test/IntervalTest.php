@@ -3,7 +3,7 @@ namespace Ace\Schedule\Test;
 use Ace\Schedule\Value\Interval;
 use Ace\Schedule\Value\Range;
 
-require_once(dirname(__FILE__)."/../Value/iValue.php");
+require_once(dirname(__FILE__)."/../iValue.php");
 require_once(dirname(__FILE__)."/../Value/Interval.php");
 
 /*

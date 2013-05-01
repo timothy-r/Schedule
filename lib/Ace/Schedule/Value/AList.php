@@ -1,5 +1,6 @@
 <?php
 namespace Ace\Schedule\Value;
+use Ace\Schedule\iValue;
 
 /**
 * contains a range of discrete values

@@ -1,5 +1,6 @@
 <?php
 namespace Ace\Schedule\Value;
+use Ace\Schedule\iValue;
 
 class Literal implements iValue {
 	protected $value;	

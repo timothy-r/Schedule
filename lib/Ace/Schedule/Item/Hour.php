@@ -1,6 +1,6 @@
 <?php
 namespace Ace\Schedule\Item;
-use Ace\Schedule\Value\iValue;
+use Ace\Schedule\iValue;
 use Ace\Schedule\iMatcher;
 
 class Hour implements iMatcher {

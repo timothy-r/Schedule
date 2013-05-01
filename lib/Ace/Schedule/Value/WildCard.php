@@ -1,5 +1,7 @@
 <?php
 namespace Ace\Schedule\Value;
+use Ace\Schedule\iValue;
+
 /**
 * A wild card value matches everything
 */
