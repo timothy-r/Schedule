@@ -42,4 +42,18 @@ class WildCardTestCase extends \PHPUnit_Framework_TestCase {
 		$wildcard = new WildCard();
         $this->assertSame(null, $wildcard->max());
     }
+
+    public function testWildcardGreaterThanIsAlwaysFalse()
+    {
+        $value = -340;
+		$wildcard = new WildCard();
+        $this->assertFalse($wildcard->greaterThan($value));
+    }
+
+    public function testWildcardLessThanIsAlwaysFalse()
+    {
+        $value = 10000;
+		$wildcard = new WildCard();
+        $this->assertFalse($wildcard->lessThan($value));
+    }
 }

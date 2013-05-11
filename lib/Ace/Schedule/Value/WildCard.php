@@ -20,5 +20,15 @@ class WildCard implements iValue
     {
         return null;
     }
+
+    public function greaterThan($value)
+    {
+        return false;
+    }
+
+    public function lessThan($value)
+    {
+        return false;
+    }
 }
 

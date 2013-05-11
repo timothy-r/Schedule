@@ -7,7 +7,7 @@ require_once(dirname(__FILE__)."/../iBuilder.php");
 require_once(dirname(__FILE__)."/../Cron/Builder.php");
 
 /**
-* @group unit
+* @group integration
 * @group schedule
 */
 class CronBuilderTest extends \PHPUnit_Framework_TestCase
