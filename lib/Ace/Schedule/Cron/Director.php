@@ -35,7 +35,6 @@ class Director implements iDirector
 		if (count($items) != 5){
 			throw new Exception("Schedule must contain 5 items");
 		}
-
 		// call a builder method for each item
 		$this->builder->buildMinute($this->getValue($items[0]));
 		$this->builder->buildHour($this->getValue($items[1]));
@@ -72,7 +71,7 @@ class Director implements iDirector
 
 		// an interval set 1-5/1
 		if (preg_match('#/#', $token)){
-			$values = explode('/', $value);
+			$values = explode('/', $token);
 			$range = $this->getValue($values[0]);
 			return $this->builder->createInterval($range, $values[1]);
 		}

@@ -4,6 +4,13 @@ use Ace\Schedule\iValue;
 
 class Stub_Value implements iValue
 {
+    protected $id;
+
+    public function __construct($id = 'id')
+    {
+        $this->id = $id;
+    }
+
 	public function contains($value){}
     public function min(){}
     public function max(){}

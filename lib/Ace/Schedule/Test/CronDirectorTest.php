@@ -12,40 +12,60 @@ require_once(dirname(__FILE__)."/Stub_Builder.php");
 class CronDirectorTest extends \PHPUnit_Framework_TestCase
 {
     /**
-    * @todo cover all builder methods
     */
 	public function testCreateCallsBuilderMethods()
 	{
-		$schedule = '4 * * * *';
+		$schedule = '*/2 * 1,2 3-6 Monday';
 		$builder = $this->getMock('Ace\Schedule\Test\Stub_Builder',
-				array('buildMinute', 'buildHour', 'buildDay', 'buildMonth', 'buildWeekDay',
-                'createWildCard', 'createLiteral')
+			array('buildMinute', 'buildHour', 'buildDay', 'buildMonth', 'buildWeekDay',
+            'createWildCard', 'createLiteral', 'createAList', 'createRange', 'createInterval')
 		);
         
-        $stub_value = new Stub_Value;
-		$builder->expects($this->any())
-			->method('createWildCard')
-            ->will($this->returnValue($stub_value));
+        $stub_wildcard = new Stub_Value('wildcard');
+        $stub_interval = new Stub_Value('interval');
+        $stub_literal = new Stub_Value('literal');
+        $stub_alist = new Stub_Value('alist');
+        $stub_range = new Stub_Value('range');
 
 		$builder->expects($this->any())
+			->method('createWildCard')
+            ->will($this->returnValue($stub_wildcard));
+
+		$builder->expects($this->once())
 			->method('createLiteral')
-            ->will($this->returnValue($stub_value));
+            ->will($this->returnValue($stub_literal));
+
+		$builder->expects($this->once())
+			->method('createInterval')
+            ->will($this->returnValue($stub_interval));
+
+		$builder->expects($this->once())
+			->method('createRange')
+            ->will($this->returnValue($stub_range));
+
+		$builder->expects($this->once())
+			->method('createAList')
+            ->will($this->returnValue($stub_alist));
 
 		$builder->expects($this->once())
 			->method('buildMinute')
-            ->with($this->equalTo($stub_value));
+            ->with($this->equalTo($stub_interval));
 
 		$builder->expects($this->once())
-			->method('buildHour');
+			->method('buildHour')
+            ->with($this->equalTo($stub_wildcard));
 
 		$builder->expects($this->once())
-			->method('buildDay');
+			->method('buildDay')
+            ->with($this->equalTo($stub_alist));
 
 		$builder->expects($this->once())
-			->method('buildMonth');
+			->method('buildMonth')
+            ->with($this->equalTo($stub_range));
 
 		$builder->expects($this->once())
-			->method('buildWeekDay');
+			->method('buildWeekDay')
+            ->with($this->equalTo($stub_literal));
 
 		$director = new Director();
 		$director->setBuilder($builder);
