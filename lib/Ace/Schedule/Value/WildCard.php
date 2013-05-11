@@ -10,5 +10,15 @@ class WildCard implements iValue
 	public function contains($value){
 		return true;
 	}
+
+    public function min()
+    {
+        return null;
+    }
+
+    public function max()
+    {
+        return null;
+    }
 }
 

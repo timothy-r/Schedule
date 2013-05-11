@@ -30,4 +30,16 @@ class WildCardTestCase extends \PHPUnit_Framework_TestCase {
 		$result = $always_value->contains($value);
 		$this->assertTrue($result, "Expected WildCard() to match '$value'" );
 	}
+
+    public function testWildcardMin()
+    {
+		$wildcard = new WildCard();
+        $this->assertSame(null, $wildcard->min());
+    }
+
+    public function testWildcardMax()
+    {
+		$wildcard = new WildCard();
+        $this->assertSame(null, $wildcard->max());
+    }
 }
