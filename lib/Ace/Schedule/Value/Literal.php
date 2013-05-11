@@ -22,5 +22,15 @@ class Literal implements iValue {
     {
         return $this->value;
     }
+
+    public function greaterThan($value)
+    {
+        return ($this->value > $value);
+    }
+
+    public function lessThan($value)
+    {
+        return ($this->value < $value);
+    }
 }
 

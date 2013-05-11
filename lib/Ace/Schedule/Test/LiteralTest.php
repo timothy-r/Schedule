@@ -36,4 +36,40 @@ class LiteralTestCase extends \PHPUnit_Framework_TestCase {
 		$literal = new Literal($value);
         $this->assertSame($value, $literal->max());
     }
+
+    public function getGreaterThanFixtures()
+    {
+        return array(
+            array(13, 0, true),
+            array(1, -90, true),
+            array(1, 90, false),
+        );
+    }
+
+    /**
+    * @dataProvider getGreaterThanFixtures
+    */
+    public function testLiteralGreaterThan($value, $test, $result)
+    {
+		$literal = new Literal($value);
+        $this->assertSame($result, $literal->greaterThan($test));
+    }
+
+    public function getLessThanFixtures()
+    {
+        return array(
+            array(13, 0, false),
+            array(1, -90, false),
+            array(1, 90, true),
+        );
+    }
+
+    /**
+    * @dataProvider getLessThanFixtures
+    */
+    public function testLiteralLessThan($value, $test, $result)
+    {
+		$literal = new Literal($value);
+        $this->assertSame($result, $literal->lessThan($test));
+    }
 }
