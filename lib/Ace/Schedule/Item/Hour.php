@@ -8,7 +8,7 @@ class Hour implements iMatcher {
 	protected $hour;
 
 	public function __construct(iValue $hour){
-        if ($hour->min() < 0 || $hour->max() > 23){
+        if ($hour->lessThan(0) || $hour->greaterThan(23)){
             throw new Exception("Hour value must be between 0 and 23");
         }
 		$this->hour = $hour;

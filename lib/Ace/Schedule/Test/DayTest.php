@@ -30,28 +30,28 @@ class DayTestCase extends \PHPUnit_Framework_TestCase {
 		$this->assertFalse($result, "Did not expected day '6' to match '$date_string'");
 	}
 
-    public function testDayValidatesMinValue()
+    public function testDayValidatesLowestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('min','max'));
+        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('lessThan','greaterThan'));
         $value->expects($this->any())
-            ->method('min')
-            ->will($this->returnValue(-1));
+            ->method('lessThan')
+            ->will($this->returnValue(false));
         $value->expects($this->any())
-            ->method('max')
-            ->will($this->returnValue(18));
+            ->method('greaterThan')
+            ->will($this->returnValue(true));
         $this->setExpectedException('Ace\Schedule\Exception');
         $minute = new Day($value);
     }
 
-    public function testDayValidatesMaxValue()
+    public function testDayValidatesHighestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('min','max'));
+        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('lessThan','greaterThan'));
         $value->expects($this->any())
-            ->method('min')
-            ->will($this->returnValue(4));
+            ->method('lessThan')
+            ->will($this->returnValue(true));
         $value->expects($this->any())
-            ->method('max')
-            ->will($this->returnValue(600));
+            ->method('greaterThan')
+            ->will($this->returnValue(false));
         $this->setExpectedException('Ace\Schedule\Exception');
         $minute = new Day($value);
     }

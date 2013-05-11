@@ -33,4 +33,31 @@ class WeekDayTestCase extends \PHPUnit_Framework_TestCase {
 		$result = $matcher->matches($date_time);
 		$this->assertFalse($result, "Did not expected '$week_day+1' to match '$date_string'");
 	}
+
+    public function testWeekDayValidatesLowestValue()
+    {
+        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('lessThan','greaterThan'));
+        $value->expects($this->any())
+            ->method('lessThan')
+            ->will($this->returnValue(false));
+        $value->expects($this->any())
+            ->method('greaterThan')
+            ->will($this->returnValue(true));
+        $this->setExpectedException('Ace\Schedule\Exception');
+        $minute = new WeekDay($value);
+    }
+
+    public function testWeekDayValidatesHighestValue()
+    {
+        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('lessThan','greaterThan'));
+        $value->expects($this->any())
+            ->method('lessThan')
+            ->will($this->returnValue(true));
+        $value->expects($this->any())
+            ->method('greaterThan')
+            ->will($this->returnValue(false));
+        $this->setExpectedException('Ace\Schedule\Exception');
+        $minute = new WeekDay($value);
+    }
+
 }

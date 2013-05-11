@@ -41,28 +41,28 @@ class MinuteTestCase extends \PHPUnit_Framework_TestCase {
 		}
 	}
 
-    public function testMinuteValidatesMinValue()
+    public function testMinuteValidatesLowestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('min','max'));
+        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('lessThan','greaterThan'));
         $value->expects($this->any())
-            ->method('min')
-            ->will($this->returnValue(-1));
+            ->method('lessThan')
+            ->will($this->returnValue(false));
         $value->expects($this->any())
-            ->method('max')
-            ->will($this->returnValue(40));
+            ->method('greaterThan')
+            ->will($this->returnValue(true));
         $this->setExpectedException('Ace\Schedule\Exception');
         $minute = new Minute($value);
     }
 
-    public function testMinuteValidatesMaxValue()
+    public function testMinuteValidatesHighestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('min','max'));
+        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('lessThan','greaterThan'));
         $value->expects($this->any())
-            ->method('min')
-            ->will($this->returnValue(4));
+            ->method('lessThan')
+            ->will($this->returnValue(true));
         $value->expects($this->any())
-            ->method('max')
-            ->will($this->returnValue(600));
+            ->method('greaterThan')
+            ->will($this->returnValue(false));
         $this->setExpectedException('Ace\Schedule\Exception');
         $minute = new Minute($value);
     }

@@ -34,28 +34,28 @@ class MonthTestCase extends \PHPUnit_Framework_TestCase {
 		$this->assertFalse($result, "Did not expected '$month+1' to match '$date_string'");
 	}
 
-    public function testMonthValidatesMinValue()
+    public function testMonthValidatesLowestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('min','max'));
+        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('lessThan','greaterThan'));
         $value->expects($this->any())
-            ->method('min')
-            ->will($this->returnValue(0));
+            ->method('lessThan')
+            ->will($this->returnValue(false));
         $value->expects($this->any())
-            ->method('max')
-            ->will($this->returnValue(5));
+            ->method('greaterThan')
+            ->will($this->returnValue(true));
         $this->setExpectedException('Ace\Schedule\Exception');
         $minute = new Month($value);
     }
 
-    public function testMonthValidatesMaxValue()
+    public function testMonthValidatesHighestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('min','max'));
+        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('lessThan','greaterThan'));
         $value->expects($this->any())
-            ->method('min')
-            ->will($this->returnValue(4));
+            ->method('lessThan')
+            ->will($this->returnValue(true));
         $value->expects($this->any())
-            ->method('max')
-            ->will($this->returnValue(600));
+            ->method('greaterThan')
+            ->will($this->returnValue(false));
         $this->setExpectedException('Ace\Schedule\Exception');
         $minute = new Month($value);
     }
