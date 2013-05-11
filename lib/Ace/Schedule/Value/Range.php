@@ -31,4 +31,14 @@ class Range implements iValue
     {
 		return $this->high;
     }
+
+    public function greaterThan($value)
+    {
+        return $this->low > $value;
+    }
+
+    public function lessThan($value)
+    {
+        return $this->high < $value;
+    }
 }

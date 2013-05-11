@@ -42,4 +42,20 @@ class RangeTestCase extends \PHPUnit_Framework_TestCase {
 		$range = new Range($min, $max);
         $this->assertSame($max, $range->max());
     }
+
+    public function testRangeLessThan()
+    {
+        $min = 13;
+        $max = 18;
+		$range = new Range($min, $max);
+        $this->assertTrue($range->lessThan(20));
+    }
+
+    public function testRangeGreaterThan()
+    {
+        $min = 13;
+        $max = 18;
+		$range = new Range($min, $max);
+        $this->assertTrue($range->greaterThan(2));
+    }
 }
