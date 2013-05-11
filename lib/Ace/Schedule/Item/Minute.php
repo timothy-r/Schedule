@@ -12,7 +12,7 @@ class Minute implements iMatcher {
 
 	public function __construct(iValue $minutes){
         if ($minutes->min() < 0 || $minutes->max() > 59){
-            throw new Exception;
+            throw new Exception("Minute value must be between 0 and 59");
         }
 		$this->minutes = $minutes;
 	}
