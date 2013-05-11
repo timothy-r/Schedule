@@ -26,7 +26,6 @@ class Director implements iDirector
 
 	/**
 	* @param string $schedule
-	* @return array of iMatcher instances
 	*/
 	public function create($schedule)
 	{
