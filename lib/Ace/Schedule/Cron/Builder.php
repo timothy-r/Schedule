@@ -91,7 +91,7 @@ class Builder implements iBuilder
 
 		// a range of values 1-3
 		if (preg_match('/\-/', $token)){
-			$values = explode('-', $value);
+			$values = explode('-', $token);
 			return new Range($values[0], $values[1]);
 		}
 
