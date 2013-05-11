@@ -43,19 +43,37 @@ class RangeTestCase extends \PHPUnit_Framework_TestCase {
         $this->assertSame($max, $range->max());
     }
 
-    public function testRangeLessThan()
+    public function getLessThanFixtures()
     {
-        $min = 13;
-        $max = 18;
-		$range = new Range($min, $max);
-        $this->assertTrue($range->lessThan(20));
+        return array(
+            array(13, 18, 20, true),
+            array(13, 18, 10, false),
+        );
     }
 
-    public function testRangeGreaterThan()
+    /**
+    * @dataProvider getLessThanFixtures
+    */
+    public function testRangeLessThan($min, $max, $test, $result)
     {
-        $min = 13;
-        $max = 18;
 		$range = new Range($min, $max);
-        $this->assertTrue($range->greaterThan(2));
+        $this->assertSame($result, $range->lessThan($test));
+    }
+
+    public function getGreaterThanFixtures()
+    {
+        return array(
+            array(13, 18, 20, false),
+            array(13, 18, 10, true),
+        );
+    }
+
+    /**
+    * @dataProvider getGreaterThanFixtures
+    */
+    public function testRangeGreaterThan($min, $max, $test, $result)
+    {
+		$range = new Range($min, $max);
+        $this->assertSame($result, $range->greaterThan($test));
     }
 }

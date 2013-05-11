@@ -33,4 +33,14 @@ class Interval implements iValue {
     {
         return $this->range->max();
     }
+
+    public function greaterThan($value)
+    {
+        return $this->range->min() > $value;
+    }
+
+    public function lessThan($value)
+    {
+        return $this->range->max() < $value;
+    }
 }

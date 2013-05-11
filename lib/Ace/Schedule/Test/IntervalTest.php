@@ -46,4 +46,38 @@ class IntervalTestCase extends \PHPUnit_Framework_TestCase {
 		$interval = new Interval(new Range($min, $max), 2);
         $this->assertSame($max, $interval->max());
     }
+
+    public function getGreaterThanFixtures()
+    {
+        return array(
+            array(13, 18, 20, false),
+            array(13, 18, 10, true),
+        );
+    }
+
+    /**
+    * @dataProvider getGreaterThanFixtures
+    */
+    public function testIntervalGreaterThan($min, $max, $test, $result)
+    {
+		$interval = new Interval(new Range($min, $max), 2);
+        $this->assertSame($result, $interval->greaterThan($test));
+    }
+
+    public function getLessThanFixtures()
+    {
+        return array(
+            array(13, 18, 20, true),
+            array(13, 18, 10, false),
+        );
+    }
+
+    /**
+    * @dataProvider getLessThanFixtures
+    */
+    public function testIntervalLessThan($min, $max, $test, $result)
+    {
+		$interval = new Interval(new Range($min, $max), 2);
+        $this->assertSame($result, $interval->lessThan($test));
+    }
 }
