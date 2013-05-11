@@ -11,6 +11,9 @@ require_once(dirname(__FILE__)."/Stub_Builder.php");
 */
 class CronDirectorTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+    * @todo cover all builder methods
+    */
 	public function testCreateCallsBuilderMethods()
 	{
 		$schedule = '4 * * * *';
