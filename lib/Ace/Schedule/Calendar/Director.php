@@ -30,5 +30,15 @@ class Director implements iDirector
 		if (!$this->builder instanceof iBuilder){
 			throw new Exception('Builder instance not set');
 		}
+        // extract date and time elements from schedule
+        $values = date_parse($schedule);
+        if ($values['error_count'] > 0){
+            throw new Exception("Invalid calendar schedule. ". print_r($values,1));
+        }
+        $this->builder->buildMinute($values['minute']);
+        $this->builder->buildHour($values['hour']);
+        $this->builder->buildDay($values['day']);
+        $this->builder->buildMonth($values['month']);
+        // need buildYear
 	}
 }

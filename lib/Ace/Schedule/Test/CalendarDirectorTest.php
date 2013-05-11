@@ -13,7 +13,7 @@ class CalendarDirectorTest extends \PHPUnit_Framework_TestCase
 {
 	public function testCreateCallsBuilderMethods()
 	{
-		$schedule = '2001-06-25 23-11-01';
+		$schedule = '2001-06-25 23:11:01';
 		$builder = $this->getMock('Ace\Schedule\Test\Stub_Builder',
 				array('buildMinute', 'buildHour', 'buildDay', 'buildMonth')
 		);
