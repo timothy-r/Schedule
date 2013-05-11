@@ -47,6 +47,9 @@ class MinuteTestCase extends \PHPUnit_Framework_TestCase {
         $value->expects($this->any())
             ->method('min')
             ->will($this->returnValue(-1));
+        $value->expects($this->any())
+            ->method('max')
+            ->will($this->returnValue(40));
         $this->setExpectedException('Ace\Schedule\Exception');
         $minute = new Minute($value);
     }
@@ -54,6 +57,9 @@ class MinuteTestCase extends \PHPUnit_Framework_TestCase {
     public function testMinuteValidatesMaxValue()
     {
         $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('min','max'));
+        $value->expects($this->any())
+            ->method('min')
+            ->will($this->returnValue(4));
         $value->expects($this->any())
             ->method('max')
             ->will($this->returnValue(600));

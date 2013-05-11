@@ -31,13 +31,13 @@ class WildCardTestCase extends \PHPUnit_Framework_TestCase {
 		$this->assertTrue($result, "Expected WildCard() to match '$value'" );
 	}
 
-    public function testWildcardMin()
+    public function testWildcardMinReturnsNull()
     {
 		$wildcard = new WildCard();
         $this->assertSame(null, $wildcard->min());
     }
 
-    public function testWildcardMax()
+    public function testWildcardMaxReturnsNull()
     {
 		$wildcard = new WildCard();
         $this->assertSame(null, $wildcard->max());
