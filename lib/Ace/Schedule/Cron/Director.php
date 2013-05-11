@@ -45,4 +45,40 @@ class Director implements iDirector
 		$this->builder->buildMonth($items[3]);
 		$this->builder->buildWeekDay($items[4]);
 	}
+
+	/**
+	* @param string $token the raw string from the schedule
+	* @return iValue
+	*/
+	protected function getValue($token) {
+		// a wild card *
+		if (('*' == $token) || ('?' == $token)){
+			return $this->builder->createWildCard();
+		}
+
+		// token is a single value - allow for strings for week_day
+		if (preg_match('/^(\d+|\w+)$/', $token)){
+			return $this->builder->createLiteral($token);
+		}
+
+		// a set of tokens 1,2,3
+		if (preg_match('/,/', $token)){
+			return $this->builder->createAList(explode(',', $token));
+		}
+
+		// a range of values 1-3
+		if (preg_match('/\-/', $token)){
+			$values = explode('-', $token);
+			return $this->builder->createRange($values[0], $values[1]);
+		}
+
+		// an interval set 1-5/1
+		if (preg_match('#/#', $token)){
+			$values = explode('/', $value);
+			$range = $this->getValue($values[0]);
+			return $this->builder->createInterval($range, $values[1]);
+		}
+
+		throw new \Ace\Schedule\Exception("'$token' is not a valid cron schedule field value");
+	}
 }

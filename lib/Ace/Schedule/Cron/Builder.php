@@ -1,6 +1,7 @@
 <?php
 namespace Ace\Schedule\Cron;
 use Ace\Schedule\iBuilder;
+use Ace\Schedule\iValue;
 
 use Ace\Schedule\Item\Minute;
 use Ace\Schedule\Item\Hour;
@@ -71,22 +72,27 @@ class Builder implements iBuilder
 
     public function createWildCard()
     {
+        return new WildCard;
     }
 
     public function createLiteral($value)
     {
+        return new Literal($value);
     }
 
     public function createAList(array $value)
     {
+        return new AList($value);
     }
 
     public function createRange($min, $max)
     {
+	    return new Range($min, $max);
     }
 
-    public function createInterval($min, $max, $interval)
+    public function createInterval(iValue $value, $interval)
     {
+	    return new Interval($value, $interval);
     }
 
 	/**

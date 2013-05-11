@@ -2,6 +2,7 @@
 namespace Ace\Schedule\Calendar;
 use Ace\Schedule\iBuilder;
 use Ace\Schedule\Exception;
+use Ace\Schedule\iValue;
 
 use Ace\Schedule\Item\Minute;
 use Ace\Schedule\Item\Hour;
@@ -82,7 +83,7 @@ class Builder implements iBuilder
     {
     }
 
-    public function createInterval($min, $max, $interval)
+    public function createInterval(iValue $value, $interval)
     {
     }
 

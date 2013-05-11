@@ -1,6 +1,7 @@
 <?php
 namespace Ace\Schedule\Test;
 use Ace\Schedule\iBuilder;
+use Ace\Schedule\iValue;
 
 class Stub_Builder implements iBuilder
 {
@@ -16,5 +17,5 @@ class Stub_Builder implements iBuilder
     public function createLiteral($value){}
     public function createAList(array $value){}
     public function createRange($min, $max){}
-    public function createInterval($min, $max, $interval){}
+    public function createInterval(iValue $value, $interval){}
 }

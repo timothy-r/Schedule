@@ -2,6 +2,7 @@
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Cron\Builder;
 use Ace\Schedule\iBuilder;
+use Ace\Schedule\Value\Range;
 
 require_once(dirname(__FILE__)."/../iBuilder.php");
 require_once(dirname(__FILE__)."/../Cron/Builder.php");
@@ -126,5 +127,49 @@ class CronBuilderTest extends \PHPUnit_Framework_TestCase
 		$product = $builder->getMatchers();
 		$this->assertInstanceOf('Ace\Schedule\Item\WeekDay', current($product));
 	}
+
+    public function testCreateWildCard()
+    {
+		$builder = new Builder;
+        $product = $builder->createWildCard();
+		$this->assertInstanceOf('Ace\Schedule\Value\WildCard', $product);
+    }
+
+    public function testCreateLiteral()
+    {
+		$builder = new Builder;
+        $product = $builder->createLiteral(3);
+		$this->assertInstanceOf('Ace\Schedule\Value\Literal', $product);
+        $this->assertTrue($product->min() == 3);
+        $this->assertTrue($product->max() == 3);
+    }
+
+    public function testCreateRange()
+    {
+		$builder = new Builder;
+        $product = $builder->createRange(3, 8);
+		$this->assertInstanceOf('Ace\Schedule\Value\Range', $product);
+        $this->assertTrue($product->min() == 3);
+        $this->assertTrue($product->max() == 8);
+    }
+
+    public function testCreateAList()
+    {
+		$builder = new Builder;
+        $product = $builder->createAList(array(3, 2, 8));
+		$this->assertInstanceOf('Ace\Schedule\Value\AList', $product);
+        $this->assertTrue($product->min() == 2);
+        $this->assertTrue($product->max() == 8);
+    }
+
+    public function testCreateInterval()
+    {
+		$builder = new Builder;
+        $value = new Range(4,18);
+        $product = $builder->createInterval($value, 2);
+		$this->assertInstanceOf('Ace\Schedule\Value\Interval', $product);
+        $this->assertTrue($product->min() == 4);
+        $this->assertTrue($product->max() == 18);
+    }
 }
 
