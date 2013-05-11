@@ -29,4 +29,30 @@ class DayTestCase extends \PHPUnit_Framework_TestCase {
 		$result = $matcher->matches($date_time);
 		$this->assertFalse($result, "Did not expected day '6' to match '$date_string'");
 	}
+
+    public function testDayValidatesMinValue()
+    {
+        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('min','max'));
+        $value->expects($this->any())
+            ->method('min')
+            ->will($this->returnValue(-1));
+        $value->expects($this->any())
+            ->method('max')
+            ->will($this->returnValue(18));
+        $this->setExpectedException('Ace\Schedule\Exception');
+        $minute = new Day($value);
+    }
+
+    public function testDayValidatesMaxValue()
+    {
+        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('min','max'));
+        $value->expects($this->any())
+            ->method('min')
+            ->will($this->returnValue(4));
+        $value->expects($this->any())
+            ->method('max')
+            ->will($this->returnValue(600));
+        $this->setExpectedException('Ace\Schedule\Exception');
+        $minute = new Day($value);
+    }
 }
