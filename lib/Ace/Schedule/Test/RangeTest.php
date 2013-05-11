@@ -27,9 +27,19 @@ class RangeTestCase extends \PHPUnit_Framework_TestCase {
 		$this->assertFalse($result, "Did not expected Range(1, 2) to match '4'" );
 	}
 
-	public function testRangeStart() {
-		$list_value = new Range('1', 2);
-		$result = $list_value->getStart();
-		$this->assertSame(1, $result, "Expected getStart() to return 1" );
-	}
+    public function testRangeMin()
+    {
+        $min = 13;
+        $max = 18;
+		$range = new Range($min, $max);
+        $this->assertSame($min, $range->min());
+    }
+
+    public function testRangeMax()
+    {
+        $min = 1;
+        $max = 8;
+		$range = new Range($min, $max);
+        $this->assertSame($max, $range->max());
+    }
 }
