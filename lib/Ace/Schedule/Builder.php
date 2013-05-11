@@ -1,5 +1,5 @@
 <?php
-namespace Ace\Schedule\Cron;
+namespace Ace\Schedule;
 use Ace\Schedule\iBuilder;
 use Ace\Schedule\iValue;
 
