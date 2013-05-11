@@ -22,4 +22,18 @@ class LiteralTestCase extends \PHPUnit_Framework_TestCase {
 		$result = $always_value->contains('5');
 		$this->assertFalse($result, "Did not expected Literal(1) to match 5" );
 	}
+
+    public function testLiteralMin()
+    {
+        $value = 13;
+		$literal = new Literal($value);
+        $this->assertSame($value, $literal->min());
+    }
+
+    public function testLiteralMax()
+    {
+        $value = 13;
+		$literal = new Literal($value);
+        $this->assertSame($value, $literal->max());
+    }
 }
