@@ -50,4 +50,38 @@ class AListTestCase extends \PHPUnit_Framework_TestCase {
 		$list = new AList(array());
         $this->assertSame(null, $list->max());
     }
+
+    public function getGreaterThanFixtures()
+    {
+        return array(
+            array(array(1,19,14,11), 0, true),
+            array(array(1,19,14,11), 30, false),
+        );
+    }
+
+    /**
+    * @dataProvider getGreaterThanFixtures
+    */
+    public function testAListGreaterThan($items, $test, $result)
+    {
+		$list = new AList($items);
+        $this->assertSame($result, $list->greaterThan($test));
+    }
+
+    public function getLessThanFixtures()
+    {
+        return array(
+            array(array(1,19,14,11), 50, true),
+            array(array(1,19,14,11), 0, false),
+        );
+    }
+
+    /**
+    * @dataProvider getLessThanFixtures
+    */
+    public function testAListLessThan($items, $test, $result)
+    {
+		$list = new AList($items);
+        $this->assertSame($result, $list->lessThan($test));
+    }
 }

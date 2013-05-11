@@ -38,5 +38,15 @@ class AList implements iValue {
         }
         return null;
     }
+
+    public function greaterThan($value)
+    {
+        return $this->max() > $value;
+    }
+
+    public function lessThan($value)
+    {
+        return $this->min() < $value;
+    }
 }
 
