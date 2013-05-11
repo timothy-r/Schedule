@@ -3,6 +3,7 @@ namespace Ace\Schedule\Test;
 use Ace\Schedule\Item\Minute;
 use Ace\Schedule\Value\Literal;
 use Ace\Schedule\Value\Range;
+use Ace\Schedule\Test\Stub_Value;
 
 require_once(dirname(__FILE__)."/../iMatcher.php");
 require_once(dirname(__FILE__)."/../Item/Minute.php");
@@ -40,19 +41,23 @@ class MinuteTestCase extends \PHPUnit_Framework_TestCase {
 		}
 	}
 
-	public function getMatchingPatterns() {
-		return array(
-			array(5, '*'),	
-		);
-	}
+    public function testMinuteValidatesMinValue()
+    {
+        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('min','max'));
+        $value->expects($this->any())
+            ->method('min')
+            ->will($this->returnValue(-1));
+        $this->setExpectedException('Ace\Schedule\Exception');
+        $minute = new Minute($value);
+    }
 
-	/**
-	* @dataProvider getMatchingPatterns
-	*/
-	public function testMinuteMatchesPattern($minute, $pattern) {
-			#$matcher = new Minute($pattern);
-			#$date_time = new \DateTime("2012-05-08 20:$minute:02");
-			#$result = $matcher->matches($date_time);
-		#	$this->assertTrue($result, "Expected '$pattern' to match '$minute' minutes");
-	}
+    public function testMinuteValidatesMaxValue()
+    {
+        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('min','max'));
+        $value->expects($this->any())
+            ->method('max')
+            ->will($this->returnValue(600));
+        $this->setExpectedException('Ace\Schedule\Exception');
+        $minute = new Minute($value);
+    }
 }
