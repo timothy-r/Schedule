@@ -26,11 +26,11 @@ class CronBuilderTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	* @dataProvider getValidMinuteFixtures
 	*/
-	public function testBuildMinute($value)
+	public function testBuildMinute()
 	{
 		$builder = new Builder;
+        $value = new Stub_Value;
 		$builder->buildMinute($value);
 		$product = $builder->getMatchers();
 		$this->assertInstanceOf('Ace\Schedule\Item\Minute', current($product));
@@ -48,11 +48,11 @@ class CronBuilderTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	* @dataProvider getValidHourFixtures
 	*/
-	public function testBuildHour($value)
+	public function testBuildHour()
 	{
 		$builder = new Builder;
+        $value = new Stub_Value;
 		$builder->buildHour($value);
 		$product = $builder->getMatchers();
 		$this->assertInstanceOf('Ace\Schedule\Item\Hour', current($product));
@@ -69,11 +69,11 @@ class CronBuilderTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	* @dataProvider getValidDayFixtures
 	*/
-	public function testBuildDay($value)
+	public function testBuildDay()
 	{
 		$builder = new Builder;
+        $value = new Stub_Value;
 		$builder->buildDay($value);
 		$product = $builder->getMatchers();
 		$this->assertInstanceOf('Ace\Schedule\Item\Day', current($product));
@@ -92,11 +92,11 @@ class CronBuilderTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	* @dataProvider getValidMonthFixtures
 	*/
-	public function testBuildMonth($value)
+	public function testBuildMonth()
 	{
 		$builder = new Builder;
+        $value = new Stub_Value;
 		$builder->buildMonth($value);
 		$product = $builder->getMatchers();
 		$this->assertInstanceOf('Ace\Schedule\Item\Month', current($product));
@@ -118,11 +118,11 @@ class CronBuilderTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	* @dataProvider getValidWeekDayFixtures
 	*/
-	public function testBuildWeekDay($value)
+	public function testBuildWeekDay()
 	{
 		$builder = new Builder;
+        $value = new Stub_Value;
 		$builder->buildWeekDay($value);
 		$product = $builder->getMatchers();
 		$this->assertInstanceOf('Ace\Schedule\Item\WeekDay', current($product));

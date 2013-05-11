@@ -5,11 +5,11 @@ use Ace\Schedule\iValue;
 
 class Stub_Builder implements iBuilder
 {
-	public function buildMinute($value){}
-	public function buildHour($value){}
-	public function buildDay($value){}
-	public function buildMonth($value){}
-	public function buildWeekDay($value){}
+	public function buildMinute(iValue $value){}
+	public function buildHour(iValue $value){}
+	public function buildDay(iValue $value){}
+	public function buildMonth(iValue $value){}
+	public function buildWeekDay(iValue $value){}
 	public function getMatchers(){
 		return array();
 	}

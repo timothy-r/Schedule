@@ -15,26 +15,34 @@ class CronDirectorTest extends \PHPUnit_Framework_TestCase
 	{
 		$schedule = '4 * * * *';
 		$builder = $this->getMock('Ace\Schedule\Test\Stub_Builder',
-				array('buildMinute', 'buildHour', 'buildDay', 'buildMonth', 'buildWeekDay')
+				array('buildMinute', 'buildHour', 'buildDay', 'buildMonth', 'buildWeekDay',
+                'createWildCard', 'createLiteral')
 		);
+        
+        $stub_value = new Stub_Value;
+		$builder->expects($this->any())
+			->method('createWildCard')
+            ->will($this->returnValue($stub_value));
+
+		$builder->expects($this->any())
+			->method('createLiteral')
+            ->will($this->returnValue($stub_value));
+
 		$builder->expects($this->once())
 			->method('buildMinute')
-			->with($this->equalTo('4'));
-		$builder->expects($this->once())
-			->method('buildHour')
-			->with($this->equalTo('*'));
+            ->with($this->equalTo($stub_value));
 
 		$builder->expects($this->once())
-			->method('buildDay')
-			->with($this->equalTo('*'));
+			->method('buildHour');
 
 		$builder->expects($this->once())
-			->method('buildMonth')
-			->with($this->equalTo('*'));
+			->method('buildDay');
 
 		$builder->expects($this->once())
-			->method('buildWeekDay')
-			->with($this->equalTo('*'));
+			->method('buildMonth');
+
+		$builder->expects($this->once())
+			->method('buildWeekDay');
 
 		$director = new Director();
 		$director->setBuilder($builder);

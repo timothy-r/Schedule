@@ -27,22 +27,29 @@ class CalendarDirectorTest extends \PHPUnit_Framework_TestCase
 	public function testCreateCallsBuilderMethods($schedule)
 	{
 		$builder = $this->getMock('Ace\Schedule\Test\Stub_Builder',
-				array('buildMinute', 'buildHour', 'buildDay', 'buildMonth')
+				array('buildMinute', 'buildHour', 'buildDay', 'buildMonth',
+                'createLiteral')
 		);
+        $stub_value = new Stub_Value;
+
+		$builder->expects($this->any())
+			->method('createLiteral')
+            ->will($this->returnValue($stub_value));
+
 		$builder->expects($this->once())
 			->method('buildMinute')
-			->with($this->equalTo('11'));
+			->with($this->equalTo($stub_value));
 		$builder->expects($this->once())
 			->method('buildHour')
-			->with($this->equalTo('23'));
+			->with($this->equalTo($stub_value));
 
 		$builder->expects($this->once())
 			->method('buildDay')
-			->with($this->equalTo('25'));
+			->with($this->equalTo($stub_value));
 
 		$builder->expects($this->once())
 			->method('buildMonth')
-			->with($this->equalTo('6'));
+			->with($this->equalTo($stub_value));
 
 		$director = new Director();
 		$director->setBuilder($builder);

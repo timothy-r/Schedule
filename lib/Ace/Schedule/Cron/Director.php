@@ -6,8 +6,6 @@ use Ace\Schedule\Exception;
 
 /**
 * Directs building a set of iMatchers from a Cron formatted schedule string
-* @todo perform all the parsing of the schedule in a separate parser class
-* currently it's performed both here and in the Builder class
 */
 class Director implements iDirector
 {
@@ -39,11 +37,11 @@ class Director implements iDirector
 		}
 
 		// call a builder method for each item
-		$this->builder->buildMinute($items[0]);
-		$this->builder->buildHour($items[1]);
-		$this->builder->buildDay($items[2]);
-		$this->builder->buildMonth($items[3]);
-		$this->builder->buildWeekDay($items[4]);
+		$this->builder->buildMinute($this->getValue($items[0]));
+		$this->builder->buildHour($this->getValue($items[1]));
+		$this->builder->buildDay($this->getValue($items[2]));
+		$this->builder->buildMonth($this->getValue($items[3]));
+		$this->builder->buildWeekDay($this->getValue($items[4]));
 	}
 
 	/**
