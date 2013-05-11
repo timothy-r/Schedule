@@ -11,9 +11,21 @@ require_once(dirname(__FILE__)."/Stub_Builder.php");
 */
 class CalendarDirectorTest extends \PHPUnit_Framework_TestCase
 {
-	public function testCreateCallsBuilderMethods()
+    public function getValidSchedules()
+    {
+        return array(
+            array('2001-06-25 23:11:01'),
+            array('25th June 2001 23:11'),
+            array('June 25th 23:11'),
+            array('June 25th 11:11pm'),
+        );
+    }
+
+    /**
+    * @dataProvider getValidSchedules
+    */
+	public function testCreateCallsBuilderMethods($schedule)
 	{
-		$schedule = '2001-06-25 23:11:01';
 		$builder = $this->getMock('Ace\Schedule\Test\Stub_Builder',
 				array('buildMinute', 'buildHour', 'buildDay', 'buildMonth')
 		);
