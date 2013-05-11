@@ -65,4 +65,25 @@ class Builder implements iBuilder
 	{
 		return $this->matchers;
 	}
+
+    public function createWildCard()
+    {
+    }
+
+    public function createLiteral($value)
+    {
+    }
+
+    public function createAList(array $value)
+    {
+    }
+
+    public function createRange($min, $max)
+    {
+    }
+
+    public function createInterval($min, $max, $interval)
+    {
+    }
+
 }

@@ -12,4 +12,9 @@ class Stub_Builder implements iBuilder
 	public function getMatchers(){
 		return array();
 	}
+    public function createWildCard(){}
+    public function createLiteral($value){}
+    public function createAList(array $value){}
+    public function createRange($min, $max){}
+    public function createInterval($min, $max, $interval){}
 }
