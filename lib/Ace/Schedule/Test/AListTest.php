@@ -26,4 +26,28 @@ class AListTestCase extends \PHPUnit_Framework_TestCase {
 		$result = $list_value->contains('4');
 		$this->assertFalse($result, "Did not expected AList(array('1', '2', '3')) to match '4'" );
 	}
+
+    public function testAListMin()
+    {
+		$list = new AList(array('10', '27', '1', '3'));
+        $this->assertSame('1', $list->min());
+    }
+
+    public function testAListMinForEmptyArrays()
+    {
+		$list = new AList(array());
+        $this->assertSame(null, $list->min());
+    }
+
+    public function testAListMax()
+    {
+		$list = new AList(array('1', '19', '14', '11'));
+        $this->assertSame('19', $list->max());
+    }
+
+    public function testAListMaxForEmptyArrays()
+    {
+		$list = new AList(array());
+        $this->assertSame(null, $list->max());
+    }
 }
