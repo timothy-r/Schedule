@@ -29,7 +29,7 @@ class Builder implements iBuilder
 	* @param string $token
 	*/
 	public function buildMinute($token){
-		$this->matchers['minute'] = new Minute($this->getValue($token, '0','59'));
+		$this->matchers['minute'] = new Minute($this->getValue($token));
 	}
 
 	/**
@@ -37,7 +37,7 @@ class Builder implements iBuilder
 	* @return Hour
 	*/
 	public function buildHour($token){
-		$this->matchers['hour'] = new Hour($this->getValue($token, '0', '24'));
+		$this->matchers['hour'] = new Hour($this->getValue($token));
 	}
 
 	/**
@@ -45,7 +45,7 @@ class Builder implements iBuilder
 	* @return Day
 	*/
 	public function buildDay($token){
-		$this->matchers['day'] = new Day($this->getValue($token, '1', '31'));
+		$this->matchers['day'] = new Day($this->getValue($token));
 	}
 
 	/**
@@ -53,7 +53,7 @@ class Builder implements iBuilder
 	* @return Month
 	*/
 	public function buildMonth($token){
-		$this->matchers['month'] = new Month($this->getValue($token, '1', '12'));
+		$this->matchers['month'] = new Month($this->getValue($token));
 	}
 
 	/**
@@ -61,7 +61,7 @@ class Builder implements iBuilder
 	* @return WeekDay
 	*/
 	public function buildWeekDay($token){
-		$this->matchers['week_day'] = new WeekDay($this->getValue($token, '0', '6'));
+		$this->matchers['week_day'] = new WeekDay($this->getValue($token));
 	}
 
 	public function getMatchers()
@@ -73,7 +73,7 @@ class Builder implements iBuilder
 	* @param string $token the raw string from the schedule
 	* @return iValue
 	*/
-	protected function getValue($token, $low, $high) {
+	protected function getValue($token) {
 		// a wild card *
 		if (('*' == $token) || ('?' == $token)){
 			return new WildCard;
@@ -98,7 +98,7 @@ class Builder implements iBuilder
 		// an interval set 1-5/1
 		if (preg_match('#/#', $token)){
 			$values = explode('/', $value);
-			$range = $this->getValue($values[0], $low, $high);
+			$range = $this->getValue($values[0]);
 			return new Interval($range, $values[1]);
 		}
 
