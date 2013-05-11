@@ -30,4 +30,20 @@ class IntervalTestCase extends \PHPUnit_Framework_TestCase {
 		$result = $interval_value->contains(2);
 		$this->assertFalse($result, "Did not expected Interval(4, 20, 5) to match '4'" );
 	}
+
+    public function testIntervalMin()
+    {
+        $min = 13;
+        $max = 18;
+		$interval = new Interval(new Range($min, $max), 2);
+        $this->assertSame($min, $interval->min());
+    }
+
+    public function testIntervalMax()
+    {
+        $min = 3;
+        $max = 24;
+		$interval = new Interval(new Range($min, $max), 2);
+        $this->assertSame($max, $interval->max());
+    }
 }

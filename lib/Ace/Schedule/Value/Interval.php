@@ -23,4 +23,14 @@ class Interval implements iValue {
 		}
 		return false;
 	}
+
+    public function min()
+    {
+        return $this->range->min();
+    }
+
+    public function max()
+    {
+        return $this->range->max();
+    }
 }
