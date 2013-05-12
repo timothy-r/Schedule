@@ -2,6 +2,9 @@
 namespace Ace\Schedule\Test;
 use Ace\Schedule\iValue;
 
+/**
+* @codeCoverageIgnore
+*/
 class Stub_Value implements iValue
 {
     protected $id;

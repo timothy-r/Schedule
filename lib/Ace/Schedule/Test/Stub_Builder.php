@@ -3,6 +3,9 @@ namespace Ace\Schedule\Test;
 use Ace\Schedule\iBuilder;
 use Ace\Schedule\iValue;
 
+/**
+* @codeCoverageIgnore
+*/
 class Stub_Builder implements iBuilder
 {
 	public function buildMinute(iValue $value){}

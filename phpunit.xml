@@ -3,14 +3,4 @@
 	bootstrap="test-bootstrap.php"
 	colors="true"
 >
-<testsuites>
-  <testsuite name="Tests">
-    <directory>lib/Ace/Schedule/Test</directory>
-
-    <exclude>lib/Ace/Schedule/Test/Stub_Director.php</exclude>
-    <exclude>lib/Ace/Schedule/Test/Stub_Builder.php</exclude>
-    <exclude>lib/Ace/Schedule/Test/Stub_Value.php</exclude>
-
-  </testsuite>
-</testsuites>
 </phpunit>
