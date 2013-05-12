@@ -72,6 +72,18 @@ class CronDirectorTest extends \PHPUnit_Framework_TestCase
 		$director->create($schedule);
 	}
 
+    public function testInvalidScheduleItemThrowsException()
+    {
+        $schedule = '$4q * * * *';
+		$builder = $this->getMock('Ace\Schedule\Test\Stub_Builder',
+				array('buildMinute', 'buildHour', 'buildDay', 'buildMonth', 'buildWeekDay')
+		);
+		$director = new Director();
+		$director->setBuilder($builder);
+		$this->setExpectedException('Ace\Schedule\Exception');
+		$result = $director->create($schedule);
+    }
+
 	public function testInvalidScheduleThrowsException()
 	{
 		$schedule = 'abcd-e3r5';

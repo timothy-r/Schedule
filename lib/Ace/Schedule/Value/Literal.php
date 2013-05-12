@@ -2,7 +2,13 @@
 namespace Ace\Schedule\Value;
 use Ace\Schedule\iValue;
 
+/**
+* contains a single value
+*/
 class Literal implements iValue {
+    /**
+    * @var integer
+    */
 	protected $value;
 
 	public function __construct($value){

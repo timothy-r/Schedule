@@ -3,7 +3,7 @@ namespace Ace\Schedule\Value;
 use Ace\Schedule\iValue;
 
 /**
-* contains a range of discrete values
+* contains a list of discrete values
 */
 class AList implements iValue {
     /**
