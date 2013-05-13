@@ -3,10 +3,13 @@ namespace Ace\Schedule\Value;
 use Ace\Schedule\iValue;
 
 class Interval implements iValue {
+    /**
+    * @var iValue
+    */
 	protected $range;
 	protected $interval;
 
-	public function __construct(Range $range, $interval){
+	public function __construct(iValue $range, $interval){
 		$this->range = $range;
 		$this->interval = intval($interval);
 	}

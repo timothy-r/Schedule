@@ -26,6 +26,8 @@ class Parser implements iParser
 
     protected $week_day;
 
+    protected $year;
+
     /**
     * @param string $schedule
     * @return boolean
@@ -43,6 +45,7 @@ class Parser implements iParser
             $this->day = $this->getValue($items[2]);
             $this->month = $this->getValue($items[3]);
             $this->week_day = $this->getValue($items[4]);
+            $this->year = new WildCard;
             $this->valid = true;
             return true;
         } catch (Exception $e) {
@@ -58,6 +61,7 @@ class Parser implements iParser
         if (!$this->valid){
             throw new Exception("getMinute() called for invalid schedule");
         }
+        return $this->minute;
     }
 
     /**
@@ -68,6 +72,7 @@ class Parser implements iParser
         if (!$this->valid){
             throw new Exception("getHour() called for invalid schedule");
         }
+        return $this->hour;
     }
 
     /**
@@ -78,6 +83,7 @@ class Parser implements iParser
         if (!$this->valid){
             throw new Exception("getDay() called for invalid schedule");
         }
+        return $this->day;
     }
 
     /**
@@ -88,6 +94,7 @@ class Parser implements iParser
         if (!$this->valid){
             throw new Exception("getMonth() called for invalid schedule");
         }
+        return $this->month;
     }
 
     /**
@@ -98,6 +105,7 @@ class Parser implements iParser
         if (!$this->valid){
             throw new Exception("getWeekDay() called for invalid schedule");
         }
+        return $this->week_day;
     }
 
     /**
@@ -105,6 +113,10 @@ class Parser implements iParser
     */
     public function getYear()
     {
+        if (!$this->valid){
+            throw new Exception("getYear() called for invalid schedule");
+        }
+        return $this->year;
     }
 
 	/**
@@ -140,7 +152,7 @@ class Parser implements iParser
 			return new Interval($range, $values[1]);
 		}
 
-		throw new \Ace\Schedule\Exception("'$token' is not a valid cron schedule field value");
+		throw new Exception("'$token' is not a valid cron schedule field value");
 	}
 
 }
