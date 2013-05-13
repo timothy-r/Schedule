@@ -44,4 +44,14 @@ class Factory implements iFactory
 		$matchers = $this->builder->getMatchers();
 		return new Entry($matchers);
 	}
+
+    protected function getParser($type)
+    {
+        switch ($type){
+            case 'cron':
+            case 'calendar':
+        }
+
+        throw new Exception("Unknown schedule type '$type'");
+    }
 }
