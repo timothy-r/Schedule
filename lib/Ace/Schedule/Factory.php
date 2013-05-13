@@ -45,6 +45,12 @@ class Factory implements iFactory
 		return new Entry($matchers);
 	}
 
+    /**
+    * @throws Ace\Schedule\Exception
+    *
+    * @param string $type
+    * @return iParser
+    */
     protected function getParser($type)
     {
         switch ($type){
