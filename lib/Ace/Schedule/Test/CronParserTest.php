@@ -94,4 +94,14 @@ class CronParserTest extends \PHPUnit_Framework_TestCase
         $parser->getWeekDay();
     }
 
+    /**
+    * @dataProvider getInvalidSchedules
+    */
+    public function testGetYearWithInvalidScheduleThrowsException($schedule)
+    {
+        $parser = new Parser;
+        $parser->parse($schedule);
+        $this->setExpectedException('Ace\Schedule\Exception');
+        $parser->getYear();
+    }
 }
