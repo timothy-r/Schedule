@@ -12,7 +12,7 @@ require_once(dirname(__FILE__)."/Stub_Director.php");
 * @group unit
 * @group schedule
 */
-class FactoryTest extends \PHPUnit_Framework_TestCase
+class FactoryUnitTest extends \PHPUnit_Framework_TestCase
 {
 	public function testCreateEntry()
 	{
