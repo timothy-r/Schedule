@@ -40,7 +40,7 @@ class Director implements iDirector
 	*/
 	public function create($schedule)
 	{
-		if (!$this->builder instanceof iBuilder){
+		if (!$this->builder){
 			throw new Exception('Builder instance not set');
 		}
 
@@ -57,7 +57,9 @@ class Director implements iDirector
 		$this->builder->buildHour($this->parser->getHour());
 		$this->builder->buildDay($this->parser->getDay());
 		$this->builder->buildMonth($this->parser->getMonth());
-		$this->builder->buildWeekDay($this->parser->getWeekDay());
+        if ($this->parser->getWeekDay()){
+		    $this->builder->buildWeekDay($this->parser->getWeekDay());
+        }
         // build a year too
 	}
 }

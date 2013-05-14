@@ -21,8 +21,6 @@ class Parser implements iParser
 
     protected $month;
 
-    protected $week_day;
-
     protected $year;
 
     /**
@@ -67,7 +65,6 @@ class Parser implements iParser
             $this->year = new WildCard;
         }
 
-        #$this->week_day = $this->getValue($items[4]);
         $this->valid = true;
         return true;
     }
@@ -124,7 +121,7 @@ class Parser implements iParser
             if (!$this->valid){
                     throw new Exception("getWeekDay() called for invalid schedule");
             }
-            return $this->week_day;
+            return null;
     }
 
     /**
@@ -137,41 +134,4 @@ class Parser implements iParser
             }
             return $this->year;
     }
-
-    /**
-     * @param string $token the raw string from the schedule
-     * @return iValue
-     */
-    protected function getValue($token) {
-            // a wild card *
-            if (('*' == $token) || ('?' == $token)){
-                    return new WildCard;
-            }
-
-            // token is a single value - allow for strings for week_day
-            if (preg_match('/^(\d+|\w+)$/', $token)){
-                    return new Literal($token);
-            }
-
-            // a set of tokens 1,2,3
-            if (preg_match('/,/', $token)){
-                    return new AList(explode(',', $token));
-            }
-
-            // a range of values 1-3
-            if (preg_match('/\-/', $token)){
-                    $values = explode('-', $token);
-                    return new Range($values[0], $values[1]);
-            }
-
-            // an interval set 1-5/1
-            if (preg_match('#/#', $token)){
-                    $values = explode('/', $token);
-                    $range = $this->getValue($values[0]);
-                    return new Interval($range, $values[1]);
-            }
-
-            throw new Exception("'$token' is not a valid calendar schedule field value");
-    }
-
 }

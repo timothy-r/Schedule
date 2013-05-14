@@ -74,7 +74,7 @@ class CalendarParserTest extends \PHPUnit_Framework_TestCase
         $parser = new Parser;
         $result = $parser->parse($schedule);
         $week_day = $parser->getWeekDay();
-        $this->assertInstanceOf('Ace\Schedule\iValue', $week_day);
+        $this->assertNull($week_day);
     }
 
     /**
