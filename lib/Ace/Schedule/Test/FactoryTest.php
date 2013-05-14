@@ -17,25 +17,32 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
 	public function testCreateEntry()
 	{
 		$schedule = '4 * * * *';
+        $type = 'type';
 		$stub_director = new Stub_Director();
 		$stub_builder = new Stub_Builder();
-		$factory = new Factory($stub_director, $stub_builder);
+        $stub_parser = new Stub_Parser;
+		$factory = $this->getMock('Ace\Schedule\Factory', 
+            array('getParser'), 
+            array($stub_director, $stub_builder)
+        );
+        $factory->expects($this->any())
+            ->method('getParser')
+            ->will($this->returnValue($stub_parser));
 
-		$entry = $factory->createEntry($schedule);
+
+		$entry = $factory->createEntry($schedule, $type);
 		$this->assertInstanceOf('Ace\Schedule\Entry', $entry);
 	}
 
-	public function testCreateEntryThrowsExceptionWithInvalidData()
+	public function testCreateEntryThrowsExceptionWithInvalidType()
 	{
-		$schedule = 'not-a-crontab-string';
-		$mock_director = $this->getMock('Ace\Schedule\Test\Stub_Director', array('create'));
-		$mock_director->expects($this->any())
-			->method('create')
-			->will($this->throwException(new Exception));
-
+		$schedule = '14th May 2013';
+        $type = 'null';
+		$stub_director = new Stub_Director();
 		$stub_builder = new Stub_Builder();
-		$factory = new Factory($mock_director, $stub_builder);
+        $factory = new Factory($stub_director, $stub_builder);
+
 		$this->setExpectedException('Ace\Schedule\Exception');
-		$entry = $factory->createEntry($schedule);
+		$entry = $factory->createEntry($schedule, $type);
 	}
 }

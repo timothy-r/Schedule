@@ -1,13 +1,14 @@
 <?php
 namespace Ace\Schedule;
-
 /**
 * creates an Entry instance
 */
 interface iFactory
 {
     /**
-    * @todo add a second param to indicate schedule type, eg cron or date
+    * @param string $schedule
+    * @param string $type
+    * @return Ace\Schedule\Entry
     */
-	public function createEntry($schedule);
+	public function createEntry($schedule, $type);
 }
