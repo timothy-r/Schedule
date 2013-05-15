@@ -9,6 +9,9 @@ class CalendarParserTest extends \PHPUnit_Framework_TestCase
     {
         return array(
             array('26th June 2013 10am'),
+            array('26th June 2013 10:10am'),
+            array('10:10am'),
+            array('26th June 2013'),
         );
     }
 

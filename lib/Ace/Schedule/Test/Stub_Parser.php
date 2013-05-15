@@ -2,6 +2,9 @@
 namespace Ace\Schedule\Test;
 use Ace\Schedule\iParser;
 
+/**
+* @codeCoverageIgnore
+*/
 class Stub_Parser implements iParser
 {
     public function parse($schedule){}
