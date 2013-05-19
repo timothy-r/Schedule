@@ -4,7 +4,13 @@ use Ace\Schedule\IValue;
 use Ace\Schedule\IMatcher;
 use Ace\Schedule\Exception;
 
+/**
+* Tests whether a DateTime matches a certain hour value
+*/
 class Hour implements IMatcher {
+    /**
+    * @var iValue
+    */
 	protected $hour;
 
 	public function __construct(IValue $hour){
