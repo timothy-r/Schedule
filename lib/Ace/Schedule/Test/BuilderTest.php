@@ -4,9 +4,6 @@ use Ace\Schedule\Builder;
 use Ace\Schedule\iBuilder;
 use Ace\Schedule\Value\Range;
 
-require_once(dirname(__FILE__)."/../iBuilder.php");
-require_once(dirname(__FILE__)."/../Builder.php");
-
 /**
 * @group integration
 * @group schedule

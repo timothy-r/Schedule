@@ -3,9 +3,6 @@ namespace Ace\Schedule\Test;
 use Ace\Schedule\Director;
 use Ace\Schedule\iBuilder;
 
-require_once(dirname(__FILE__)."/Stub_Builder.php");
-require_once(dirname(__FILE__)."/Stub_Parser.php");
-
 /**
 * @group unit
 * @group schedule

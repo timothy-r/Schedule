@@ -5,9 +5,6 @@ use Ace\Schedule\Value\Literal;
 use Ace\Schedule\Value\Range;
 use Ace\Schedule\Test\Stub_Value;
 
-require_once(dirname(__FILE__)."/../iMatcher.php");
-require_once(dirname(__FILE__)."/../Item/Minute.php");
-
 /**
 * @group unit
 * @group schedule

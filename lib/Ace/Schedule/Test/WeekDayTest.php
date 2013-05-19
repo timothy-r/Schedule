@@ -3,9 +3,6 @@ namespace Ace\Schedule\Test;
 use Ace\Schedule\Item\WeekDay;
 use Ace\Schedule\Value\Literal;
 
-require_once(dirname(__FILE__)."/../iMatcher.php");
-require_once(dirname(__FILE__)."/../Item/WeekDay.php");
-
 /**
 * @group unit
 * @group schedule

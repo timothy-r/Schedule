@@ -5,9 +5,6 @@ use Ace\Schedule\iDirector;
 use Ace\Schedule\iBuilder;
 use Ace\Schedule\Exception;
 
-require_once(dirname(__FILE__)."/Stub_Builder.php");
-require_once(dirname(__FILE__)."/Stub_Director.php");
-
 /**
 * @group unit
 * @group schedule
