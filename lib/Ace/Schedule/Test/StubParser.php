@@ -5,7 +5,7 @@ use Ace\Schedule\IParser;
 /**
 * @codeCoverageIgnore
 */
-class Stub_Parser implements IParser
+class StubParser implements IParser
 {
     public function parse($schedule){}
 

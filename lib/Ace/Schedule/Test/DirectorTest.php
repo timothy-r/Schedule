@@ -18,7 +18,7 @@ class DirectorTest extends \PHPUnit_Framework_TestCase
 			array('buildMinute', 'buildHour', 'buildDay', 'buildMonth', 'buildWeekDay')
 		);
         
-        $parser = $this->getMock('Ace\Schedule\Test\Stub_Parser',
+        $parser = $this->getMock('Ace\Schedule\Test\StubParser',
             array('parse', 'getMinute', 'getHour', 'getDay', 'getMonth', 'getWeekDay', 'getYear')
         );
         
@@ -75,7 +75,7 @@ class DirectorTest extends \PHPUnit_Framework_TestCase
 
     public function testInvalidScheduleThrowsException()
     {
-        $parser = $this->getMock('Ace\Schedule\Test\Stub_Parser',
+        $parser = $this->getMock('Ace\Schedule\Test\StubParser',
             array('parse', 'getMinute', 'getHour', 'getDay', 'getMonth', 'getWeekDay', 'getYear')
         );
         
@@ -94,7 +94,7 @@ class DirectorTest extends \PHPUnit_Framework_TestCase
 	public function testMissingBuilderThrowsException()
 	{
 		$schedule = '';
-        $parser = new Stub_Parser;
+        $parser = new StubParser;
 		$director = new Director();
         $director->setParser($parser);
 		$this->setExpectedException('Ace\Schedule\Exception');

@@ -17,7 +17,7 @@ class FactoryUnitTest extends \PHPUnit_Framework_TestCase
         $type = 'type';
 		$stub_director = new Stub_Director();
 		$stub_builder = new Stub_Builder();
-        $stub_parser = new Stub_Parser;
+        $stub_parser = new StubParser;
 		$factory = $this->getMock('Ace\Schedule\Factory', 
             array('getParser'), 
             array($stub_director, $stub_builder)
