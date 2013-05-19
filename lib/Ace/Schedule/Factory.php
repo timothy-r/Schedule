@@ -32,6 +32,7 @@ class Factory implements IFactory
 	}
 
 	/*
+    * @todo refactor Builder to create Entry
 	* @param string $schedule
 	* @param string $type
 	*

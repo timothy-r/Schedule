@@ -3,6 +3,8 @@ namespace Ace\Schedule;
 
 /**
 * interface to create specific IMatcher types
+* @todo add buildYear() method
+* @todo IBuilder should create Entry instance not just matchers
 */
 interface IBuilder
 {
@@ -16,12 +18,4 @@ interface IBuilder
 	* @return array of IMatcher instances
 	*/
 	public function getMatchers();
-
-    /**
-    public function createWildCard();
-    public function createLiteral($value);
-    public function createAList(array $value);
-    public function createRange($min, $max);
-    public function createInterval(IValue $value, $interval);
-    **/
 }
