@@ -1,7 +1,7 @@
 <?php
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Cron\Parser;
-use Ace\Schedule\iValue;
+use Ace\Schedule\IValue;
 
 class CronParserTest extends \PHPUnit_Framework_TestCase
 {
@@ -34,7 +34,7 @@ class CronParserTest extends \PHPUnit_Framework_TestCase
         $parser = new Parser;
         $result = $parser->parse($schedule);
         $minute = $parser->getMinute();
-        $this->assertInstanceOf('Ace\Schedule\iValue', $minute);
+        $this->assertInstanceOf('Ace\Schedule\IValue', $minute);
         $this->assertInstanceOf($type, $minute);
     }
 
@@ -46,7 +46,7 @@ class CronParserTest extends \PHPUnit_Framework_TestCase
         $parser = new Parser;
         $result = $parser->parse($schedule);
         $hour = $parser->getHour();
-        $this->assertInstanceOf('Ace\Schedule\iValue', $hour);
+        $this->assertInstanceOf('Ace\Schedule\IValue', $hour);
         $this->assertInstanceOf($type, $hour);
     }
 
@@ -58,7 +58,7 @@ class CronParserTest extends \PHPUnit_Framework_TestCase
         $parser = new Parser;
         $result = $parser->parse($schedule);
         $day = $parser->getDay();
-        $this->assertInstanceOf('Ace\Schedule\iValue', $day);
+        $this->assertInstanceOf('Ace\Schedule\IValue', $day);
         $this->assertInstanceOf($type, $day);
     }
 
@@ -70,7 +70,7 @@ class CronParserTest extends \PHPUnit_Framework_TestCase
         $parser = new Parser;
         $result = $parser->parse($schedule);
         $month = $parser->getMonth();
-        $this->assertInstanceOf('Ace\Schedule\iValue', $month);
+        $this->assertInstanceOf('Ace\Schedule\IValue', $month);
         $this->assertInstanceOf($type, $month);
     }
 
@@ -82,7 +82,7 @@ class CronParserTest extends \PHPUnit_Framework_TestCase
         $parser = new Parser;
         $result = $parser->parse($schedule);
         $week_day = $parser->getWeekDay();
-        $this->assertInstanceOf('Ace\Schedule\iValue', $week_day);
+        $this->assertInstanceOf('Ace\Schedule\IValue', $week_day);
         $this->assertInstanceOf($type, $week_day);
     }
 
@@ -94,7 +94,7 @@ class CronParserTest extends \PHPUnit_Framework_TestCase
         $parser = new Parser;
         $result = $parser->parse($schedule);
         $year = $parser->getYear();
-        $this->assertInstanceOf('Ace\Schedule\iValue', $year);
+        $this->assertInstanceOf('Ace\Schedule\IValue', $year);
         $this->assertInstanceOf('Ace\Schedule\Value\WildCard', $year);
     }
 

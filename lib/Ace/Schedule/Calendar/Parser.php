@@ -70,7 +70,7 @@ class Parser implements IParser
     }
 
     /**
-     * @return iValue
+     * @return IValue
      */
     public function getMinute()
     {
@@ -81,7 +81,7 @@ class Parser implements IParser
     }
 
     /**
-     * @return iValue
+     * @return IValue
      */
     public function getHour()
     {
@@ -92,7 +92,7 @@ class Parser implements IParser
     }
 
     /**
-     * @return iValue
+     * @return IValue
      */
     public function getDay()
     {
@@ -103,7 +103,7 @@ class Parser implements IParser
     }
 
     /**
-     * @return iValue
+     * @return IValue
      */
     public function getMonth()
     {
@@ -114,7 +114,7 @@ class Parser implements IParser
     }
 
     /**
-     * @return iValue
+     * @return IValue
      */
     public function getWeekDay()
     {
@@ -125,7 +125,7 @@ class Parser implements IParser
     }
 
     /**
-     * @return iValue
+     * @return IValue
      */
     public function getYear()
     {

@@ -1,11 +1,11 @@
 <?php
 namespace Ace\Schedule\Value;
-use Ace\Schedule\iValue;
+use Ace\Schedule\IValue;
 
 /**
 * A wild card value matches everything
 */
-class WildCard implements iValue
+class WildCard implements IValue
 {
 	public function contains($value){
 		return true;

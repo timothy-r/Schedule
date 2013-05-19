@@ -1,7 +1,7 @@
 <?php
 namespace Ace\Schedule;
 use Ace\Schedule\IBuilder;
-use Ace\Schedule\iValue;
+use Ace\Schedule\IValue;
 
 use Ace\Schedule\Item\Minute;
 use Ace\Schedule\Item\Hour;
@@ -21,41 +21,41 @@ class Builder implements IBuilder
 	protected $matchers = array();
 
 	/**
-	* @param iValue $value
+	* @param IValue $value
 	*/
-	public function buildMinute(iValue $value){
+	public function buildMinute(IValue $value){
 		$this->matchers['minute'] = new Minute($value);
 	}
 
 	/**
-	* @param iValue $value
+	* @param IValue $value
 	* @return Hour
 	*/
-	public function buildHour(iValue $value){
+	public function buildHour(IValue $value){
 		$this->matchers['hour'] = new Hour($value);
 	}
 
 	/**
-	* @param iValue $value
+	* @param IValue $value
 	* @return Day
 	*/
-	public function buildDay(iValue $value){
+	public function buildDay(IValue $value){
 		$this->matchers['day'] = new Day($value);
 	}
 
 	/**
-	* @param iValue $value
+	* @param IValue $value
 	* @return Month
 	*/
-	public function buildMonth(iValue $value){
+	public function buildMonth(IValue $value){
 		$this->matchers['month'] = new Month($value);
 	}
 
 	/**
-	* @param iValue $value
+	* @param IValue $value
 	* @return WeekDay
 	*/
-	public function buildWeekDay(iValue $value){
+	public function buildWeekDay(IValue $value){
 		$this->matchers['week_day'] = new WeekDay($value);
 	}
 

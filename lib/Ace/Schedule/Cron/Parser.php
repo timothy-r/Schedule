@@ -54,7 +54,7 @@ class Parser implements IParser
     }
 
     /**
-    * @return iValue
+    * @return IValue
     */
     public function getMinute()
     {
@@ -65,7 +65,7 @@ class Parser implements IParser
     }
 
     /**
-    * @return iValue
+    * @return IValue
     */
     public function getHour()
     {
@@ -76,7 +76,7 @@ class Parser implements IParser
     }
 
     /**
-    * @return iValue
+    * @return IValue
     */
     public function getDay()
     {
@@ -87,7 +87,7 @@ class Parser implements IParser
     }
 
     /**
-    * @return iValue
+    * @return IValue
     */
     public function getMonth()
     {
@@ -98,7 +98,7 @@ class Parser implements IParser
     }
 
     /**
-    * @return iValue
+    * @return IValue
     */
     public function getWeekDay()
     {
@@ -109,7 +109,7 @@ class Parser implements IParser
     }
 
     /**
-    * @return iValue
+    * @return IValue
     */
     public function getYear()
     {
@@ -121,7 +121,7 @@ class Parser implements IParser
 
 	/**
 	* @param string $token the raw string from the schedule
-	* @return iValue
+	* @return IValue
 	*/
 	protected function getValue($token) {
 		// a wild card *

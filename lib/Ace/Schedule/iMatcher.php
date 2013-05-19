@@ -1,6 +1,6 @@
 <?php
 namespace Ace\Schedule;
-use Ace\Schedule\iValue;
+use Ace\Schedule\IValue;
 use DateTime;
 /**
 * interface for classes that match a DateTime value

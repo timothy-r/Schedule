@@ -6,11 +6,11 @@ namespace Ace\Schedule;
 */
 interface IBuilder
 {
-	public function buildMinute(iValue $value);
-	public function buildHour(iValue $value);
-	public function buildDay(iValue $value);
-	public function buildMonth(iValue $value);
-	public function buildWeekDay(iValue $value);
+	public function buildMinute(IValue $value);
+	public function buildHour(IValue $value);
+	public function buildDay(IValue $value);
+	public function buildMonth(IValue $value);
+	public function buildWeekDay(IValue $value);
 
 	/**
 	* @return array of iMatcher instances
@@ -22,6 +22,6 @@ interface IBuilder
     public function createLiteral($value);
     public function createAList(array $value);
     public function createRange($min, $max);
-    public function createInterval(iValue $value, $interval);
+    public function createInterval(IValue $value, $interval);
     **/
 }
