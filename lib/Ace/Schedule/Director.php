@@ -1,13 +1,13 @@
 <?php
 namespace Ace\Schedule;
-use Ace\Schedule\iDirector;
+use Ace\Schedule\IDirector;
 use Ace\Schedule\IBuilder;
 use Ace\Schedule\Exception;
 
 /**
 * Directs building a set of iMatchers from a formatted schedule string
 */
-class Director implements iDirector
+class Director implements IDirector
 {
 	/**
 	* @var IBuilder

@@ -3,7 +3,7 @@ namespace Ace\Schedule;
 /**
 * interface to create a schedule of iMatcher instances using an IBuilder
 */
-interface iDirector
+interface IDirector
 {
 	/**
 	* @param string $schedule

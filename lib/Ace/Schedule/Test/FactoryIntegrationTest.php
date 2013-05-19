@@ -1,7 +1,7 @@
 <?php
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Factory;
-use Ace\Schedule\iDirector;
+use Ace\Schedule\IDirector;
 use Ace\Schedule\Director;
 use Ace\Schedule\IBuilder;
 use Ace\Schedule\Builder;

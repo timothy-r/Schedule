@@ -1,13 +1,13 @@
 <?php
 namespace Ace\Schedule\Test;
-use Ace\Schedule\iDirector;
+use Ace\Schedule\IDirector;
 use Ace\Schedule\IBuilder;
 use Ace\Schedule\iParser;
 
 /**
 * @codeCoverageIgnore
 */
-class Stub_Director implements iDirector
+class Stub_Director implements IDirector
 {
 	public function create($schedule){}
 
