@@ -1,11 +1,11 @@
 <?php
 namespace Ace\Schedule\Item;
 use Ace\Schedule\IValue;
-use Ace\Schedule\iMatcher;
+use Ace\Schedule\IMatcher;
 use Ace\Schedule\Exception;
 use DateTime;
 
-class Day implements iMatcher {
+class Day implements IMatcher {
 	protected $day;
 
 	public function __construct(IValue $day){

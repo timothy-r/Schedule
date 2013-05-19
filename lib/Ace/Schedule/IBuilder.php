@@ -2,7 +2,7 @@
 namespace Ace\Schedule;
 
 /**
-* interface to create specific iMatcher types
+* interface to create specific IMatcher types
 */
 interface IBuilder
 {
@@ -13,7 +13,7 @@ interface IBuilder
 	public function buildWeekDay(IValue $value);
 
 	/**
-	* @return array of iMatcher instances
+	* @return array of IMatcher instances
 	*/
 	public function getMatchers();
 

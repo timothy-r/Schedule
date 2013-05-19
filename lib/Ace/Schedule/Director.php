@@ -5,7 +5,7 @@ use Ace\Schedule\IBuilder;
 use Ace\Schedule\Exception;
 
 /**
-* Directs building a set of iMatchers from a formatted schedule string
+* Directs building a set of IMatchers from a formatted schedule string
 */
 class Director implements IDirector
 {

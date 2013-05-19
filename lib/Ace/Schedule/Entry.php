@@ -8,7 +8,7 @@ use DateTime;
 */
 class Entry {
 	/**
-	* @var array of iMatcher instances
+	* @var array of IMatcher instances
 	*/
 	protected $matchers;
 
