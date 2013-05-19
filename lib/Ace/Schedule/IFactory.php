@@ -3,7 +3,7 @@ namespace Ace\Schedule;
 /**
 * creates an Entry instance
 */
-interface iFactory
+interface IFactory
 {
     /**
     * @param string $schedule
