@@ -7,7 +7,7 @@ use Ace\Schedule\IParser;
 /**
 * @codeCoverageIgnore
 */
-class Stub_Director implements IDirector
+class StubDirector implements IDirector
 {
 	public function create($schedule){}
 
