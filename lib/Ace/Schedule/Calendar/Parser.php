@@ -1,6 +1,6 @@
 <?php
 namespace Ace\Schedule\Calendar;
-use Ace\Schedule\iParser;
+use Ace\Schedule\IParser;
 use Ace\Schedule\Exception;
 
 use Ace\Schedule\Value\Literal;
@@ -9,7 +9,7 @@ use Ace\Schedule\Value\WildCard;
 /**
 * parses a calendar formatted string into its parts
 */
-class Parser implements iParser
+class Parser implements IParser
 {
     protected $valid = false;
 

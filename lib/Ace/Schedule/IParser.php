@@ -4,7 +4,7 @@ namespace Ace\Schedule;
 /**
 * interface to extracting schedule items from a schedule string
 */
-interface iParser
+interface IParser
 {
     /**
     * @param string $schedule

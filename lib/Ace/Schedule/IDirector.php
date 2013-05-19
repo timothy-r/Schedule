@@ -16,7 +16,7 @@ interface IDirector
 	public function setBuilder(IBuilder $builder);
     
     /**
-    * @param iParser $parser
+    * @param IParser $parser
     */
-    public function setParser(iParser $parser);
+    public function setParser(IParser $parser);
 }

@@ -2,7 +2,7 @@
 namespace Ace\Schedule\Test;
 use Ace\Schedule\IDirector;
 use Ace\Schedule\IBuilder;
-use Ace\Schedule\iParser;
+use Ace\Schedule\IParser;
 
 /**
 * @codeCoverageIgnore
@@ -13,5 +13,5 @@ class Stub_Director implements IDirector
 
 	public function setBuilder(IBuilder $builder){}
 
-    public function setParser(iParser $parser) {}
+    public function setParser(IParser $parser) {}
 }

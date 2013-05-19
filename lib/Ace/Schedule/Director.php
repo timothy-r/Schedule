@@ -15,7 +15,7 @@ class Director implements IDirector
 	protected $builder;
 
     /**
-    * @var iParser
+    * @var IParser
     */
     protected $parser;
 
@@ -28,9 +28,9 @@ class Director implements IDirector
 	}
 
     /**
-    * @param iParser $parser
+    * @param IParser $parser
     */
-    public function setParser(iParser $parser)
+    public function setParser(IParser $parser)
     {
         $this->parser = $parser;
     }

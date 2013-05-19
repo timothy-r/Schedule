@@ -52,7 +52,7 @@ class Factory implements iFactory
     * @throws Ace\Schedule\Exception
     *
     * @param string $type
-    * @return iParser
+    * @return IParser
     */
     protected function getParser($type)
     {
