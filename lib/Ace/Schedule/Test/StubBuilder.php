@@ -6,7 +6,7 @@ use Ace\Schedule\IValue;
 /**
 * @codeCoverageIgnore
 */
-class Stub_Builder implements IBuilder
+class StubBuilder implements IBuilder
 {
 	public function buildMinute(IValue $value){}
 	public function buildHour(IValue $value){}

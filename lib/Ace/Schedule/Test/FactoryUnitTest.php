@@ -16,7 +16,7 @@ class FactoryUnitTest extends \PHPUnit_Framework_TestCase
 		$schedule = '4 * * * *';
         $type = 'type';
 		$stub_director = new Stub_Director();
-		$stub_builder = new Stub_Builder();
+		$stub_builder = new StubBuilder();
         $stub_parser = new StubParser;
 		$factory = $this->getMock('Ace\Schedule\Factory', 
             array('getParser'), 
@@ -36,7 +36,7 @@ class FactoryUnitTest extends \PHPUnit_Framework_TestCase
 		$schedule = '14th May 2013';
         $type = 'null';
 		$stub_director = new Stub_Director();
-		$stub_builder = new Stub_Builder();
+		$stub_builder = new StubBuilder();
         $factory = new Factory($stub_director, $stub_builder);
 
 		$this->setExpectedException('Ace\Schedule\Exception');

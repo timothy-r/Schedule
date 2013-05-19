@@ -14,7 +14,7 @@ class DirectorTest extends \PHPUnit_Framework_TestCase
 	public function testCreateCallsBuilderMethods()
 	{
 		$schedule = '*/2 * 1,2 3-6 Monday';
-		$builder = $this->getMock('Ace\Schedule\Test\Stub_Builder',
+		$builder = $this->getMock('Ace\Schedule\Test\StubBuilder',
 			array('buildMinute', 'buildHour', 'buildDay', 'buildMonth', 'buildWeekDay')
 		);
         
@@ -82,7 +82,7 @@ class DirectorTest extends \PHPUnit_Framework_TestCase
         $parser->expects($this->atLeastOnce())
             ->method('parse')
             ->will($this->returnValue(false));
-        $builder = new Stub_Builder;
+        $builder = new StubBuilder;
 		$director = new Director();
 		$director->setBuilder($builder);
         $director->setParser($parser);
@@ -104,7 +104,7 @@ class DirectorTest extends \PHPUnit_Framework_TestCase
 	public function testMissingParserThrowsException()
 	{
 		$schedule = '';
-        $builder = new Stub_Builder;
+        $builder = new StubBuilder;
 		$director = new Director();
         $director->setBuilder($builder);
 		$this->setExpectedException('Ace\Schedule\Exception');
