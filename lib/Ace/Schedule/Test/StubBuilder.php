@@ -2,6 +2,7 @@
 namespace Ace\Schedule\Test;
 use Ace\Schedule\IBuilder;
 use Ace\Schedule\IValue;
+use Ace\Schedule\Entry;
 
 /**
 * @codeCoverageIgnore
@@ -13,12 +14,7 @@ class StubBuilder implements IBuilder
 	public function buildDay(IValue $value){}
 	public function buildMonth(IValue $value){}
 	public function buildWeekDay(IValue $value){}
-	public function getMatchers(){
-		return array();
+	public function getProduct(){
+		return new Entry(array());
 	}
-    public function createWildCard(){}
-    public function createLiteral($value){}
-    public function createAList(array $value){}
-    public function createRange($min, $max){}
-    public function createInterval(IValue $value, $interval){}
 }

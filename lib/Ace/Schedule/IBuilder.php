@@ -4,7 +4,6 @@ namespace Ace\Schedule;
 /**
 * interface to create specific IMatcher types
 * @todo add buildYear() method
-* @todo IBuilder should create Entry instance not just matchers
 */
 interface IBuilder
 {
@@ -15,7 +14,7 @@ interface IBuilder
 	public function buildWeekDay(IValue $value);
 
 	/**
-	* @return array of IMatcher instances
+	* @return Entry
 	*/
-	public function getMatchers();
+	public function getProduct();
 }

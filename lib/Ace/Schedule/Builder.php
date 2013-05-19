@@ -58,9 +58,21 @@ class Builder implements IBuilder
 	public function buildWeekDay(IValue $value){
 		$this->matchers['week_day'] = new WeekDay($value);
 	}
-
-	public function getMatchers()
+    
+    /*
+    * @return Entry
+    */
+	public function getProduct()
 	{
-		return $this->matchers;
+		return $this->createEntry($this->matchers);
 	}
+    
+    /*
+    * implementing this method allows tests to assert the $matchers array passed to the Entry
+    * @return Entry
+    */
+    protected function createEntry($matchers)
+    {
+        return new Entry($matchers);
+    }
 }

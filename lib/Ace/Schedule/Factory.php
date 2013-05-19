@@ -32,7 +32,6 @@ class Factory implements IFactory
 	}
 
 	/*
-    * @todo refactor Builder to create Entry
 	* @param string $schedule
 	* @param string $type
 	*
@@ -45,8 +44,7 @@ class Factory implements IFactory
 		$this->director->setBuilder($this->builder);
         $this->director->setParser($parser);
 		$this->director->create($schedule);
-		$matchers = $this->builder->getMatchers();
-		return new Entry($matchers);
+        return $this->builder->getProduct();
 	}
 
     /**
