@@ -33,7 +33,7 @@ class MonthTestCase extends \PHPUnit_Framework_TestCase {
 
     public function testMonthValidatesLowestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('lessThan','greaterThan'));
+        $value = $this->getMock('Ace\Schedule\Test\StubValue', array('lessThan','greaterThan'));
         $value->expects($this->any())
             ->method('lessThan')
             ->will($this->returnValue(false));
@@ -46,7 +46,7 @@ class MonthTestCase extends \PHPUnit_Framework_TestCase {
 
     public function testMonthValidatesHighestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('lessThan','greaterThan'));
+        $value = $this->getMock('Ace\Schedule\Test\StubValue', array('lessThan','greaterThan'));
         $value->expects($this->any())
             ->method('lessThan')
             ->will($this->returnValue(true));

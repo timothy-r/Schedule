@@ -29,7 +29,7 @@ class DayTestCase extends \PHPUnit_Framework_TestCase {
 
     public function testDayValidatesLowestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('lessThan','greaterThan'));
+        $value = $this->getMock('Ace\Schedule\Test\StubValue', array('lessThan','greaterThan'));
         $value->expects($this->any())
             ->method('lessThan')
             ->will($this->returnValue(false));
@@ -42,7 +42,7 @@ class DayTestCase extends \PHPUnit_Framework_TestCase {
 
     public function testDayValidatesHighestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('lessThan','greaterThan'));
+        $value = $this->getMock('Ace\Schedule\Test\StubValue', array('lessThan','greaterThan'));
         $value->expects($this->any())
             ->method('lessThan')
             ->will($this->returnValue(true));

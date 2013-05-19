@@ -27,7 +27,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
 	public function testBuildMinute()
 	{
 		$builder = new Builder;
-        $value = new Stub_Value;
+        $value = new StubValue;
 		$builder->buildMinute($value);
 		$product = $builder->getMatchers();
 		$this->assertInstanceOf('Ace\Schedule\Item\Minute', current($product));
@@ -49,7 +49,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
 	public function testBuildHour()
 	{
 		$builder = new Builder;
-        $value = new Stub_Value;
+        $value = new StubValue;
 		$builder->buildHour($value);
 		$product = $builder->getMatchers();
 		$this->assertInstanceOf('Ace\Schedule\Item\Hour', current($product));
@@ -70,7 +70,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
 	public function testBuildDay()
 	{
 		$builder = new Builder;
-        $value = new Stub_Value;
+        $value = new StubValue;
 		$builder->buildDay($value);
 		$product = $builder->getMatchers();
 		$this->assertInstanceOf('Ace\Schedule\Item\Day', current($product));
@@ -93,7 +93,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
 	public function testBuildMonth()
 	{
 		$builder = new Builder;
-        $value = new Stub_Value;
+        $value = new StubValue;
 		$builder->buildMonth($value);
 		$product = $builder->getMatchers();
 		$this->assertInstanceOf('Ace\Schedule\Item\Month', current($product));
@@ -119,7 +119,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
 	public function testBuildWeekDay()
 	{
 		$builder = new Builder;
-        $value = new Stub_Value;
+        $value = new StubValue;
 		$builder->buildWeekDay($value);
 		$product = $builder->getMatchers();
 		$this->assertInstanceOf('Ace\Schedule\Item\WeekDay', current($product));

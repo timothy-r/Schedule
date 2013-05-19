@@ -26,7 +26,7 @@ class DirectorTest extends \PHPUnit_Framework_TestCase
             ->method('parse')
             ->will($this->returnValue(true));
 
-        $stub_value = new Stub_Value;
+        $stub_value = new StubValue;
         $parser->expects($this->any())
             ->method('getMinute')
             ->will($this->returnValue($stub_value));

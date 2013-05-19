@@ -3,7 +3,7 @@ namespace Ace\Schedule\Test;
 use Ace\Schedule\Item\Minute;
 use Ace\Schedule\Value\Literal;
 use Ace\Schedule\Value\Range;
-use Ace\Schedule\Test\Stub_Value;
+use Ace\Schedule\Test\StubValue;
 
 /**
 * @group unit
@@ -40,7 +40,7 @@ class MinuteTestCase extends \PHPUnit_Framework_TestCase {
 
     public function testMinuteValidatesLowestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('lessThan','greaterThan'));
+        $value = $this->getMock('Ace\Schedule\Test\StubValue', array('lessThan','greaterThan'));
         $value->expects($this->any())
             ->method('lessThan')
             ->will($this->returnValue(false));
@@ -53,7 +53,7 @@ class MinuteTestCase extends \PHPUnit_Framework_TestCase {
 
     public function testMinuteValidatesHighestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\Stub_Value', array('lessThan','greaterThan'));
+        $value = $this->getMock('Ace\Schedule\Test\StubValue', array('lessThan','greaterThan'));
         $value->expects($this->any())
             ->method('lessThan')
             ->will($this->returnValue(true));

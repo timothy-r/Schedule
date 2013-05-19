@@ -5,7 +5,7 @@ use Ace\Schedule\IValue;
 /**
 * @codeCoverageIgnore
 */
-class Stub_Value implements IValue
+class StubValue implements IValue
 {
     protected $id;
 
