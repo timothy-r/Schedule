@@ -1,7 +1,7 @@
 <?php
 namespace Ace\Schedule;
 use Ace\Schedule\iDirector;
-use Ace\Schedule\iBuilder;
+use Ace\Schedule\IBuilder;
 use Ace\Schedule\Exception;
 
 /**
@@ -10,7 +10,7 @@ use Ace\Schedule\Exception;
 class Director implements iDirector
 {
 	/**
-	* @var iBuilder
+	* @var IBuilder
 	*/
 	protected $builder;
 
@@ -20,9 +20,9 @@ class Director implements iDirector
     protected $parser;
 
 	/**
-	* @param iBuilder $builder
+	* @param IBuilder $builder
 	*/
-	public function setBuilder(iBuilder $builder)
+	public function setBuilder(IBuilder $builder)
 	{
 		$this->builder = $builder;
 	}

@@ -1,12 +1,12 @@
 <?php
 namespace Ace\Schedule\Test;
-use Ace\Schedule\iBuilder;
+use Ace\Schedule\IBuilder;
 use Ace\Schedule\iValue;
 
 /**
 * @codeCoverageIgnore
 */
-class Stub_Builder implements iBuilder
+class Stub_Builder implements IBuilder
 {
 	public function buildMinute(iValue $value){}
 	public function buildHour(iValue $value){}

@@ -1,13 +1,13 @@
 <?php
 namespace Ace\Schedule;
 use Ace\Schedule\iFactory;
-use Ace\Schedule\iBuilder;
+use Ace\Schedule\IBuilder;
 use Ace\Schedule\iDirector;
 use Ace\Schedule\Entry;
 
 /**
 * creates an Entry object for a given schedule string
-* uses an iDirector and iBuilder which are specific to the schedule string format
+* uses an iDirector and IBuilder which are specific to the schedule string format
 */
 class Factory implements iFactory
 {
@@ -17,15 +17,15 @@ class Factory implements iFactory
 	protected $director;
 
 	/**
-	* @var iBuilder
+	* @var IBuilder
 	*/
 	protected $builder;
 
 	/**
 	* @param iDirector $director
-	* @param iBuilder $builder
+	* @param IBuilder $builder
 	*/
-	public function __construct(iDirector $director, iBuilder $builder)
+	public function __construct(iDirector $director, IBuilder $builder)
 	{
 		$this->director = $director;
 		$this->builder = $builder;

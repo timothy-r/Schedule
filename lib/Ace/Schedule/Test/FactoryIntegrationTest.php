@@ -3,7 +3,7 @@ namespace Ace\Schedule\Test;
 use Ace\Schedule\Factory;
 use Ace\Schedule\iDirector;
 use Ace\Schedule\Director;
-use Ace\Schedule\iBuilder;
+use Ace\Schedule\IBuilder;
 use Ace\Schedule\Builder;
 use Ace\Schedule\Exception;
 use \DateTime;

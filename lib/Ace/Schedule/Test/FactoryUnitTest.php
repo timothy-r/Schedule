@@ -2,7 +2,7 @@
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Factory;
 use Ace\Schedule\iDirector;
-use Ace\Schedule\iBuilder;
+use Ace\Schedule\IBuilder;
 use Ace\Schedule\Exception;
 
 /**

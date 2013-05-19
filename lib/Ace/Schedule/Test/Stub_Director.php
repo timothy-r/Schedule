@@ -1,7 +1,7 @@
 <?php
 namespace Ace\Schedule\Test;
 use Ace\Schedule\iDirector;
-use Ace\Schedule\iBuilder;
+use Ace\Schedule\IBuilder;
 use Ace\Schedule\iParser;
 
 /**
@@ -11,7 +11,7 @@ class Stub_Director implements iDirector
 {
 	public function create($schedule){}
 
-	public function setBuilder(iBuilder $builder){}
+	public function setBuilder(IBuilder $builder){}
 
     public function setParser(iParser $parser) {}
 }

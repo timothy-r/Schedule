@@ -1,7 +1,7 @@
 <?php
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Director;
-use Ace\Schedule\iBuilder;
+use Ace\Schedule\IBuilder;
 
 /**
 * @group unit

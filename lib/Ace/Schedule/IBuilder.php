@@ -4,7 +4,7 @@ namespace Ace\Schedule;
 /**
 * interface to create specific iMatcher types
 */
-interface iBuilder
+interface IBuilder
 {
 	public function buildMinute(iValue $value);
 	public function buildHour(iValue $value);

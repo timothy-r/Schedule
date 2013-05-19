@@ -1,6 +1,6 @@
 <?php
 namespace Ace\Schedule;
-use Ace\Schedule\iBuilder;
+use Ace\Schedule\IBuilder;
 use Ace\Schedule\iValue;
 
 use Ace\Schedule\Item\Minute;
@@ -13,7 +13,7 @@ use Ace\Schedule\Item\WeekDay;
 /**
 * builds parts of a Schedule 
 */
-class Builder implements iBuilder
+class Builder implements IBuilder
 {
 	/**
 	* @var array
