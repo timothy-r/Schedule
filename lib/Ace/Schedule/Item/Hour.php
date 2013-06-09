@@ -9,7 +9,7 @@ use Ace\Schedule\Exception;
 */
 class Hour implements IMatcher {
     /**
-    * @var iValue
+    * @var IValue
     */
 	protected $hour;
 
