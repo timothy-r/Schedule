@@ -9,5 +9,4 @@ spl_autoload_register(function ($class) {
 	if (is_readable($class_file)){
 		include $class_file;
 	}
-
 });
