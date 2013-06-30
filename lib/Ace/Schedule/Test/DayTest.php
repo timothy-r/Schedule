@@ -7,7 +7,8 @@ use Ace\Schedule\Value\Literal;
 * @group unit
 * @group schedule
 */
-class DayTestCase extends \PHPUnit_Framework_TestCase {
+class DayTest extends ScheduleTest
+{
 	
 	public function testDayMatchesValue() {
 		for ($day = 1; $day <= 31; $day++) {
@@ -32,13 +33,10 @@ class DayTestCase extends \PHPUnit_Framework_TestCase {
     */
     public function testDayValidatesLowestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\StubValue', array('lessThan','greaterThan'));
-        $value->expects($this->any())
-            ->method('lessThan')
-            ->will($this->returnValue(false));
-        $value->expects($this->any())
-            ->method('greaterThan')
-            ->will($this->returnValue(true));
+        $value = $this->createMock(
+            'Ace\Schedule\Test\StubValue', 
+            array('lessThan' => false, 'greaterThan' => true)
+        );
         $minute = new Day($value);
     }
 
@@ -47,13 +45,10 @@ class DayTestCase extends \PHPUnit_Framework_TestCase {
     */
     public function testDayValidatesHighestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\StubValue', array('lessThan','greaterThan'));
-        $value->expects($this->any())
-            ->method('lessThan')
-            ->will($this->returnValue(true));
-        $value->expects($this->any())
-            ->method('greaterThan')
-            ->will($this->returnValue(false));
+        $value = $this->createMock(
+            'Ace\Schedule\Test\StubValue', 
+            array('lessThan' => true, 'greaterThan' => false)
+        );
         $minute = new Day($value);
     }
 }
