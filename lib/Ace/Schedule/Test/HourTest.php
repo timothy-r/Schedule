@@ -2,12 +2,14 @@
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Item\Hour;
 use Ace\Schedule\Value\Literal;
+use Ace\Schedule\Test\ScheduleTest;
 
 /**
 * @group unit
 * @group schedule
 */
-class HourTestCase extends \PHPUnit_Framework_TestCase {
+class HourTestCase extends ScheduleTest
+{
 	public function testHourMatchesValue() {
 		for ($hour = 0; $hour < 24; $hour++) {
 			$matcher = new Hour(new Literal($hour));
@@ -26,29 +28,21 @@ class HourTestCase extends \PHPUnit_Framework_TestCase {
 		$this->assertFalse($result, "Did not expected '7' to match '$date_string'");
 	}
 
+    /**
+    * @expectedException Ace\Schedule\Exception
+    */
     public function testHourValidatesLowestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\StubValue', array('lessThan','greaterThan'));
-        $value->expects($this->any())
-            ->method('lessThan')
-            ->will($this->returnValue(false));
-        $value->expects($this->any())
-            ->method('greaterThan')
-            ->will($this->returnValue(true));
-        $this->setExpectedException('Ace\Schedule\Exception');
-        $minute = new Hour($value);
+        $this->givenAValueThatIsTooLow();
+        $minute = new Hour($this->value);
     }
 
+    /**
+    * @expectedException Ace\Schedule\Exception
+    */
     public function testHourValidatesHighestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\StubValue', array('lessThan','greaterThan'));
-        $value->expects($this->any())
-            ->method('lessThan')
-            ->will($this->returnValue(true));
-        $value->expects($this->any())
-            ->method('greaterThan')
-            ->will($this->returnValue(false));
-        $this->setExpectedException('Ace\Schedule\Exception');
-        $minute = new Hour($value);
+        $this->givenAValueThatIsTooHigh();
+        $minute = new Hour($this->value);
     }
 }

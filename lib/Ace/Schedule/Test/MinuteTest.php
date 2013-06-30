@@ -4,12 +4,14 @@ use Ace\Schedule\Item\Minute;
 use Ace\Schedule\Value\Literal;
 use Ace\Schedule\Value\Range;
 use Ace\Schedule\Test\StubValue;
+use Ace\Schedule\Test\ScheduleTest;
 
 /**
 * @group unit
 * @group schedule
 */
-class MinuteTestCase extends \PHPUnit_Framework_TestCase {
+class MinuteTestCase extends ScheduleTest
+{
 	
 	public function testMinuteMatchesValue() {
 		$minute = new Literal(5);
@@ -38,29 +40,21 @@ class MinuteTestCase extends \PHPUnit_Framework_TestCase {
 		}
 	}
 
+    /**
+    * @expectedException Ace\Schedule\Exception
+    */
     public function testMinuteValidatesLowestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\StubValue', array('lessThan','greaterThan'));
-        $value->expects($this->any())
-            ->method('lessThan')
-            ->will($this->returnValue(false));
-        $value->expects($this->any())
-            ->method('greaterThan')
-            ->will($this->returnValue(true));
-        $this->setExpectedException('Ace\Schedule\Exception');
-        $minute = new Minute($value);
+        $this->givenAValueThatIsTooLow();
+        $minute = new Minute($this->value);
     }
 
+    /**
+    * @expectedException Ace\Schedule\Exception
+    */
     public function testMinuteValidatesHighestValue()
     {
-        $value = $this->getMock('Ace\Schedule\Test\StubValue', array('lessThan','greaterThan'));
-        $value->expects($this->any())
-            ->method('lessThan')
-            ->will($this->returnValue(true));
-        $value->expects($this->any())
-            ->method('greaterThan')
-            ->will($this->returnValue(false));
-        $this->setExpectedException('Ace\Schedule\Exception');
-        $minute = new Minute($value);
+        $this->givenAValueThatIsTooHigh();
+        $minute = new Minute($this->value);
     }
 }

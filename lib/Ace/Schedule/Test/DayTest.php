@@ -2,6 +2,7 @@
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Item\Day;
 use Ace\Schedule\Value\Literal;
+use Ace\Schedule\Test\ScheduleTest;
 
 /**
 * @group unit
@@ -33,11 +34,8 @@ class DayTest extends ScheduleTest
     */
     public function testDayValidatesLowestValue()
     {
-        $value = $this->helper->createMock(
-            'Ace\Schedule\Test\StubValue', 
-            array('lessThan' => false, 'greaterThan' => true)
-        );
-        $minute = new Day($value);
+        $this->givenAValueThatIsTooLow();
+        $minute = new Day($this->value);
     }
 
     /**
@@ -45,10 +43,7 @@ class DayTest extends ScheduleTest
     */
     public function testDayValidatesHighestValue()
     {
-        $value = $this->helper->createMock(
-            'Ace\Schedule\Test\StubValue', 
-            array('lessThan' => true, 'greaterThan' => false)
-        );
-        $minute = new Day($value);
+        $this->givenAValueThatIsTooHigh();
+        $minute = new Day($this->value);
     }
 }
