@@ -33,7 +33,7 @@ class DayTest extends ScheduleTest
     */
     public function testDayValidatesLowestValue()
     {
-        $value = $this->createMock(
+        $value = $this->helper->createMock(
             'Ace\Schedule\Test\StubValue', 
             array('lessThan' => false, 'greaterThan' => true)
         );
@@ -45,7 +45,7 @@ class DayTest extends ScheduleTest
     */
     public function testDayValidatesHighestValue()
     {
-        $value = $this->createMock(
+        $value = $this->helper->createMock(
             'Ace\Schedule\Test\StubValue', 
             array('lessThan' => true, 'greaterThan' => false)
         );
