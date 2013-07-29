@@ -31,6 +31,9 @@ class FactoryUnitTest extends \PHPUnit_Framework_TestCase
 		$this->assertInstanceOf('Ace\Schedule\Entry', $entry);
 	}
 
+    /**
+    * @expectedException Ace\Schedule\Exception
+    */
 	public function testCreateEntryThrowsExceptionWithInvalidType()
 	{
 		$schedule = '14th May 2013';
@@ -39,7 +42,6 @@ class FactoryUnitTest extends \PHPUnit_Framework_TestCase
 		$stub_builder = new StubBuilder();
         $factory = new Factory($stub_director, $stub_builder);
 
-		$this->setExpectedException('Ace\Schedule\Exception');
 		$entry = $factory->createEntry($schedule, $type);
 	}
 }

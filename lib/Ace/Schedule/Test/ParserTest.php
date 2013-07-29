@@ -99,67 +99,67 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 
     /**
     * @dataProvider getInvalidSchedules
+    * @expectedException Ace\Schedule\Exception
     */
     public function testGetMinuteWithInvalidScheduleThrowsException($class, $schedule)
     {
         $this->parser = new $class;
         $this->parser->parse($schedule);
-        $this->setExpectedException('Ace\Schedule\Exception');
         $this->parser->getMinute();
     }
 
     /**
     * @dataProvider getInvalidSchedules
+    * @expectedException Ace\Schedule\Exception
     */
     public function testGetHourWithInvalidScheduleThrowsException($class, $schedule)
     {
         $this->parser = new $class;
         $this->parser->parse($schedule);
-        $this->setExpectedException('Ace\Schedule\Exception');
         $this->parser->getHour();
     }
 
     /**
     * @dataProvider getInvalidSchedules
+    * @expectedException Ace\Schedule\Exception
     */
     public function testGetDayWithInvalidScheduleThrowsException($class, $schedule)
     {
         $this->parser = new $class;
         $this->parser->parse($schedule);
-        $this->setExpectedException('Ace\Schedule\Exception');
         $this->parser->getDay();
     }
 
     /**
     * @dataProvider getInvalidSchedules
+    * @expectedException Ace\Schedule\Exception
     */
     public function testGetMonthWithInvalidScheduleThrowsException($class, $schedule)
     {
         $this->parser = new $class;
         $this->parser->parse($schedule);
-        $this->setExpectedException('Ace\Schedule\Exception');
         $this->parser->getMonth();
     }
 
     /**
     * @dataProvider getInvalidSchedules
+    * @expectedException Ace\Schedule\Exception
     */
     public function testGetWeekDayWithInvalidScheduleThrowsException($class, $schedule)
     {
         $this->parser = new $class;
         $this->parser->parse($schedule);
-        $this->setExpectedException('Ace\Schedule\Exception');
         $this->parser->getWeekDay();
     }
 
     /**
     * @dataProvider getInvalidSchedules
+    * @expectedException Ace\Schedule\Exception
     */
     public function testGetYearWithInvalidScheduleThrowsException($class, $schedule)
     {
         $this->parser = new $class;
         $this->parser->parse($schedule);
-        $this->setExpectedException('Ace\Schedule\Exception');
         $this->parser->getYear();
     }
 }
