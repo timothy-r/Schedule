@@ -42,10 +42,10 @@ class RangeTestCase extends \PHPUnit_Framework_TestCase {
 
     public function getLessThanFixtures()
     {
-        return array(
-            array(13, 18, 20, true),
-            array(13, 18, 10, false),
-        );
+        return [
+            [13, 18, 20, true],
+            [13, 18, 10, false],
+        ];
     }
 
     /**
@@ -59,10 +59,10 @@ class RangeTestCase extends \PHPUnit_Framework_TestCase {
 
     public function getGreaterThanFixtures()
     {
-        return array(
-            array(13, 18, 20, false),
-            array(13, 18, 10, true),
-        );
+        return [
+            [13, 18, 20, false],
+            [13, 18, 10, true],
+        ];
     }
 
     /**
