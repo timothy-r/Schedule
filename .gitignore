@@ -2,3 +2,5 @@
 *.swp
 *Proxy.php
 *.out
+*.lock
+vendor
