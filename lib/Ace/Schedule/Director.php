@@ -48,9 +48,9 @@ class Director implements IDirector
 			throw new Exception('Parser instance not set');
         }
 
-        if (!$this->parser->parse($schedule)){
-			throw new Exception("Schedule '$schedule' is invalid");
-        }
+        $this->parser->parse($schedule);
+			//throw new Exception("Schedule '$schedule' is invalid");
+       // }
 
 		// call a builder method for each item
 		$this->builder->buildMinute($this->parser->getMinute());

@@ -2,6 +2,7 @@
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Director;
 use Ace\Schedule\IBuilder;
+use Ace\Schedule\Exception;
 use Ace\Schedule\Test\ScheduleTest;
 
 /**
@@ -16,16 +17,17 @@ class DirectorTest extends ScheduleTest
 	{
 		$schedule = '*/2 * 1,2 3-6 Monday';
         $stub_value = new StubValue;
-		$builder = $this->helper->createMock('Ace\Schedule\Test\StubBuilder',
+		$builder = $this->helper->createMock('Ace\Schedule\IBuilder',
 			array(
             'buildMinute' => $stub_value, 
             'buildHour' => $stub_value,
             'buildDay' => $stub_value,
             'buildMonth' => $stub_value,
-            'buildWeekDay' => $stub_value)
+            'buildWeekDay' => $stub_value,
+            'getProduct' => null)
 		);
         
-        $parser = $this->helper->createMock('Ace\Schedule\Test\StubParser',
+        $parser = $this->helper->createMock('Ace\Schedule\IParser',
             array(
                 'parse' => true,
                 'getMinute' => $stub_value, 
@@ -46,13 +48,29 @@ class DirectorTest extends ScheduleTest
     */
     public function testInvalidScheduleThrowsException()
     {
-        $parser = $this->getMock('Ace\Schedule\Test\StubParser',
+        $parser = $this->getMock('Ace\Schedule\IParser',
             array('parse', 'getMinute', 'getHour', 'getDay', 'getMonth', 'getWeekDay', 'getYear')
         );
         
-        $parser->expects($this->atLeastOnce())
-            ->method('parse')
-            ->will($this->returnValue(false));
+        $parser->expects($this->any())
+            ->method('getMinute')
+            ->will($this->throwException(new Exception));
+        $parser->expects($this->any())
+            ->method('getHour')
+            ->will($this->throwException(new Exception));
+        $parser->expects($this->any())
+            ->method('getDay')
+            ->will($this->throwException(new Exception));
+        $parser->expects($this->any())
+            ->method('getMonth')
+            ->will($this->throwException(new Exception));
+        $parser->expects($this->any())
+            ->method('getWeekDay')
+            ->will($this->throwException(new Exception));
+        $parser->expects($this->any())
+            ->method('getYear')
+            ->will($this->throwException(new Exception));
+
         $builder = new StubBuilder;
 		$director = new Director();
 		$director->setBuilder($builder);
