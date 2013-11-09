@@ -6,6 +6,7 @@ use Ace\Schedule\Exception;
 
 /**
 * Directs building a set of IMatchers from a formatted schedule string
+* Integrates IParser with IBuilder to create an Entry
 */
 class Director implements IDirector
 {
@@ -49,8 +50,6 @@ class Director implements IDirector
         }
 
         $this->parser->parse($schedule);
-			//throw new Exception("Schedule '$schedule' is invalid");
-       // }
 
 		// call a builder method for each item
 		$this->builder->buildMinute($this->parser->getMinute());
