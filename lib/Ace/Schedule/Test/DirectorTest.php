@@ -17,7 +17,7 @@ class DirectorTest extends ScheduleTest
 	{
 		$schedule = '*/2 * 1,2 3-6 Monday';
         $stub_value = new StubValue;
-		$builder = $this->helper->createMock('Ace\Schedule\IBuilder',
+		$builder = $this->createMock('Ace\Schedule\IBuilder',
 			array(
             'buildMinute' => $stub_value, 
             'buildHour' => $stub_value,
@@ -27,7 +27,7 @@ class DirectorTest extends ScheduleTest
             'getProduct' => null)
 		);
         
-        $parser = $this->helper->createMock('Ace\Schedule\IParser',
+        $parser = $this->createMock('Ace\Schedule\IParser',
             array(
                 'parse' => true,
                 'getMinute' => $stub_value, 

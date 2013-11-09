@@ -3,7 +3,7 @@ namespace Ace\Schedule\Test;
 use PHPUnit_Framework_TestCase;
 
 /**
-* 
+* @todo convert to be a trait used by test classes
 */
 class TestHelper 
 {
