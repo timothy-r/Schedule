@@ -4,6 +4,7 @@ use Ace\Schedule\Factory;
 use Ace\Schedule\IDirector;
 use Ace\Schedule\IBuilder;
 use Ace\Schedule\Exception;
+use Ace\Schedule\TestMockTrait;
 
 /**
 * @group unit
@@ -11,6 +12,8 @@ use Ace\Schedule\Exception;
 */
 class FactoryUnitTest extends \PHPUnit_Framework_TestCase
 {
+    use MockTrait;
+
 	public function testCreateEntry()
 	{
 		$schedule = '4 * * * *';
@@ -18,14 +21,10 @@ class FactoryUnitTest extends \PHPUnit_Framework_TestCase
 		$stub_director = new StubDirector();
 		$stub_builder = new StubBuilder();
         $stub_parser = new StubParser;
-		$factory = $this->getMock('Ace\Schedule\Factory', 
-            array('getParser'), 
-            array($stub_director, $stub_builder)
+		$factory = $this->createMock('Ace\Schedule\Factory', 
+            ['getParser' => $stub_parser], 
+            [$stub_director, $stub_builder]
         );
-        $factory->expects($this->any())
-            ->method('getParser')
-            ->will($this->returnValue($stub_parser));
-
 
 		$entry = $factory->createEntry($schedule, $type);
 		$this->assertInstanceOf('Ace\Schedule\Entry', $entry);

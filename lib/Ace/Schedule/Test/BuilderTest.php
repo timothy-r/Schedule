@@ -33,10 +33,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
 	{
         $value = new StubValue;
         $min = new Minute($value);
-		$builder = $this->createMock('Ace\Schedule\Builder',['createEntry' => null]);
-        $builder->expects($this->any())
-            ->method('createEntry')
-            ->with($this->equalTo(array('minute' => $min)));
+		$builder = $this->createMock('Ace\Schedule\Builder',['createEntry' => $min]);
 
 		$builder->buildMinute($value);
 		$product = $builder->getProduct();
@@ -48,10 +45,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
 	{
         $value = new StubValue;
         $hour = new Hour($value);
-		$builder = $this->createMock('Ace\Schedule\Builder',['createEntry' => null]);
-        $builder->expects($this->any())
-            ->method('createEntry')
-            ->with($this->equalTo(array('hour' => $hour)));
+		$builder = $this->createMock('Ace\Schedule\Builder',['createEntry' => $hour]);
 
 		$builder->buildHour($value);
 		$product = $builder->getProduct();
@@ -63,10 +57,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
 	{
         $value = new StubValue;
         $day = new Day($value);
-		$builder = $this->createMock('Ace\Schedule\Builder',['createEntry' => null]);
-        $builder->expects($this->any())
-            ->method('createEntry')
-            ->with($this->equalTo(array('day' => $day)));
+		$builder = $this->createMock('Ace\Schedule\Builder',['createEntry' => $day]);
 
 		$builder->buildDay($value);
 		$product = $builder->getProduct();
@@ -78,10 +69,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
 	{
         $value = new StubValue;
         $month = new Month($value);
-		$builder = $this->createMock('Ace\Schedule\Builder',['createEntry' => null]);
-        $builder->expects($this->any())
-            ->method('createEntry')
-            ->with($this->equalTo(array('month' => $month)));
+		$builder = $this->createMock('Ace\Schedule\Builder',['createEntry' => $month]);
 
 		$builder->buildMonth($value);
 		$product = $builder->getProduct();
@@ -93,10 +81,7 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
 	{
         $value = new StubValue;
         $week_day = new WeekDay($value);
-		$builder = $this->createMock('Ace\Schedule\Builder',['createEntry' => null]);
-        $builder->expects($this->any())
-            ->method('createEntry')
-            ->with($this->equalTo(array('week_day' => $week_day)));
+		$builder = $this->createMock('Ace\Schedule\Builder',['createEntry' => $week_day]);
 
 		$builder->buildWeekDay($value);
 		$product = $builder->getProduct();
