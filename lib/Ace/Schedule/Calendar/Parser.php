@@ -32,7 +32,7 @@ class Parser implements IParser
         $this->valid = false;
         $values = date_parse($schedule);
         if ($values['error_count'] > 0){
-            return false;
+            throw new Exception(sprintf('"$schedule" is invalid', $schedule));
         }
 
         if ($values['minute']){

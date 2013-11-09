@@ -89,6 +89,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 
     /**
     * @dataProvider getInvalidSchedules
+    * @expectedException Ace\Schedule\Exception
     */
     public function testParseInvalidScheduleReturnsFalse($class, $schedule)
     {

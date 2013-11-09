@@ -37,42 +37,38 @@ class Parser implements IParser
         $this->valid = false;
 		$items = preg_split('/[\s]+/', $schedule);
 		if (count($items) != 5){
-            return false;	
+            throw new Exception(sprintf('"%s" is invalid', $schedule));
 		}
-        try {
-            $this->minute = $this->getValue($items[0]);
-            $this->hour = $this->getValue($items[1]);
-            $this->day = $this->getValue($items[2]);
-            $this->month = $this->getValue($items[3]);
-            $this->week_day = $this->getValue($items[4]);
-            $this->year = new WildCard;
-            $this->valid = true;
-            return true;
-        } catch (Exception $e) {
-            return false;
-        }
+        $this->minute = $this->getValue($items[0]);
+        $this->hour = $this->getValue($items[1]);
+        $this->day = $this->getValue($items[2]);
+        $this->month = $this->getValue($items[3]);
+        $this->week_day = $this->getValue($items[4]);
+        $this->year = new WildCard;
+        $this->valid = true;
+        return true;
     }
 
     /**
-    * @return IValue
-    */
+     * @return IValue
+     */
     public function getMinute()
     {
-        if (!$this->valid){
-            throw new Exception("getMinute() called for invalid schedule");
-        }
-        return $this->minute;
+            if (!$this->valid){
+                    throw new Exception("getMinute() called for invalid schedule");
+            }
+            return $this->minute;
     }
 
     /**
-    * @return IValue
-    */
+     * @return IValue
+     */
     public function getHour()
     {
-        if (!$this->valid){
-            throw new Exception("getHour() called for invalid schedule");
-        }
-        return $this->hour;
+            if (!$this->valid){
+                    throw new Exception("getHour() called for invalid schedule");
+            }
+            return $this->hour;
     }
 
     /**
