@@ -34,7 +34,7 @@ class HourTestCase extends ScheduleTest
     public function testHourValidatesLowestValue()
     {
         $this->givenAValueThatIsTooLow();
-        $minute = new Hour($this->value);
+        $hour = new Hour($this->value);
     }
 
     /**
@@ -43,6 +43,6 @@ class HourTestCase extends ScheduleTest
     public function testHourValidatesHighestValue()
     {
         $this->givenAValueThatIsTooHigh();
-        $minute = new Hour($this->value);
+        $hour = new Hour($this->value);
     }
 }

@@ -38,7 +38,7 @@ class WeekDayTestCase extends ScheduleTest
     public function testWeekDayValidatesLowestValue()
     {
         $this->givenAValueThatIsTooLow();
-        $minute = new WeekDay($this->value);
+        $week_day = new WeekDay($this->value);
     }
 
     /**
@@ -47,7 +47,7 @@ class WeekDayTestCase extends ScheduleTest
     public function testWeekDayValidatesHighestValue()
     {
         $this->givenAValueThatIsTooHigh();
-        $minute = new WeekDay($this->value);
+        $week_day = new WeekDay($this->value);
     }
 
 }

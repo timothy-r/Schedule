@@ -39,7 +39,7 @@ class MonthTestCase extends ScheduleTest
     public function testMonthValidatesLowestValue()
     {
         $this->givenAValueThatIsTooLow();
-        $minute = new Month($this->value);
+        $month = new Month($this->value);
     }
 
     /**
@@ -48,6 +48,6 @@ class MonthTestCase extends ScheduleTest
     public function testMonthValidatesHighestValue()
     {
         $this->givenAValueThatIsTooHigh();
-        $minute = new Month($this->value);
+        $month = new Month($this->value);
     }
 }

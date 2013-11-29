@@ -35,7 +35,7 @@ class DayTest extends ScheduleTest
     public function testDayValidatesLowestValue()
     {
         $this->givenAValueThatIsTooLow();
-        $minute = new Day($this->value);
+        $day = new Day($this->value);
     }
 
     /**
@@ -44,6 +44,6 @@ class DayTest extends ScheduleTest
     public function testDayValidatesHighestValue()
     {
         $this->givenAValueThatIsTooHigh();
-        $minute = new Day($this->value);
+        $day = new Day($this->value);
     }
 }

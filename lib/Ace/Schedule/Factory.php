@@ -6,8 +6,9 @@ use Ace\Schedule\IDirector;
 use Ace\Schedule\Entry;
 
 /**
-* creates an Entry object for a given schedule string
-* uses an IDirector and IBuilder which are specific to the schedule string format
+* This is the single 'public' class for external clients
+*
+* Creates an Entry object for a given schedule string and type
 */
 class Factory implements IFactory
 {
