@@ -14,19 +14,19 @@ use Ace\Schedule\Value\Range;
 */
 class Parser implements ParserInterface
 {
-    protected $valid = false;
+    private $valid = false;
 
-    protected $minute;
+    private $minute;
 
-    protected $hour;
+    private $hour;
 
-    protected $day;
+    private $day;
 
-    protected $month;
+    private $month;
 
-    protected $week_day;
+    private $week_day;
 
-    protected $year;
+    private $year;
 
     /**
     * @param string $schedule
@@ -119,7 +119,7 @@ class Parser implements ParserInterface
 	* @param string $token the raw string from the schedule
 	* @return IValue
 	*/
-	protected function getValue($token) {
+	private function getValue($token) {
 		// a wild card *
 		if (('*' == $token) || ('?' == $token)){
 			return new WildCard;

@@ -11,17 +11,17 @@ use Ace\Schedule\Value\WildCard;
 */
 class Parser implements ParserInterface
 {
-    protected $valid = false;
+    private $valid = false;
 
-    protected $minute;
+    private $minute;
 
-    protected $hour;
+    private $hour;
 
-    protected $day;
+    private $day;
 
-    protected $month;
+    private $month;
 
-    protected $year;
+    private $year;
 
     /**
     * @param string $schedule
