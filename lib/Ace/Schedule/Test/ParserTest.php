@@ -36,7 +36,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         $this->parser = new $class;
         $result = $this->parser->parse($schedule);
         $minute = $this->parser->getMinute();
-        $this->assertInstanceOf('Ace\Schedule\IValue', $minute);
+        $this->assertInstanceOf('Ace\Schedule\ValueInterface', $minute);
         $this->assertInstanceOf($type, $minute);
     }
 
@@ -48,7 +48,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         $this->parser = new $class;
         $result = $this->parser->parse($schedule);
         $hour = $this->parser->getHour();
-        $this->assertInstanceOf('Ace\Schedule\IValue', $hour);
+        $this->assertInstanceOf('Ace\Schedule\ValueInterface', $hour);
         $this->assertInstanceOf($type, $hour);
     }
 
@@ -60,7 +60,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         $this->parser = new $class;
         $result = $this->parser->parse($schedule);
         $day = $this->parser->getDay();
-        $this->assertInstanceOf('Ace\Schedule\IValue', $day);
+        $this->assertInstanceOf('Ace\Schedule\ValueInterface', $day);
         $this->assertInstanceOf($type, $day);
     }
 
@@ -72,7 +72,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         $this->parser = new $class;
         $result = $this->parser->parse($schedule);
         $month = $this->parser->getMonth();
-        $this->assertInstanceOf('Ace\Schedule\IValue', $month);
+        $this->assertInstanceOf('Ace\Schedule\ValueInterface', $month);
         $this->assertInstanceOf($type, $month);
     }
 

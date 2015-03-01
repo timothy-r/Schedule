@@ -24,7 +24,7 @@ class CronParserTest extends \PHPUnit_Framework_TestCase
         $this->parser = new Parser;
         $result = $this->parser->parse($schedule);
         $year = $this->parser->getYear();
-        $this->assertInstanceOf('Ace\Schedule\IValue', $year);
+        $this->assertInstanceOf('Ace\Schedule\ValueInterface', $year);
         $this->assertInstanceOf('Ace\Schedule\Value\WildCard', $year);
     }
 
@@ -36,7 +36,7 @@ class CronParserTest extends \PHPUnit_Framework_TestCase
         $this->parser = new Parser;
         $result = $this->parser->parse($schedule);
         $week_day = $this->parser->getWeekDay();
-        $this->assertInstanceOf('Ace\Schedule\IValue', $week_day);
+        $this->assertInstanceOf('Ace\Schedule\ValueInterface', $week_day);
         $this->assertInstanceOf($type, $week_day);
     }
 }

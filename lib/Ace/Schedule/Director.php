@@ -6,7 +6,7 @@ use Ace\Schedule\Exception;
 
 /**
 * Directs building a set of IMatchers from a formatted schedule string
-* Integrates IParser with BuilderInterface to create an Entry
+* Integrates ParserInterface with BuilderInterface to create an Entry
 */
 class Director implements DirectorInterface
 {
@@ -16,7 +16,7 @@ class Director implements DirectorInterface
 	protected $builder;
 
     /**
-    * @var IParser
+    * @var ParserInterface
     */
     protected $parser;
 
@@ -29,9 +29,9 @@ class Director implements DirectorInterface
 	}
 
     /**
-    * @param IParser $parser
+    * @param ParserInterface $parser
     */
-    public function setParser(IParser $parser)
+    public function setParser(ParserInterface $parser)
     {
         $this->parser = $parser;
     }

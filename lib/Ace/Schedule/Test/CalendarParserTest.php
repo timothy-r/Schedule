@@ -1,5 +1,5 @@
-<?php
-namespace Ace\Schedule\Test;
+<?php namespace Ace\Schedule\Test;
+
 use Ace\Schedule\Calendar\Parser;
 use Ace\Schedule\ValueInterface;
 
@@ -44,6 +44,6 @@ class CalendarParserTest extends \PHPUnit_Framework_TestCase
         $this->parser = new Parser;
         $result = $this->parser->parse($schedule);
         $year = $this->parser->getYear();
-        $this->assertInstanceOf('Ace\Schedule\IValue', $year);
+        $this->assertInstanceOf('Ace\Schedule\ValueInterface', $year);
     }
 }

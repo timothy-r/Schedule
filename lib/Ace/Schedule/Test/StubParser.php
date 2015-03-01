@@ -1,11 +1,11 @@
 <?php
 namespace Ace\Schedule\Test;
-use Ace\Schedule\IParser;
+use Ace\Schedule\ParserInterface;
 
 /**
 * @codeCoverageIgnore
 */
-class StubParser implements IParser
+class StubParser implements ParserInterface
 {
     public function parse($schedule){}
 

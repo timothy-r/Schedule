@@ -16,7 +16,7 @@ interface DirectorInterface
 	public function setBuilder(BuilderInterface $builder);
     
     /**
-    * @param IParser $parser
+    * @param ParserInterface $parser
     */
-    public function setParser(IParser $parser);
+    public function setParser(ParserInterface $parser);
 }

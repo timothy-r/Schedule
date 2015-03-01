@@ -1,6 +1,6 @@
-<?php
-namespace Ace\Schedule\Cron;
-use Ace\Schedule\IParser;
+<?php namespace Ace\Schedule\Cron;
+
+use Ace\Schedule\ParserInterface;
 use Ace\Schedule\Exception;
 
 use Ace\Schedule\Value\WildCard;
@@ -12,7 +12,7 @@ use Ace\Schedule\Value\Range;
 /**
 * parses a cron formatted string into its parts
 */
-class Parser implements IParser
+class Parser implements ParserInterface
 {
     protected $valid = false;
 

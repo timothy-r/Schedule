@@ -2,7 +2,7 @@
 
 use Ace\Schedule\DirectorInterface;
 use Ace\Schedule\BuilderInterface;
-use Ace\Schedule\IParser;
+use Ace\Schedule\ParserInterface;
 
 /**
 * @codeCoverageIgnore
@@ -13,5 +13,5 @@ class StubDirector implements DirectorInterface
 
 	public function setBuilder(BuilderInterface $builder){}
 
-    public function setParser(IParser $parser) {}
+    public function setParser(ParserInterface $parser) {}
 }

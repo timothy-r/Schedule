@@ -26,7 +26,7 @@ class DirectorTest extends ScheduleTest
             'getProduct' => null)
 		);
         
-        $parser = $this->createMock('Ace\Schedule\IParser',
+        $parser = $this->createMock('Ace\Schedule\ParserInterface',
             array(
                 'parse' => true,
                 'getMinute' => $stub_value, 
@@ -47,7 +47,7 @@ class DirectorTest extends ScheduleTest
     */
     public function testInvalidScheduleThrowsException()
     {
-        $parser = $this->getMock('Ace\Schedule\IParser',
+        $parser = $this->getMock('Ace\Schedule\ParserInterface',
             array('parse', 'getMinute', 'getHour', 'getDay', 'getMonth', 'getWeekDay', 'getYear')
         );
         

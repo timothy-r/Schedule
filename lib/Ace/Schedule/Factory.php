@@ -52,7 +52,7 @@ class Factory implements FactoryInterface
     * @throws Ace\Schedule\Exception
     *
     * @param string $type
-    * @return IParser
+    * @return ParserInterface
     */
     protected function getParser($type)
     {
