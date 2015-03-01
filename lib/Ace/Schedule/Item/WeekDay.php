@@ -6,7 +6,7 @@ use Ace\Schedule\Exception;
 use DateTime;
 
 class WeekDay implements MatcherInterface {
-	protected $week_day;
+	private $week_day;
 
 	public function __construct(ValueInterface $week_day){;
         if ($week_day->lessThan(0) || $week_day->greaterThan(6)){

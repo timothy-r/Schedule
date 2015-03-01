@@ -7,8 +7,8 @@ use Ace\Schedule\ValueInterface;
 */
 class Range implements ValueInterface
 {
-	protected $low;
-	protected $high;
+	private $low;
+	private $high;
 
 	public function __construct($low, $high)
     {

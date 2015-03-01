@@ -18,7 +18,7 @@ class Builder implements BuilderInterface
 	/**
 	* @var array
 	*/
-	protected $matchers = array();
+	private $matchers = array();
 
 	/**
 	* @param ValueInterface $value
@@ -71,7 +71,7 @@ class Builder implements BuilderInterface
     * implementing this method allows tests to assert the $matchers array passed to the Entry
     * @return Entry
     */
-    protected function createEntry($matchers)
+    private function createEntry($matchers)
     {
         return new Entry($matchers);
     }

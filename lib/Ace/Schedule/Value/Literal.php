@@ -9,7 +9,7 @@ class Literal implements ValueInterface {
     /**
     * @var integer
     */
-	protected $value;
+	private $value;
 
 	public function __construct($value){
 		$this->value = intval($value);

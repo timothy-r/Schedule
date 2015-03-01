@@ -6,8 +6,8 @@ class Interval implements ValueInterface {
     /**
     * @var ValueInterface
     */
-	protected $range;
-	protected $interval;
+	private $range;
+	private $interval;
 
 	public function __construct(ValueInterface $range, $interval){
 		$this->range = $range;

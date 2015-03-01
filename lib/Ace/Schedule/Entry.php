@@ -10,7 +10,7 @@ class Entry {
 	/**
 	* @var array of MatcherInterface instances
 	*/
-	protected $matchers;
+	private $matchers;
 
 	public function __construct(array $matchers = array()){
 		$this->matchers = $matchers;

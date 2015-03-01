@@ -11,7 +11,7 @@ class Hour implements MatcherInterface {
     /**
     * @var ValueInterface
     */
-	protected $hour;
+	private $hour;
 
 	public function __construct(ValueInterface $hour){
         if ($hour->lessThan(0) || $hour->greaterThan(23)){

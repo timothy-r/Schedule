@@ -9,12 +9,12 @@ class Director implements DirectorInterface
     /**
      * @var BuilderInterface
      */
-    protected $builder;
+    private $builder;
 
     /**
      * @var ParserInterface
      */
-    protected $parser;
+    private $parser;
 
     /**
      * @param BuilderInterface $builder

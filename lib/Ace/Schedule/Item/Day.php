@@ -6,7 +6,7 @@ use Ace\Schedule\Exception;
 use DateTime;
 
 class Day implements MatcherInterface {
-	protected $day;
+	private $day;
 
 	public function __construct(ValueInterface $day){
         if ($day->lessThan(0) || $day->greaterThan(31)){

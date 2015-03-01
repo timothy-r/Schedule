@@ -10,7 +10,7 @@ class AList implements ValueInterface
     /**
     * @var array
     */
-	protected $values;
+	private $values;
 
 	public function __construct(array $values){
 		$this->values = $values;

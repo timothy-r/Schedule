@@ -15,12 +15,12 @@ class Factory implements FactoryInterface
 	/**
 	* @var DirectorInterface
 	*/
-	protected $director;
+	private $director;
 
 	/**
 	* @var BuilderInterface
 	*/
-	protected $builder;
+	private $builder;
 
 	/**
 	* @param DirectorInterface $director

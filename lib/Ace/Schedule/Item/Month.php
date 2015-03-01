@@ -5,7 +5,7 @@ use Ace\Schedule\MatcherInterface;
 use Ace\Schedule\Exception;
 
 class Month implements MatcherInterface {
-	protected $month;
+	private $month;
 	
 	public function __construct(ValueInterface $month){
         if ($month->lessThan(1) || $month->greaterThan(12)){

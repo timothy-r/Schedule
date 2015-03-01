@@ -8,7 +8,7 @@ class Minute implements MatcherInterface {
     /**
     * @var ValueInterface
     */
-	protected $minutes;
+	private $minutes;
 
 	public function __construct(ValueInterface $minutes){
         if ($minutes->lessThan(0) || $minutes->greaterThan(59)){
