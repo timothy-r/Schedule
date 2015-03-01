@@ -1,6 +1,6 @@
 <?php namespace Ace\Schedule;
 
-use Ace\Schedule\IFactory;
+use Ace\Schedule\FactoryInterface;
 use Ace\Schedule\BuilderInterface;
 use Ace\Schedule\DirectorInterface;
 use Ace\Schedule\Entry;
@@ -10,7 +10,7 @@ use Ace\Schedule\Entry;
 *
 * Creates an Entry object for a given schedule string and type
 */
-class Factory implements IFactory
+class Factory implements FactoryInterface
 {
 	/**
 	* @var DirectorInterface

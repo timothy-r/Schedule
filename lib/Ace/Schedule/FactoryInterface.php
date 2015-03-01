@@ -1,9 +1,9 @@
-<?php
-namespace Ace\Schedule;
+<?php namespace Ace\Schedule;
+
 /**
 * creates an Entry instance
 */
-interface IFactory
+interface FactoryInterface
 {
     /**
     * @param string $schedule

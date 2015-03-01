@@ -1,7 +1,6 @@
-<?php
-namespace Ace\Schedule\Test;
+<?php namespace Ace\Schedule\Test;
+
 use Ace\Schedule\Factory;
-use Ace\Schedule\DirectorInterface;
 use Ace\Schedule\Exception;
 use Ace\Schedule\TestMockTrait;
 
