@@ -4,7 +4,6 @@
     "version":"1",
     "description": "PHP schedule library",
     "keywords": ["lib"],
-    "homepage": "",
     "license": "",
     "authors": [
         {"name": "Tim Rodger", "email": "tim.rodger@gmail.com"}

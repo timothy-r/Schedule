@@ -1,17 +1,17 @@
-<?php
-namespace Ace\Schedule;
+<?php namespace Ace\Schedule;
+
 use Ace\Schedule\IDirector;
-use Ace\Schedule\IBuilder;
+use Ace\Schedule\BuilderInterface;
 use Ace\Schedule\Exception;
 
 /**
 * Directs building a set of IMatchers from a formatted schedule string
-* Integrates IParser with IBuilder to create an Entry
+* Integrates IParser with BuilderInterface to create an Entry
 */
 class Director implements IDirector
 {
 	/**
-	* @var IBuilder
+	* @var BuilderInterface
 	*/
 	protected $builder;
 
@@ -21,9 +21,9 @@ class Director implements IDirector
     protected $parser;
 
 	/**
-	* @param IBuilder $builder
+	* @param BuilderInterface $builder
 	*/
-	public function setBuilder(IBuilder $builder)
+	public function setBuilder(BuilderInterface $builder)
 	{
 		$this->builder = $builder;
 	}
@@ -42,7 +42,7 @@ class Director implements IDirector
 	public function create($schedule)
 	{
 		if (!$this->builder){
-			throw new Exception('Builder instance not set');
+			throw new Exception('BuilderInterface instance not set');
 		}
 
         if (!$this->parser) {

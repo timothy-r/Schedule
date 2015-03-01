@@ -1,7 +1,7 @@
-<?php
-namespace Ace\Schedule\Test;
+<?php namespace Ace\Schedule\Test;
+
 use Ace\Schedule\Director;
-use Ace\Schedule\IBuilder;
+use Ace\Schedule\BuilderInterface;
 use Ace\Schedule\Exception;
 use Ace\Schedule\Test\ScheduleTest;
 
@@ -17,7 +17,7 @@ class DirectorTest extends ScheduleTest
 	{
 		$schedule = '*/2 * 1,2 3-6 Monday';
         $stub_value = new StubValue;
-		$builder = $this->createMock('Ace\Schedule\IBuilder',
+		$builder = $this->createMock('Ace\Schedule\BuilderInterface',
 			array(
             'buildMinute' => $stub_value, 
             'buildHour' => $stub_value,

@@ -1,7 +1,7 @@
-<?php
-namespace Ace\Schedule;
+<?php namespace Ace\Schedule;
+
 use Ace\Schedule\IFactory;
-use Ace\Schedule\IBuilder;
+use Ace\Schedule\BuilderInterface;
 use Ace\Schedule\IDirector;
 use Ace\Schedule\Entry;
 
@@ -18,15 +18,15 @@ class Factory implements IFactory
 	protected $director;
 
 	/**
-	* @var IBuilder
+	* @var BuilderInterface
 	*/
 	protected $builder;
 
 	/**
 	* @param IDirector $director
-	* @param IBuilder $builder
+	* @param BuilderInterface $builder
 	*/
-	public function __construct(IDirector $director, IBuilder $builder)
+	public function __construct(IDirector $director, BuilderInterface $builder)
 	{
 		$this->director = $director;
 		$this->builder = $builder;

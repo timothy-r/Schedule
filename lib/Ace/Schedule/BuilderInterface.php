@@ -5,7 +5,7 @@ namespace Ace\Schedule;
 * interface to create specific IMatcher types
 * @todo add buildYear() method
 */
-interface IBuilder
+interface BuilderInterface
 {
 	public function buildMinute(IValue $value);
 	public function buildHour(IValue $value);

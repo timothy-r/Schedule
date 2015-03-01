@@ -1,7 +1,7 @@
 <?php
 namespace Ace\Schedule;
 /**
-* interface to create a schedule of IMatcher instances using an IBuilder
+* interface to create a schedule of IMatcher instances using an BuilderInterface
 */
 interface IDirector
 {
@@ -11,9 +11,9 @@ interface IDirector
 	public function create($schedule);
 	
 	/**
-	* @param IBuilder $builder
+	* @param BuilderInterface $builder
 	*/
-	public function setBuilder(IBuilder $builder);
+	public function setBuilder(BuilderInterface $builder);
     
     /**
     * @param IParser $parser
