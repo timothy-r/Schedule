@@ -2,7 +2,7 @@
 
 use Ace\Schedule\IFactory;
 use Ace\Schedule\BuilderInterface;
-use Ace\Schedule\IDirector;
+use Ace\Schedule\DirectorInterface;
 use Ace\Schedule\Entry;
 
 /**
@@ -13,7 +13,7 @@ use Ace\Schedule\Entry;
 class Factory implements IFactory
 {
 	/**
-	* @var IDirector 
+	* @var DirectorInterface
 	*/
 	protected $director;
 
@@ -23,10 +23,10 @@ class Factory implements IFactory
 	protected $builder;
 
 	/**
-	* @param IDirector $director
+	* @param DirectorInterface $director
 	* @param BuilderInterface $builder
 	*/
-	public function __construct(IDirector $director, BuilderInterface $builder)
+	public function __construct(DirectorInterface $director, BuilderInterface $builder)
 	{
 		$this->director = $director;
 		$this->builder = $builder;

@@ -1,7 +1,6 @@
 <?php namespace Ace\Schedule\Test;
 
 use Ace\Schedule\Director;
-use Ace\Schedule\BuilderInterface;
 use Ace\Schedule\Exception;
 use Ace\Schedule\Test\ScheduleTest;
 

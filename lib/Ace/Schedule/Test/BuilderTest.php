@@ -1,7 +1,6 @@
 <?php
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Builder;
-use Ace\Schedule\IBuilder;
 use Ace\Schedule\Value\Range;
 
 use Ace\Schedule\Item\Minute;

@@ -1,6 +1,6 @@
 <?php namespace Ace\Schedule;
 
-use Ace\Schedule\IDirector;
+use Ace\Schedule\DirectorInterface;
 use Ace\Schedule\BuilderInterface;
 use Ace\Schedule\Exception;
 
@@ -8,7 +8,7 @@ use Ace\Schedule\Exception;
 * Directs building a set of IMatchers from a formatted schedule string
 * Integrates IParser with BuilderInterface to create an Entry
 */
-class Director implements IDirector
+class Director implements DirectorInterface
 {
 	/**
 	* @var BuilderInterface
