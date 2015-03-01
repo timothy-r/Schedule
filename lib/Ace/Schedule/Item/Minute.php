@@ -1,16 +1,16 @@
 <?php
 namespace Ace\Schedule\Item;
-use Ace\Schedule\IValue;
+use Ace\Schedule\ValueInterface;
 use Ace\Schedule\MatcherInterface;
 use Ace\Schedule\Exception;
 
 class Minute implements MatcherInterface {
     /**
-    * @var IValue
+    * @var ValueInterface
     */
 	protected $minutes;
 
-	public function __construct(IValue $minutes){
+	public function __construct(ValueInterface $minutes){
         if ($minutes->lessThan(0) || $minutes->greaterThan(59)){
             throw new Exception("Minute value must be between 0 and 59");
         }

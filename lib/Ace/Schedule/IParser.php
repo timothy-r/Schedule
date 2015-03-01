@@ -14,37 +14,37 @@ interface IParser
 
     /**
     * @throws Ace\Schedule\Exception if parse failed
-    * @return IValue
+    * @return ValueInterface
     */
     public function getMinute();
 
     /**
     * @throws Ace\Schedule\Exception if parse failed
-    * @return IValue
+    * @return ValueInterface
     */
     public function getHour();
 
     /**
     * @throws Ace\Schedule\Exception if parse failed
-    * @return IValue
+    * @return ValueInterface
     */
     public function getDay();
 
     /**
     * @throws Ace\Schedule\Exception if parse failed
-    * @return IValue
+    * @return ValueInterface
     */
     public function getMonth();
 
     /**
     * @throws Ace\Schedule\Exception if parse failed
-    * @return IValue
+    * @return ValueInterface
     */
     public function getWeekDay();
 
     /**
     * @throws Ace\Schedule\Exception if parse failed
-    * @return IValue
+    * @return ValueInterface
     */
     public function getYear();
 }

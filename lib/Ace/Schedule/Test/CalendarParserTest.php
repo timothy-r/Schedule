@@ -1,7 +1,7 @@
 <?php
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Calendar\Parser;
-use Ace\Schedule\IValue;
+use Ace\Schedule\ValueInterface;
 
 class CalendarParserTest extends \PHPUnit_Framework_TestCase
 {

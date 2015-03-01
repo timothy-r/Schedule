@@ -1,6 +1,6 @@
 <?php
 namespace Ace\Schedule\Test;
-use Ace\Schedule\IValue;
+use Ace\Schedule\ValueInterface;
 
 class ParserTest extends \PHPUnit_Framework_TestCase
 {

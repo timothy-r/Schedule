@@ -1,11 +1,11 @@
 <?php
 namespace Ace\Schedule\Test;
-use Ace\Schedule\IValue;
+use Ace\Schedule\ValueInterface;
 
 /**
 * @codeCoverageIgnore
 */
-class StubValue implements IValue
+class StubValue implements ValueInterface
 {
     protected $id;
 

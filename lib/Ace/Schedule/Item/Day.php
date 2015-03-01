@@ -1,6 +1,6 @@
 <?php
 namespace Ace\Schedule\Item;
-use Ace\Schedule\IValue;
+use Ace\Schedule\ValueInterface;
 use Ace\Schedule\MatcherInterface;
 use Ace\Schedule\Exception;
 use DateTime;
@@ -8,7 +8,7 @@ use DateTime;
 class Day implements MatcherInterface {
 	protected $day;
 
-	public function __construct(IValue $day){
+	public function __construct(ValueInterface $day){
         if ($day->lessThan(0) || $day->greaterThan(31)){
             throw new Exception('Day value must be between 0 and 31');
         }

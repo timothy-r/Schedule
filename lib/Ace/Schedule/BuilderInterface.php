@@ -7,11 +7,11 @@ namespace Ace\Schedule;
 */
 interface BuilderInterface
 {
-	public function buildMinute(IValue $value);
-	public function buildHour(IValue $value);
-	public function buildDay(IValue $value);
-	public function buildMonth(IValue $value);
-	public function buildWeekDay(IValue $value);
+	public function buildMinute(ValueInterface $value);
+	public function buildHour(ValueInterface $value);
+	public function buildDay(ValueInterface $value);
+	public function buildMonth(ValueInterface $value);
+	public function buildWeekDay(ValueInterface $value);
 
 	/**
 	* @return Entry

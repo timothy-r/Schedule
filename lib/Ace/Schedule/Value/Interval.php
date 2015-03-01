@@ -1,15 +1,15 @@
 <?php
 namespace Ace\Schedule\Value;
-use Ace\Schedule\IValue;
+use Ace\Schedule\ValueInterface;
 
-class Interval implements IValue {
+class Interval implements ValueInterface {
     /**
-    * @var IValue
+    * @var ValueInterface
     */
 	protected $range;
 	protected $interval;
 
-	public function __construct(IValue $range, $interval){
+	public function __construct(ValueInterface $range, $interval){
 		$this->range = $range;
 		$this->interval = intval($interval);
 	}

@@ -1,11 +1,12 @@
-<?php
-namespace Ace\Schedule\Value;
-use Ace\Schedule\IValue;
+<?php namespace Ace\Schedule\Value;
+
+use Ace\Schedule\ValueInterface;
 
 /**
 * contains a list of discrete values
 */
-class AList implements IValue {
+class AList implements ValueInterface
+{
     /**
     * @var array
     */

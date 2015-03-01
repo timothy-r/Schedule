@@ -1,13 +1,13 @@
 <?php
 namespace Ace\Schedule\Item;
-use Ace\Schedule\IValue;
+use Ace\Schedule\ValueInterface;
 use Ace\Schedule\MatcherInterface;
 use Ace\Schedule\Exception;
 
 class Month implements MatcherInterface {
 	protected $month;
 	
-	public function __construct(IValue $month){
+	public function __construct(ValueInterface $month){
         if ($month->lessThan(1) || $month->greaterThan(12)){
             throw new Exception('Month value must be between 1 and 12');
         }

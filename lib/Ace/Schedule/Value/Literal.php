@@ -1,11 +1,11 @@
 <?php
 namespace Ace\Schedule\Value;
-use Ace\Schedule\IValue;
+use Ace\Schedule\ValueInterface;
 
 /**
 * contains a single value
 */
-class Literal implements IValue {
+class Literal implements ValueInterface {
     /**
     * @var integer
     */

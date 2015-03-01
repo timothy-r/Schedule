@@ -1,7 +1,7 @@
 <?php
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Cron\Parser;
-use Ace\Schedule\IValue;
+use Ace\Schedule\ValueInterface;
 
 class CronParserTest extends \PHPUnit_Framework_TestCase
 {

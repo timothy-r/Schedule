@@ -1,11 +1,11 @@
 <?php
 namespace Ace\Schedule\Value;
-use Ace\Schedule\IValue;
+use Ace\Schedule\ValueInterface;
 
 /**
 * contains a range of continuous values inclusive of boundaries
 */
-class Range implements IValue
+class Range implements ValueInterface
 {
 	protected $low;
 	protected $high;

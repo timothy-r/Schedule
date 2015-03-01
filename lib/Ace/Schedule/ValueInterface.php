@@ -1,9 +1,10 @@
-<?php
-namespace Ace\Schedule;
+<?php namespace Ace\Schedule;
+
 /**
 * interface for classes that represent one or more values
 */
-interface IValue {
+interface ValueInterface
+{
 	public function contains($value);
     public function min();
     public function max();

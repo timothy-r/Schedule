@@ -1,6 +1,6 @@
 <?php
 namespace Ace\Schedule\Item;
-use Ace\Schedule\IValue;
+use Ace\Schedule\ValueInterface;
 use Ace\Schedule\MatcherInterface;
 use Ace\Schedule\Exception;
 use DateTime;
@@ -8,7 +8,7 @@ use DateTime;
 class WeekDay implements MatcherInterface {
 	protected $week_day;
 
-	public function __construct(IValue $week_day){;
+	public function __construct(ValueInterface $week_day){;
         if ($week_day->lessThan(0) || $week_day->greaterThan(6)){
             throw new Exception('WeekDay value must be between 0 and 6');
         }
