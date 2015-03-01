@@ -1,5 +1,5 @@
 {
-    "name": "Schedule",
+    "name": "ace/schedule",
     "type": "library",
     "version":"1",
     "description": "PHP schedule library",
