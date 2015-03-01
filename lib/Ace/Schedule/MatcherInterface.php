@@ -1,11 +1,12 @@
-<?php
-namespace Ace\Schedule;
-use Ace\Schedule\IValue;
+<?php namespace Ace\Schedule;
+
 use DateTime;
+
 /**
 * interface for classes that match a DateTime value
 * either directly or that contain a range of values that the DateTime value falls within
 */
-interface IMatcher {
-	public function matches(DateTime $date_time);
+interface MatcherInterface
+{
+    public function matches(DateTime $date_time);
 }

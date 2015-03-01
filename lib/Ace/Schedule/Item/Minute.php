@@ -1,10 +1,10 @@
 <?php
 namespace Ace\Schedule\Item;
 use Ace\Schedule\IValue;
-use Ace\Schedule\IMatcher;
+use Ace\Schedule\MatcherInterface;
 use Ace\Schedule\Exception;
 
-class Minute implements IMatcher {
+class Minute implements MatcherInterface {
     /**
     * @var IValue
     */

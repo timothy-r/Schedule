@@ -1,10 +1,10 @@
 <?php
 namespace Ace\Schedule\Item;
 use Ace\Schedule\IValue;
-use Ace\Schedule\IMatcher;
+use Ace\Schedule\MatcherInterface;
 use Ace\Schedule\Exception;
 
-class Month implements IMatcher {
+class Month implements MatcherInterface {
 	protected $month;
 	
 	public function __construct(IValue $month){

@@ -1,11 +1,11 @@
 <?php
 namespace Ace\Schedule\Item;
 use Ace\Schedule\IValue;
-use Ace\Schedule\IMatcher;
+use Ace\Schedule\MatcherInterface;
 use Ace\Schedule\Exception;
 use DateTime;
 
-class WeekDay implements IMatcher {
+class WeekDay implements MatcherInterface {
 	protected $week_day;
 
 	public function __construct(IValue $week_day){;

@@ -2,7 +2,7 @@
 namespace Ace\Schedule;
 
 /**
-* interface to create specific IMatcher types
+* interface to create specific MatcherInterface types
 * @todo add buildYear() method
 */
 interface BuilderInterface

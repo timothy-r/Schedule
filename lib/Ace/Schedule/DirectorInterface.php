@@ -1,7 +1,7 @@
 <?php namespace Ace\Schedule;
 
 /**
-* interface to create a schedule of IMatcher instances using an BuilderInterface
+* interface to create a schedule of MatcherInterface instances using an BuilderInterface
 */
 interface DirectorInterface
 {

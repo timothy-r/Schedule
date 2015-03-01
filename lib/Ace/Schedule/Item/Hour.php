@@ -1,13 +1,13 @@
 <?php
 namespace Ace\Schedule\Item;
 use Ace\Schedule\IValue;
-use Ace\Schedule\IMatcher;
+use Ace\Schedule\MatcherInterface;
 use Ace\Schedule\Exception;
 
 /**
 * Tests whether a DateTime matches a certain hour value
 */
-class Hour implements IMatcher {
+class Hour implements MatcherInterface {
     /**
     * @var IValue
     */
