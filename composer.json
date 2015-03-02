@@ -17,6 +17,9 @@
     "autoload": {
         "psr-0": { "Ace": "lib/" }
     },
+    "config": {
+        "bin-dir": "bin"
+     },
      "extra": {
         "branch-alias": {
             "dev-master": "master"
