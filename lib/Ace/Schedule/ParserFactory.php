@@ -7,6 +7,11 @@ use Ace\Schedule\Exception as ScheduleException;
 
 class ParserFactory implements ParserFactoryInterface
 {
+    /**
+     * @param $type string
+     * @return CalendarParser|CronParser
+     * @throws Ace\Schedule\Exception
+     */
     public function create($type)
     {
         switch ($type){
