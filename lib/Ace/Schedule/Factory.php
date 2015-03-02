@@ -3,6 +3,7 @@
 use Ace\Schedule\FactoryInterface;
 use Ace\Schedule\BuilderInterface;
 use Ace\Schedule\DirectorInterface;
+use Ace\Schedule\ParserFactoryInterface;
 use Ace\Schedule\Entry;
 
 /**
@@ -22,47 +23,39 @@ class Factory implements FactoryInterface
 	*/
 	private $builder;
 
+    /**
+     * @var ParserFactoryInterface
+     */
+    private $parser_factory;
+
 	/**
 	* @param DirectorInterface $director
 	* @param BuilderInterface $builder
+    * @param ParserFactoryInterface $parser_factory
 	*/
-	public function __construct(DirectorInterface $director, BuilderInterface $builder)
-	{
+	public function __construct(
+        DirectorInterface $director,
+        BuilderInterface $builder,
+        ParserFactoryInterface $parser_factory
+    ){
 		$this->director = $director;
 		$this->builder = $builder;
+        $this->parser_factory = $parser_factory;
 	}
 
 	/*
 	* @param string $schedule
 	* @param string $type
+	* @throws Ace\Schedule\Exception
 	*
 	* @return Ace\Schedule\Entry
 	*/
 	public function createEntry($schedule, $type)
 	{
 		// build schedule and inject into Entry
-        $parser = $this->getParser($type);
 		$this->director->setBuilder($this->builder);
-        $this->director->setParser($parser);
+        $this->director->setParser($this->parser_factory->create($type));
 		$this->director->create($schedule);
         return $this->builder->getProduct();
 	}
-
-    /**
-    * @throws Ace\Schedule\Exception
-    *
-    * @param string $type
-    * @return ParserInterface
-    */
-    protected function getParser($type)
-    {
-        switch ($type){
-            case 'cron':
-                return new \Ace\Schedule\Cron\Parser;
-            case 'calendar':
-                return new \Ace\Schedule\Calendar\Parser;
-        }
-
-        throw new Exception("Unknown schedule type '$type'");
-    }
 }

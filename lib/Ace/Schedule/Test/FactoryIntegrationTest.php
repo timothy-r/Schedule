@@ -4,6 +4,7 @@ use Ace\Schedule\Factory;
 use Ace\Schedule\Director;
 use Ace\Schedule\Builder;
 use Ace\Schedule\Exception;
+use Ace\Schedule\ParserFactory;
 use \DateTime;
 
 /**
@@ -29,9 +30,27 @@ class FactoryIntegrationTest extends \PHPUnit_Framework_TestCase
 	{
 		$director = new Director();
 		$builder = new Builder();
-        $factory = new Factory($director, $builder);
+        $parser_factory = new ParserFactory();
+        $factory = new Factory($director, $builder, $parser_factory);
+
 		$entry = $factory->createEntry($schedule, $type);
-		$this->assertInstanceOf('Ace\Schedule\Entry', $entry);
+
+        $this->assertInstanceOf('Ace\Schedule\Entry', $entry);
         $this->assertTrue($entry->matches($expected));
 	}
+
+    /**
+     * @expectedException Ace\Schedule\Exception
+     */
+    public function testCreateEntryThrowsExceptionWithInvalidType()
+    {
+        $schedule = '14th May 2013';
+        $type = 'null';
+        $director = new Director();
+        $builder = new Builder();
+        $parser_factory = new ParserFactory();
+        $factory = new Factory($director, $builder, $parser_factory);
+
+        $entry = $factory->createEntry($schedule, $type);
+    }
 }
