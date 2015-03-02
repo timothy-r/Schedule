@@ -18,26 +18,26 @@ class DirectorTest extends PHPUnit_Framework_TestCase
 	public function testCreateCallsBuilderMethods()
 	{
 		$schedule = '*/2 * 1,2 3-6 Monday';
-        $stub_value = new StubValue;
+        $this->givenAMockValue();
 		$builder = $this->createMock('Ace\Schedule\BuilderInterface',
 			array(
-            'buildMinute' => $stub_value, 
-            'buildHour' => $stub_value,
-            'buildDay' => $stub_value,
-            'buildMonth' => $stub_value,
-            'buildWeekDay' => $stub_value,
+            'buildMinute' => $this->value, 
+            'buildHour' => $this->value,
+            'buildDay' => $this->value,
+            'buildMonth' => $this->value,
+            'buildWeekDay' => $this->value,
             'getProduct' => null)
 		);
         
         $parser = $this->createMock('Ace\Schedule\ParserInterface',
             array(
                 'parse' => true,
-                'getMinute' => $stub_value, 
-                'getHour' => $stub_value, 
-                'getDay' => $stub_value, 
-                'getMonth' => $stub_value, 
-                'getWeekDay' => $stub_value, 
-                'getYear' => $stub_value)
+                'getMinute' => $this->value, 
+                'getHour' => $this->value, 
+                'getDay' => $this->value, 
+                'getMonth' => $this->value, 
+                'getWeekDay' => $this->value, 
+                'getYear' => $this->value)
         );
 		$director = new Director();
 		$director->setBuilder($builder);
@@ -73,9 +73,10 @@ class DirectorTest extends PHPUnit_Framework_TestCase
             ->method('getYear')
             ->will($this->throwException(new Exception));
 
-        $builder = new StubBuilder;
+        $this->givenAMockBuilder();
+
 		$director = new Director();
-		$director->setBuilder($builder);
+		$director->setBuilder($this->builder);
         $director->setParser($parser);
         $schedule = '$4q * * * *';
 		$result = $director->create($schedule);
@@ -86,8 +87,9 @@ class DirectorTest extends PHPUnit_Framework_TestCase
     */
 	public function testMissingBuilderThrowsException()
 	{
+        $this->givenAMockParser();
 		$director = new Director();
-        $director->setParser(new StubParser);
+        $director->setParser($this->parser);
 		$result = $director->create('');
 	}
 
@@ -96,8 +98,9 @@ class DirectorTest extends PHPUnit_Framework_TestCase
     */
 	public function testMissingParserThrowsException()
 	{
+        $this->givenAMockBuilder();
 		$director = new Director();
-        $director->setBuilder(new StubBuilder);
+        $director->setBuilder($this->builder);
 		$result = $director->create('');
 	}
 }

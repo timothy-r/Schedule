@@ -12,13 +12,12 @@
 >
     <testsuites>
         <testsuite name="All">
-            <directory>./lib/Ace/Schedule/Test/</directory>
+            <directory>./Test/</directory>
             <file>*Test.php</file>
         </testsuite>
     </testsuites>
     <filter>
         <blacklist>
-            <directory suffix=".php">./lib/Ace/Schedule/Tests/</directory>
             <directory suffix=".php">./vendor/</directory>
         </blacklist>
     </filter>

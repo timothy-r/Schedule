@@ -7,6 +7,10 @@ trait MockTrait
 
     protected $value;
 
+    protected $builder;
+
+    protected $parser;
+
     /**
     * @var string $name
     * @var array $method_and_returns
@@ -26,19 +30,40 @@ trait MockTrait
         return $mock;
     }
 
+    protected function givenAMockValue()
+    {
+        $this->value = $this->createMock(
+            'Ace\Schedule\ValueInterface'
+        );
+    }
+
+    protected function givenAMockBuilder()
+    {
+        $this->builder = $this->createMock(
+            'Ace\Schedule\BuilderInterface'
+        );
+    }
+
+    protected function givenAMockParser()
+    {
+        $this->parser = $this->createMock(
+            'Ace\Schedule\ParserInterface'
+        );
+    }
+
     protected function givenAValueThatIsTooLow()
     {
         $this->value = $this->createMock(
-            'Ace\Schedule\Test\StubValue',
-            array('lessThan' => true, 'greaterThan' => false)
+            'Ace\Schedule\ValueInterface',
+            array('lessThan' => true, 'greaterThan' => false, "contains" => null, "min" => null, "max" => null)
         );
     }
 
     protected function givenAValueThatIsTooHigh()
     {
         $this->value = $this->createMock(
-            'Ace\Schedule\Test\StubValue',
-            array('lessThan' => false, 'greaterThan' => true)
+            'Ace\Schedule\ValueInterface',
+            array('lessThan' => false, 'greaterThan' => true, "contains" => null, "min" => null, "max" => null)
         );
     }
 }

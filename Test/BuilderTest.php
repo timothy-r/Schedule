@@ -21,20 +21,20 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
 
 	public function testBuilderCreatesEntry()
 	{
-        $value = new StubValue;
+        $this->givenAMockValue();
 		$builder = new Builder;
-		$builder->buildMinute($value);
+		$builder->buildMinute($this->value);
 		$product = $builder->getProduct();
         $this->assertInstanceOf('Ace\Schedule\Entry', $product);
 	}
 
 	public function testBuildMinute()
 	{
-        $value = new StubValue;
-        $min = new Minute($value);
+        $this->givenAMockValue();
+        $min = new Minute($this->value);
 		$builder = $this->createMock('Ace\Schedule\Builder',['createEntry' => $min]);
 
-		$builder->buildMinute($value);
+		$builder->buildMinute($this->value);
 		$product = $builder->getProduct();
 	}
 
@@ -42,11 +42,11 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
 	*/
 	public function testBuildHour()
 	{
-        $value = new StubValue;
-        $hour = new Hour($value);
+        $this->givenAMockValue();
+        $hour = new Hour($this->value);
 		$builder = $this->createMock('Ace\Schedule\Builder',['createEntry' => $hour]);
 
-		$builder->buildHour($value);
+		$builder->buildHour($this->value);
 		$product = $builder->getProduct();
 	}
 
@@ -54,11 +54,11 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
 	*/
 	public function testBuildDay()
 	{
-        $value = new StubValue;
-        $day = new Day($value);
+        $this->givenAMockValue();
+        $day = new Day($this->value);
 		$builder = $this->createMock('Ace\Schedule\Builder',['createEntry' => $day]);
 
-		$builder->buildDay($value);
+		$builder->buildDay($this->value);
 		$product = $builder->getProduct();
 	}
 
@@ -66,11 +66,11 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
 	*/
 	public function testBuildMonth()
 	{
-        $value = new StubValue;
-        $month = new Month($value);
+        $this->givenAMockValue();
+        $month = new Month($this->value);
 		$builder = $this->createMock('Ace\Schedule\Builder',['createEntry' => $month]);
 
-		$builder->buildMonth($value);
+		$builder->buildMonth($this->value);
 		$product = $builder->getProduct();
 	}
 
@@ -78,11 +78,11 @@ class BuilderTest extends \PHPUnit_Framework_TestCase
 	*/
 	public function testBuildWeekDay()
 	{
-        $value = new StubValue;
-        $week_day = new WeekDay($value);
+        $this->givenAMockValue();
+        $week_day = new WeekDay($this->value);
 		$builder = $this->createMock('Ace\Schedule\Builder',['createEntry' => $week_day]);
 
-		$builder->buildWeekDay($value);
+		$builder->buildWeekDay($this->value);
 		$product = $builder->getProduct();
 	}
 }

@@ -15,7 +15,10 @@
         "phpunit/phpunit" : "3.7.*"
     },
     "autoload": {
-        "psr-0": { "Ace": "lib/" }
+        "psr-0": {
+          "Ace": "lib/"
+        },
+        "files" : ["Test/MockTrait.php"]
     },
     "config": {
         "bin-dir": "bin"
