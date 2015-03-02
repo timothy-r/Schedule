@@ -7,7 +7,7 @@ use Ace\Schedule\ValueInterface;
 */
 class StubValue implements ValueInterface
 {
-    protected $id;
+    private $id;
 
     public function __construct($id = 'id')
     {

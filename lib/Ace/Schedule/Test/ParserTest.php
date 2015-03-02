@@ -4,7 +4,7 @@ use Ace\Schedule\ValueInterface;
 
 class ParserTest extends \PHPUnit_Framework_TestCase
 {
-    protected $parser;
+    private $parser;
 
     public function getValidSchedules()
     {
