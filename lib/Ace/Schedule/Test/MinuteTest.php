@@ -3,16 +3,17 @@ namespace Ace\Schedule\Test;
 use Ace\Schedule\Item\Minute;
 use Ace\Schedule\Value\Literal;
 use Ace\Schedule\Value\Range;
-use Ace\Schedule\Test\StubValue;
-use Ace\Schedule\Test\ScheduleTest;
+use Ace\Schedule\Test\MockTrait;
+use PHPUnit_Framework_TestCase;
 
 /**
 * @group unit
 * @group schedule
 */
-class MinuteTestCase extends ScheduleTest
+class MinuteTestCase extends PHPUnit_Framework_TestCase
 {
-	
+	use MockTrait;
+
 	public function testMinuteMatchesValue() {
 		$minute = new Literal(5);
 		$matcher = new Minute($minute);

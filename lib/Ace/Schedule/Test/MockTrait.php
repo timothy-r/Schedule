@@ -1,11 +1,12 @@
-<?php
-namespace Ace\Schedule\Test;
-use PHPUnit_Framework_TestCase;
+<?php namespace Ace\Schedule\Test;
 
 /**
 */
 trait MockTrait 
 {
+
+    protected $value;
+
     /**
     * @var string $name
     * @var array $method_and_returns
@@ -23,5 +24,21 @@ trait MockTrait
                 ->will($this->returnValue($method_and_return[$method]));
         }
         return $mock;
+    }
+
+    protected function givenAValueThatIsTooLow()
+    {
+        $this->value = $this->createMock(
+            'Ace\Schedule\Test\StubValue',
+            array('lessThan' => true, 'greaterThan' => false)
+        );
+    }
+
+    protected function givenAValueThatIsTooHigh()
+    {
+        $this->value = $this->createMock(
+            'Ace\Schedule\Test\StubValue',
+            array('lessThan' => false, 'greaterThan' => true)
+        );
     }
 }

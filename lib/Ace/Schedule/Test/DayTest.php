@@ -2,15 +2,17 @@
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Item\Day;
 use Ace\Schedule\Value\Literal;
-use Ace\Schedule\Test\ScheduleTest;
+use Ace\Schedule\Test\MockTrait;
+use PHPUnit_Framework_TestCase;
 
 /**
 * @group unit
 * @group schedule
 */
-class DayTest extends ScheduleTest
+class DayTest extends PHPUnit_Framework_TestCase
 {
-	
+    use MockTrait;
+
 	public function testDayMatchesValue() {
 		for ($day = 1; $day <= 31; $day++) {
 			$matcher = new Day(new Literal($day));

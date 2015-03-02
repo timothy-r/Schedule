@@ -1,5 +1,5 @@
-<?php
-namespace Ace\Schedule\Test;
+<?php namespace Ace\Schedule\Test;
+
 use Ace\Schedule\Value\Range;
 
 /**

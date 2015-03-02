@@ -2,14 +2,17 @@
 
 use Ace\Schedule\Director;
 use Ace\Schedule\Exception;
-use Ace\Schedule\Test\ScheduleTest;
+use Ace\Schedule\Test\MockTrait;
+use PHPUnit_Framework_TestCase;
 
 /**
 * @group unit
 * @group schedule
 */
-class DirectorTest extends ScheduleTest
+class DirectorTest extends PHPUnit_Framework_TestCase
 {
+    use MockTrait;
+
     /**
     */
 	public function testCreateCallsBuilderMethods()

@@ -2,14 +2,17 @@
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Item\Hour;
 use Ace\Schedule\Value\Literal;
-use Ace\Schedule\Test\ScheduleTest;
+use Ace\Schedule\Test\MockTrait;
+use PHPUnit_Framework_TestCase;
 
 /**
 * @group unit
 * @group schedule
 */
-class HourTestCase extends ScheduleTest
+class HourTestCase extends PHPUnit_Framework_TestCase
 {
+    use MockTrait;
+
 	public function testHourMatchesValue() {
 		for ($hour = 0; $hour < 24; $hour++) {
 			$matcher = new Hour(new Literal($hour));

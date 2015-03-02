@@ -2,15 +2,17 @@
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Item\Month;
 use Ace\Schedule\Value\Literal;
-use Ace\Schedule\Test\ScheduleTest;
+use Ace\Schedule\Test\MockTrait;
+use PHPUnit_Framework_TestCase;
 
 /**
 * @group unit
 * @group schedule
 */
-class MonthTestCase extends ScheduleTest
+class MonthTestCase extends PHPUnit_Framework_TestCase
 {
-	
+	use MockTrait;
+
 	public function testMonthMatchesValue() {
 		for ($month = 1; $month < 12; $month++) {
 			$matcher = new Month(new Literal($month));

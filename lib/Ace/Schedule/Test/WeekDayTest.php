@@ -2,15 +2,18 @@
 namespace Ace\Schedule\Test;
 use Ace\Schedule\Item\WeekDay;
 use Ace\Schedule\Value\Literal;
-use Ace\Schedule\Test\ScheduleTest;
+use Ace\Schedule\Test\MockTrait;
+use PHPUnit_Framework_TestCase;
+
 
 /**
 * @group unit
 * @group schedule
 */
-class WeekDayTestCase extends ScheduleTest
+class WeekDayTestCase extends PHPUnit_Framework_TestCase
 {
-	
+	use MockTrait;
+
 	public function testWeekDayMatchesValue() {
 		for ($week_day = 0; $week_day < 7; $week_day++) {
 			$matcher = new WeekDay(new Literal($week_day));
