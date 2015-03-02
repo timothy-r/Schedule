@@ -71,7 +71,7 @@ class Builder implements BuilderInterface
     * implementing this method allows tests to assert the $matchers array passed to the Entry
     * @return Entry
     */
-    private function createEntry($matchers)
+    private function createEntry(array $matchers)
     {
         return new Entry($matchers);
     }
