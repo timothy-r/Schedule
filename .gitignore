@@ -1,7 +1,7 @@
 *.log
 *.swp
-*Proxy.php
 *.out
 *.lock
 vendor
 .idea
+bin
