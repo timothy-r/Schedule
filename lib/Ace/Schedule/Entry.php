@@ -7,17 +7,21 @@ use DateTime;
 * supplies whether or not a specific DateTime matches the stored schedule entry
 */
 class Entry {
+
 	/**
 	* @var array of MatcherInterface instances
 	*/
 	private $matchers;
 
-	public function __construct(array $matchers = array()){
+    /**
+     * @param array $matchers
+     */
+	public function __construct(array $matchers = []){
 		$this->matchers = $matchers;
 	}
 
 	/**
-	* for a schedule to match all its items must match
+	* for a schedule to match, all its items must match
 	* @return boolean
 	*/
 	public function matches(DateTime $date_time){

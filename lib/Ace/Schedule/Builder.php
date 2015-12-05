@@ -1,7 +1,5 @@
 <?php
 namespace Ace\Schedule;
-use Ace\Schedule\BuilderInterface;
-use Ace\Schedule\ValueInterface;
 
 use Ace\Schedule\Item\Minute;
 use Ace\Schedule\Item\Hour;
@@ -18,7 +16,7 @@ class Builder implements BuilderInterface
 	/**
 	* @var array
 	*/
-	private $matchers = array();
+	private $matchers = [];
 
 	/**
 	* @param ValueInterface $value

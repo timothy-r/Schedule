@@ -10,7 +10,7 @@ class ParserFactory implements ParserFactoryInterface
     /**
      * @param $type string
      * @return CalendarParser|CronParser
-     * @throws Ace\Schedule\Exception
+     * @throws \Ace\Schedule\Exception
      */
     public function create($type)
     {
